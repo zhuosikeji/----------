@@ -164,12 +164,7 @@ Page({
 
 
 
-  onLoad: function(options) {
-    var state = options.state;
-    if (state != null){
-      console.log("状态是--" + state);
-    }
-    //TODO 
+  onLoad: function() {
     var local_database = this.data.local_database;
     this.load();
     var that = this;

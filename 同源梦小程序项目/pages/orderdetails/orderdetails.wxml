@@ -1,8 +1,8 @@
 <view class="swiper-tab">
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="1" bindtap="swichNav">待付款</view>
-  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="2" bindtap="swichNav">待发货</view>
-  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="3" bindtap="swichNav">待收货</view>
-<view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="4" bindtap="swichNav">售后/退款</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">待付款</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">待发货</view>
+  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">待收货</view>
+<view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">售后/退款</view>
 </view>
 
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style='height:{{h}}px'>
@@ -195,5 +195,55 @@
       </view>
     </block>
   </swiper-item>
+
+
+  <!-- 售后退款 -->
+  <swiper-item>
+    <view id="box" class="{{first_click?'show':'hide'}} {{state?'open':'close'}}">
+      <view id="item_list">
+        <view class='writereason'>请填写退货理由：</view>
+        <input bindinput="check" value='{{inputvalue}}' bindconfirm='complete' class='checkinput'></input>
+        <view>
+          <view class='returnmon'> 退款金额</view>
+          <text class='returnmoney'>99元</text>
+        </view>
+        <view class='subapplyret' bindtap='toggle1'>提交</view>
+      </view>
+    </view>
+    <block wx:for="{{local_database}}" wx:for-item="item">
+      <view class='obligation'>
+        <view class='order-number-unpaid'>
+          <!-- <checkbox checked="{{item.chose}}" /> -->
+          <text class='order-number'>订单编号:{{ item.orderId }}</text>
+          <text class='unpaid'>{{item.state}}</text>
+        </view>
+        <view class='commodity-information'>
+          <view class='video-list'>
+            <view class='video-img-left'>
+              <image src='{{item.bookImg}}'></image>
+            </view>
+            <view class='video-decribe-mid'>
+              <view class='book-name'>{{item.bookName}}</view>
+              <view class='video-tea'>{{item.teacherName}}</view>
+              <view class='person-num'>
+                <text class='video-price'>￥{{item.price}}</text>
+                <text class='buy-num'>x{{item.number}}</text>
+              </view>
+            </view>
+          </view>
+
+          <view class='buyer-message'>
+            <text class='buyer-message1'>买家留言:</text>
+            <input placeholder='请备注' class='buyer-message1-input' bindinput="userNameInput"></input>
+          </view>
+          <view class='summ'>
+            <text class='sum'>合计:</text>
+            <text class='sum-price'>￥66</text>
+            <text class='returnSale' bindtap="toggle" data-index="{{index}}">{{item.returngoods}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+</swiper-item>
 
 </swiper>
