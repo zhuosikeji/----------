@@ -40,6 +40,7 @@
 .jifen_history{
   margin-top: 50rpx;
   text-align: center;
+  padding-bottom: 10px;
 }
 /* .jifen_deatil{
   padding: 0 30rpx;
@@ -72,14 +73,20 @@
   border-bottom: 1px solid #eee;
 }
 .fx1{
-  padding-left: 20rpx;
   flex: 1;
   text-align: center;
+  padding-left: 5rpx; 
   height: 40px;
   line-height: 40px;
 }
 .fx2{
   flex: 2;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+.fx3{
+  flex: 3;
   text-align: center;
   height: 40px;
   line-height: 40px;
