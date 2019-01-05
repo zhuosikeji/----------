@@ -1,6 +1,9 @@
+Page {
+  background: #f8f8f8;
+}
+
 .canvas{
   width: 100%;
-  background-color: #f8f8f8;
 }
 /* 头部 */
 .header {
@@ -66,7 +69,7 @@ margin: 10rpx 10rpx;
   margin-top: -12px;
 }
 .free{
-    color: #F9A505;
+  color: #F9A505;
   position: absolute;
   margin-left: 520rpx;
   margin-top: -12px;
