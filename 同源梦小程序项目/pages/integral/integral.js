@@ -9,6 +9,7 @@ Page({
     user:{
       nickname:"",
       jifenTotal:0,
+      headImg:"",
       jifenDetail:[
       ]
     },
@@ -29,9 +30,13 @@ Page({
       
         var TotalList = res.data.data.hcIntegralRecordList;
         var jifenList = new Array(TotalList.length);
-        
+        var userInfo = app.globalData.userInfo;
+
         //获取nickname
- 
+        user.nickname = userInfo.nickName;
+
+        //获取用户对象
+        user.headImg = userInfo.avatarUrl;
         var totalIntegral = 0;
         //填写jifenDetail 积分详情
         for (var i = 0; i < TotalList.length; i++) {
@@ -56,11 +61,11 @@ Page({
           if (TotalList[i].integralSourceType == 1){
             jifen.jifenName = "订单使用积分";
           } else if (TotalList[i].integralSourceType == 2){
-            jifen.jifenName = "订单结算得积分";
+            jifen.jifenName = "订单结算积分";
           }else if (TotalList[i].integralSourceType == 3) {
             jifen.jifenName = "订单取消返还";
           }else if (TotalList[i].integralSourceType == 4) {
-            jifen.jifenName = "签到";
+            jifen.jifenName = "签       到";
           }
           
           //设置积分日期
@@ -72,18 +77,10 @@ Page({
         user.jifenTotal = totalIntegral;
         user.jifenDetail = jifenList;
         
-        wx.getUserInfo({
-          success: function (res) {
-            user.nickname = res.userInfo.nickName;
-            console.log('nickName' + user.nickname)
-          }
-        })
 
         that.setData({
           'user': user
         })
-        console.log('=====================');
-        console.log(that.data.user);
 
       },
     })
@@ -102,6 +99,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     that.getIntegralList();
+
   },
 
   /**
