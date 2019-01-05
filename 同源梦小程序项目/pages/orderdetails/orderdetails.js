@@ -154,7 +154,6 @@ Page({
       this.setData({
         'inputvalue': input
       })
-      console.log("p");
     } else {
 
     }
@@ -164,7 +163,14 @@ Page({
 
 
 
-  onLoad: function() {
+  onLoad: function(options) {
+    var state = options.state;
+    console.log("state=" + state);
+    if (state != null){
+      this.setData({
+        currentTab: state
+      })
+    }
     var local_database = this.data.local_database;
     this.load();
     var that = this;
