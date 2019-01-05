@@ -26,19 +26,19 @@
     </view>
   </view>
   <view class='orderStatus'>
-    <navigator class='li' url='../orderdetails/orderdetails'>
+    <navigator class='li' url='../orderdetails/orderdetails?state=1'>
       <image src='http://47.107.183.112/img/待付 款.png'></image>
       <text>待付款</text>
     </navigator>
-    <navigator class='li' url='../orderdetails/orderdetails'>
+    <navigator class='li' url='../orderdetails/orderdetails?state=2'>
       <image src='http://47.107.183.112/img/待发 货.png'></image>
       <text>待发货</text>
     </navigator>
-    <navigator class='li' url='../orderdetails/orderdetails'>
+    <navigator class='li' url='../orderdetails/orderdetails?state=3'>
       <image src='http://47.107.183.112/img/已完成订单.png'></image>
-      <text>已完成</text>
+      <text>待收货</text>
     </navigator>
-    <navigator class='li' url='../orderdetails/orderdetails'>
+    <navigator class='li' url='../orderdetails/orderdetails?state=4'>
       <image src='http://47.107.183.112/img/售后退款.png'></image>
       <text>售后/退款</text>
     </navigator>

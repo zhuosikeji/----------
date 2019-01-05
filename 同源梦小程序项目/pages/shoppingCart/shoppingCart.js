@@ -77,9 +77,8 @@ Page({
         duration: 2000
       })
     } else {
-      wx: wx.navigateTo({
-        url: '../confirm/confirm?productList=' + JSON.stringify(that.data.productList),
-        success: function(res) {},
+      wx.navigateTo({
+        url: '../confirm/confirm?productList=' + JSON.stringify(that.data.productList)
       })
     }
   },
