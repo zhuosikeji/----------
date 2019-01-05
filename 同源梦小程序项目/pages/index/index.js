@@ -133,6 +133,22 @@ Page({
       }
     })
   },
+  /**
+   * 获取用户信息
+   */
+  getUserInfo: function () {
+    var that = this
+    _getUserInfo();
+    function _getUserInfo() {
+      wx.getUserInfo({
+        success: function (res) {
+          app.globalData.userInfo = res.userInfo;
+          console.log('=====================');
+          console.log(app.globalData.userInfo.avatarUrl);
+        }
+      })
+    }
+  },
   login: function(e) {
     var that = this;
     wx.login({
@@ -155,6 +171,7 @@ Page({
               app.globalData.sid = res.data.data.sid;
               app.globalData.uid = res.data.data.uid;
               console.log(getApp());
+              that.getUserInfo();
               //再次请求轮播图和一级分类
               that.requestCarousel();
               that.getAllProductFirstClassify();

@@ -159,6 +159,7 @@ Page({
   time: function(id,num) {
     var that = this;
     var second = 0;
+    
     if (that.data.timeSetAdd != null) {
       clearInterval(that.data.timeSetAdd);
     }
@@ -182,6 +183,7 @@ Page({
    * num: 商品数量
    */
   sendShopppingCart:function(id,num){
+    console.log('num:' +num);
     wx.request({
       url: app.globalData.url + '/api/productCart/updateProductCart?sid=' + app.globalData.sid + "&productCartId=" + id+ '&num=' + num,
       method: "POST",
