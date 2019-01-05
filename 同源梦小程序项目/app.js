@@ -36,7 +36,7 @@ App({
     })
   },
   globalData: {
-    url: "http://jx3x9c.natappfree.cc",
+    url: "http://2kuk3r.natappfree.cc",
     userInfo: null,
     sid:null,
     uid:'',
