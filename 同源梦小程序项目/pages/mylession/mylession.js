@@ -35,6 +35,8 @@ Page({
   },
   onLoad: function() {
     this.getAllCourse();
+    console.log("firstClassifyId:******");
+    console.log(app.globalData.firstClassifyId);
   },
 
 

@@ -20,6 +20,7 @@ Page({
           refereesUserNickName: res.data.data.fansVO.refereesUser.nickName,
           firstFansVOList: res.data.data.fansVO.firstFansVOList
         })
+  
       }
     })
 
@@ -48,6 +49,9 @@ Page({
   onLoad: function(options) {
     this.directfan();
     this.perdata();
+    console.log("用户id:");
+    console.log(app.globalData.uid);
+    
   },
 
   /**
