@@ -4,7 +4,7 @@
   <view class='space'></view>
 
   <view class='user_info'>
-      <image src='../images/labixiaoxin.jpg' class='user_img'></image>
+      <image src='' class='user_img'></image>
       <view class='user_detail'>
         <text class='user_nickname'>{{user.nickname}}</text>
         <view class='user_jifen'>
