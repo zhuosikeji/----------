@@ -1,33 +1,13 @@
 <view>
-  <view class='dirfanlist'>
-    <view class='headeee'>
-      <image src='../img/dirfanimg.png'></image>
+  <block wx:for="{{firstFansVOList}}" wx:for-item="item">
+    <view class='dirfanlist'>
+      <view class='headeee'>
+        <image src='../img/dirfanimg.png'></image>
+      </view>
+      <view class='flmid'>
+        <view class='dirfanname'>{{item.nickName}}</view>
+      </view>
+      <view class='payattin'>二级粉丝：{{item.secendFansNum}}人</view>
     </view>
-    <view class='flmid'>
-      <view class='dirfanname'>子非鱼</view>
-      <view class='dirfanbuy'>消费能力：138.90元</view>
-    </view>
-    <view class='payattin'>已关注</view>
-  </view>
-
-  <view class='dirfanlist'>
-    <view class='headeee'>
-      <image src='../img/dirfanimg.png'></image>
-    </view>
-    <view class='flmid'>
-      <view class='dirfanname'>子非鱼</view>
-      <view class='dirfanbuy'>消费能力：138.90元</view>
-    </view>
-    <view class='payattin'>已关注</view>
-  </view>
-  <view class='dirfanlist'>
-    <view class='headeee'>
-      <image src='../img/dirfanimg.png'></image>
-    </view>
-    <view class='flmid'>
-      <view class='dirfanname'>子非鱼</view>
-      <view class='dirfanbuy'>消费能力：138.90元</view>
-    </view>
-    <view class='payattin'>已关注</view>
-  </view>
+  </block>
 </view>
