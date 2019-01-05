@@ -1,0 +1,30 @@
+<view class="header">
+  <!-- 搜索图标 -->
+  <image src='http://47.107.183.112/img/search.png' class='icon_search'></image>
+  <input type='text' placeholder='输入你想要的内容' confirm-type='search' bindinput='inputBind' bindconfirm='query' value='{{searchinput}}'></input>
+  <!-- 叉号图标 -->
+  <image src='http://47.107.183.112/img/cross.png' catchtap='deleteSearch'></image>
+</view>
+<view class='contain'>
+  <!-- 分类 -->
+  <view class='category'>
+    <view class='{{fisrtCategory}}' catchtap='firstchose'>推荐</view>
+    <view wx:for="{{categoryList}}" class='categoryList {{item.isActive}}' data-index='{{index}}' catchtap='chooseCategory'>{{item.category}}</view>
+  </view>
+
+  <!-- 商品区 -->
+  <view wx:for="{{activity}}" class='boxSize'>
+    <image class="activityImage" src="{{item.activityImageUrl}}" mode="scaleToFill"></image>
+    <view class='sectionCenter'>
+      <text>{{item.activityName}}</text>
+    </view>
+    <view class='sectionFooter'>
+      <text class='money'>{{item.price}}</text>
+      <view class='collectionNumber'>
+        <text>收藏</text>
+        <image class="icon" src="http://47.107.183.112/img/love.png" mode="scaleToFill"></image>
+        <text>{{item.collectionNumber}}</text>
+      </view>
+    </view>
+  </view>
+</view>

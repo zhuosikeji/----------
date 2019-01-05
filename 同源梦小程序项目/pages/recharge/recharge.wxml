@@ -1,0 +1,23 @@
+<view class='bg'>
+   <view class='recharge'>
+      <text>充值方式</text>
+      <view>
+        <text>{{cash.card}}</text>
+        <image class='pic' src='{{cash.imagePath}}'></image>
+      </view>
+   </view>
+   <view class='money'>
+       <text>充值金额</text>
+       <view>
+       <text>￥</text>
+       <input bindinput="bindKeyInput" placeholder-class='place-holder' placeholder="请输入提现金额" />
+       </view>
+       
+   </view>
+   <view class='remainder'>
+        <text>该卡本次最多可充值￥10000</text>
+   </view>
+   <view class='cash'>
+        <text>确认充值</text>
+   </view>
+</view>

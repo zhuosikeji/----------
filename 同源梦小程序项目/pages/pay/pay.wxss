@@ -1,0 +1,89 @@
+.p5 {
+  font-size: 13px;
+}
+
+.bkee10 {
+  background: #eee;
+  height: 10px;
+}
+
+checkbox .wx-checkbox-input {
+  border-radius: 50%; /* 圆角 */
+  width: 40rpx; /* 背景的宽 */
+  height: 40rpx; /* 背景的高 */
+  margin: 0 20rpx;
+}
+
+/* 选中后的全选框样式*/
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #f53f2c;
+  border-color: #f53f2c;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%;
+  width: 46rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  font-size: 28rpx; /* 对勾大小 28rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.wxpay, .balancepay, .otherpay, .bankpay, .menutolmon {
+  height: 35px;
+  line-height: 35px;
+  border-bottom: 1px solid #eee;
+  padding: 5px;
+}
+
+.moneytoll {
+  color: red;
+  margin-left: 170px;
+  font-weight: bold;
+}
+
+.choseway {
+  height: 25px;
+  font-size: 12px;
+  line-height: 25px;
+  color: gray;
+  border-bottom: 1px solid #eee;
+  padding: 5px;
+}
+
+.wxpay11, .balancepay11 {
+  margin-left: 185px;
+}
+
+.otherpay11, .bankpay11 {
+  margin-left: 170px;
+}
+
+.atpay {
+  height: 45px;
+  line-height: 45px;
+  width: 100%;
+  background: #eee;
+  border-top: 1px solid #eee;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding-top: 5px;
+}
+
+.redbtnpay {
+  height: 35px;
+  line-height: 35px;
+  vertical-align: middle;
+  background: red;
+  color: #fff;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+}

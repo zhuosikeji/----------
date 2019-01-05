@@ -1,0 +1,303 @@
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #777;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 33.33%;
+  color: #777;
+}
+
+.on {
+  color: #da7c0c;
+  border-bottom: 5rpx solid #da7c0c;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.obligation {
+  height: 217px;
+  border: 1px solid #eee;
+  padding-left: 5px;
+}
+
+.order-number-unpaid {
+  border-bottom: 1px solid #eee;
+  height: 35px;
+  vertical-align: middle;
+  font-size: 12px;
+  /* line-height: 35px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 50%; */
+}
+
+checkbox .wx-checkbox-input {
+  border-radius: 50%; /* 圆角 */
+  width: 40rpx; /* 背景的宽 */
+  height: 40rpx; /* 背景的高 */
+  margin: 0 20rpx;
+}
+
+/* 选中后的全选框样式*/
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #f53f2c;
+  border-color: #f53f2c;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%;
+  width: 46rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  font-size: 28rpx; /* 对勾大小 28rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.select-circle {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 10px;
+  background-color: red;
+}
+
+.unpaid {
+  margin-left: 130px;
+  font-size: 13px;
+  color: red;
+  line-height: 35px;
+  font-weight: 600;
+}
+
+/* 待支付商品信息 */
+
+.video-list {
+  display: flex;
+  height: 90px;
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 5px;
+}
+
+.video-img-left {
+  flex-grow: 1;
+  /* background-color: red; */
+}
+
+.video-decribe-mid {
+  font-size: 12px;
+  flex-grow: 2;
+  height: 90px;
+}
+
+.video-img-left image {
+  width: 80px;
+  height: 80px;
+}
+
+.person-num {
+  line-height: 33x;
+  vertical-align: middle;
+}
+
+.person-num image {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.video-price {
+  color: gray;
+}
+
+.book-name, .video-tea {
+  font-weight: bold;
+  line-height: 33px;
+}
+
+.book-name {
+  font-size: 16px;
+}
+
+.video-tea {
+  font-size: 13px;
+}
+
+.buy-num {
+  margin-left: 145px;
+  color: gray;
+}
+
+/* 合计付款 */
+
+.summ {
+  padding: 5x;
+  font-size: 11px;
+  padding-top: 10px;
+}
+
+.sum-price {
+  margin-left: 5px;
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cancel-order, .buy-order, .returnSale {
+  width: 60px;
+  height: 25px;
+  border: 1px solid #777;
+  text-align: center;
+  display: inline-block;
+  line-height: 25px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.cancel-order {
+  margin-left: 110px;
+}
+
+.buy-order {
+  margin-left: 10px;
+}
+
+.buyer-message {
+  display: flex;
+  padding-left: 5px;
+  font-size: 13px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.buyer-message1-input {
+  border: 1px solid #fff;
+  width: 240px;
+  display: inline-block;
+  padding-top: 0px;
+}
+
+.mb50 {
+  height: 90px;
+  display: block;
+}
+
+.returnSale {
+  float: right;
+  margin-right: 10px;
+}
+
+#box {
+  width: 100%;
+  overflow: hidden;
+  height: 600px;
+  animation-fill-mode: forwards;
+  position: absolute;
+  top: 235px;
+  left: 0;
+  z-index: 9999999;
+}
+
+#item_list {
+  background-color: #f7eced;
+  width: 100%;
+}
+
+#item_list view {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+@keyframes slidedown {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 700rpx;
+  }
+}
+
+@keyframes slideup {
+  from {
+    height: 700rpx;
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+.open {
+  animation: slidedown 0.1s;
+}
+
+.close {
+  animation: slideup 0.1s;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.writereason {
+  padding-top: 20px;
+  color: gray;
+  font-size: 13px;
+  /* z-index: 999999999; */
+}
+
+.subapplyret {
+  color: #fff;
+  width: 52px;
+  height: 27px;
+  background: #f53f2c;
+  text-align: center;
+  line-height: 27px;
+  border-radius: 5px;
+  margin-left: 230px;
+  margin-bottom: 10px;
+  margin-top: 28px;
+}
+
+.returnmoney {
+  float: right;
+  margin-right: 30px;
+  margin-top: -31px;
+}
+
+.returnmon {
+  border-bottom: 1px solid #eee;
+  line-height: 53px;
+  height: 53px;
+  color: gray;
+}
+
+.checkinput {
+  height: 40px;
+  border-bottom: 1px solid #e7e0e1;
+}

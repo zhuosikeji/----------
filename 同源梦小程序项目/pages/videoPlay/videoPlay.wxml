@@ -1,0 +1,46 @@
+<view class="section">
+  <video class="video" id="myVideo" src="{{video[videoInformation.thisindex].videoUrl}}"  controls></video>
+  <!-- 弹幕功能目前不做 -->
+  <!-- <view class="btn-area">
+    <input placeholder='发个友善的弹幕见证当下' value='{{searchinput}}' bindblur="bindInputBlur" />
+    <button class="center" bindtap="bindSendDanmu">发送弹幕</button>
+  </view> -->
+  <view class='introduction'>
+    <view class='vedioDescription'>
+      <view class='text'>
+        <text class='name'>{{videoInformation.name}}</text>
+        <view>
+          <text class='score'>{{videoInformation.score}}分</text>
+          <text> / {{videoInformation.category}} / 更新至{{videoInformation.nowEpisodes}}集 共{{videoInformation.allEpisodes}}集</text>
+        </view>
+      </view>
+
+      <label bindtap="toggle">
+        <view class=' center jianjie'>
+          简介</view>
+        <image class='downArrow' mode="scaleToFill" src='http://47.107.183.112/img/downArrow.png'></image>
+      </label>
+    </view>
+    <!-- 下拉框思路 替换箭头 cs3动画 -->
+    <!-- 下拉隐藏区域 -->
+    <view id="box" class="{{first_click?'show':'hide'}} {{state?'open':'close'}}">
+      <text decode="true" class='description'>{{videoInformation.desption}}
+    </text>
+    </view>
+  </view>
+</view>
+<!-- 选集 -->
+<view class='selectionbox'>
+  <view class='selection_text'>
+    <image mode="scaleToFill" src='http://47.107.183.112/img/selection.png'></image>
+    <text>选集</text>
+  </view>
+
+  <view wx:for="{{video}}" class='selection' data-index="{{index}}" bindtap='choosevideo'>
+    <view class='index center'>{{index+1}}</view>
+    <view class='colum'>
+      <view>{{item.videoName}}</view>
+      <view class='time'>视频 7:55</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+<view class='box'>
+<form bindsubmit='checkUser'>
+  <view class='authentication_info'>
+    <view class='real_name detail'>
+      <text class='asterisk'>*</text>
+      <text>真实姓名</text>
+      <input placeholder='请输入姓名' name="userName"></input>
+    </view>
+    <view class='detail'>
+      <text class='asterisk'>*</text>
+      <text>性别</text>
+      <picker bindchange="bindSexChange" value="{{index}}" range="{{sex}}">{{sex[index]}}</picker>
+    </view>
+    <view class='detail'>
+      <text class='asterisk'>*</text>
+      <text>证件类型</text>
+      <picker>身份证</picker>
+    </view>
+    <view class='detail id_number'>
+      <text class='asterisk'>*</text>
+      <text>身份证号</text>
+      <input placeholder='请输入身份证号码' name="IdNumber"></input>
+    </view>
+  </view>
+  <view>
+    <button form-type="submit">提交</button>
+  </view>
+</form>
+</view>

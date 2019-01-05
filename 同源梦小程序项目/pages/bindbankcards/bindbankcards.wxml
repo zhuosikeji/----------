@@ -1,0 +1,30 @@
+<view class='pocketMoneyBox'>
+  <image src='../img/emoney.png'></image>
+  <text class='pocketmoney2'>￥88</text>
+  <text class='pocketmoney1'>零钱</text>
+</view>
+<view class='bisicard'>
+  <image src='../img/sy.png'></image>
+  <view class='abloca'>
+    <view class='ablocaimg'>
+      <image src='../img/busicon.png'></image>
+    </view>
+    <view class='bisicardtop'>工商银行</view>
+    <view class='bisicardbot'>存储卡</view>
+    <view class='bisicardcardnum'>**** **** **** 9989</view>
+  </view>
+</view>
+<view class='bisicard'>
+  <image src='../img/sy.png'></image>
+  <view class='abloca'>
+    <view class='ablocaimg'>
+      <image src='../img/busicon.png'></image>
+    </view>
+    <view class='bisicardtop'>工商银行</view>
+    <view class='bisicardbot'>存储卡</view>
+    <view class='bisicardcardnum'>**** **** **** 9989</view>
+  </view>
+</view>
+<view class='addbusicards'>
+  +添加银行卡
+</view>

@@ -1,0 +1,202 @@
+page {
+  background-color: #f7f7f7;
+}
+
+/* 头部开始 */
+
+.header {
+  background: url('http://47.107.183.112/img/personCenter.jpg') no-repeat;
+  background-size: cover;
+  height: 300rpx;
+  display: flex;
+  align-items: flex-end;
+}
+
+.header .header_box {
+  display: flex;
+  margin-bottom: 7%;
+  margin-left: 7%;
+}
+
+.header .userImg {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.header .header_box .userName {
+  margin-left: 20rpx;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  color: #3b3b3b;
+  font-weight: 600;
+}
+
+.ordinary {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+
+.view_VIP {
+  display: flex;
+  align-items: center;
+  margin-left: 14rpx;
+}
+
+.VIP {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+/* 头部结束 */
+
+/* 订单模块开始 */
+
+.myOrder {
+  height: 70rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #a8a8a8;
+  border-bottom: 1px solid rgba(99,99,99,0.4);
+  align-items: center;
+  background-color: #fff;
+}
+
+.myOrder .myOrderTxt {
+  margin-left: 30rpx;
+  display: flex;
+  font-weight: 600;
+  font-size: 16px;
+  color: #0a0a0a;
+}
+
+.myOrder .OrderNavigator {
+  margin-right: 8rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.myOrder .OrderNavigator navigator {
+  display: flex;
+  align-items: center;
+}
+
+.iconImage {
+  width: 55rpx;
+  height: 16px;
+  margin-right: 5rpx;
+}
+
+.orderStatus {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+
+.orderStatus .li {
+  width: 20%;
+  height: 180rpx;
+  margin: 15rpx 4% 15rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.orderStatus .li:first-of-type {
+  margin: 15rpx 4% 15rpx 4%;
+}
+
+.orderStatus .li image {
+  width: 50%;
+  height: 60rpx;
+}
+
+.orderStatus .li text {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.haibao {
+  width: 100%;
+}
+
+/* 用户中心模块 */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+  background-color: #fff;
+}
+
+.section .title {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 20rpx;
+}
+.section .title .colom{
+  width: 8rpx;
+  height: 70rpx;
+  background-color: #FF4500;
+  margin-right: 15rpx;
+}
+
+.section .module {
+  display: flex;
+  flex-wrap: wrap;
+}
+.section .module .moduleli.third{
+  margin-right: 1%;
+  border-right: none;
+}
+.section .module .moduleli.sannjiayi{
+  margin-left: 1%;
+}
+.section .module .moduleli.lastsan{
+  border-bottom: none;
+  margin-bottom: 15rpx;
+}
+.section .module .moduleli {
+  width: 32%;
+  height: 180rpx;
+  border-right: 1px solid rgba(99,99,99,0.4);
+  border-bottom:  1px solid rgba(99,99,99,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.section .module .moduleli text {
+  font-size: 14px;
+}
+
+.section .module image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+
+.Logout {
+  background-color: #f30;
+  color: #fff;
+  font-size: 20px;
+  width: 100%;
+  height: 120rpx;
+  margin-top: 150rpx;
+  font-weight: 580;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

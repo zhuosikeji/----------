@@ -1,0 +1,99 @@
+.vmimg image {
+  width: 28px;
+  height: 28px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.vmimg {
+  display: flex;
+  height: 50px;
+  line-height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+}
+
+.lf1 {
+  flex-grow: 1;
+  height: 50px;
+  text-align: center;
+}
+
+.ri1 {
+  flex-grow: 1;
+  height: 50px;
+  text-align: center;
+}
+
+.mid2 {
+  flex-grow: 2;
+}
+
+.videole, .soundle {
+  vertical-align: middle;
+  margin-left: 5px;
+  font-weight: bold;
+  display: inline-block;
+  height: 50px;
+}
+
+.ri1:hover, .lf1:hover {
+  border-bottom: 1px solid red;
+}
+.head-slideshow {
+  height: 160px;
+  width: 100%;
+}
+
+/* 轮播图 */
+
+.head-slideshow image {
+  height: 160px;
+  width: 100%;
+}
+
+/* 列表 */
+
+.video-list {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  padding: 5px;
+}
+.video-img-left {
+  flex-grow: 1;
+}
+.video-decribe-mid {
+  font-size: 12px;
+  flex-grow: 2;
+  height: 100px;
+}
+
+.video-img-left image {
+  width: 90px;
+  height: 90px;
+}
+.person-num {
+  line-height: 40x;
+  vertical-align: middle;
+  border-bottom: 1px solid #eee;
+}
+.person-num image {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+.video-price {
+  color: red;
+  margin-left: 100px;
+}
+.book-name, .video-tea {
+  font-weight: bold;
+  line-height: 40px;
+}
+.book-name {
+  font-size: 16px;
+}
+.video-tea {
+  font-size: 13px;
+}

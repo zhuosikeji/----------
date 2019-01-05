@@ -1,0 +1,106 @@
+
+  <!-- 展示栏开始啦 -->
+  <view class="selection">
+      <view class='module'>
+           <!-- 图片 -->
+             <view class="detail-images">
+                  <image src='{{vritualCourse.coverPath}}'></image>
+            </view>
+            <!-- 描述 -->
+            <view class="detail">
+                  <view class='detail-tilte'>
+                   <text>{{vritualCourse.productTitle}}</text>
+                 </view>
+                 <view class='detail-describe'>
+                  <text>指导老师：{{vritualCourse.productAuthor}}</text>
+                 </view>
+                 <view class='detail-describe'>
+                 <text>已更新{{vritualCourse.nowNum}}/{{vritualCourse.totalNum}}节</text>
+                 </view>
+                 <view class='detail-money'>
+                       <text>￥{{vritualCourse.price}}</text>
+                 </view>
+            </view>
+        </view>
+    </view>
+  <!-- 展示栏结束了 -->
+
+   <!-- 课程介绍模块开始啦 -->
+    <view class='activity-introduced' >
+             <view class='activity-details' style="-webkit-line-clamp:{{rows}}">
+                  <text>简介：\n</text>
+                  <text>{{vritualCourse.courseIntroduce}}</text>
+             </view>
+                <view bindtap="change" class="more">{{isFolded?'查看全部':'收起'}}</view>  
+    </view>
+   <!-- 课程介绍模快结束了 -->
+
+   <!-- 节列表的展示 开始了-->
+          <view  class='activity-details'>
+              <view class='list'>
+                       <text >课程列表\n</text>
+              </view>
+
+            <!-- 列表 -->
+           <view wx:for="{{courseList}}">
+               <view class='specific-title'  bindtap="bounced"  data-index="{{index}}">
+                    <view class='view-box'>         
+                          <text>{{item.chapterName}}</text>
+                    </view>
+              </view>
+
+            <view class='playing-time'>
+                       <text>视频：7:56</text>
+            </view>
+
+           <!-- 图标 -->
+           <view wx:if="{{isCharge}}">   
+                   <!-- <视频> -->
+                    <view class='playing-img' >
+                              <image src='http://47.107.94.80/play.png'></image>
+                    </view>
+          </view>
+          <view wx:else>
+                     <!-- 音频 -->
+                     <view class='playing-img' >
+                              <image src='http://47.107.94.80/voice.png'></image>
+                    </view>
+          </view>  
+
+            <!-- 锁 -->
+            <view wx:if="{{item.isCharge}}">
+                       <!-- 锁图标 -->
+                      <view class='unfree'>
+                                <image src='http://47.107.94.80/block.png'></image>
+                      </view>
+            
+            </view>
+             <view wx:else>
+                     <!-- 试学 -->
+                     <view class='free'>
+                            <text>试学</text>
+                      </view>
+            </view>  
+          </view>
+       </view>    
+           <!-- 空白栏 -->
+            <view class='specific-title'>
+                            <view class='blank'>
+                                  <text></text>
+                            </view>
+            </view>
+          <!-- 底部栏 -->
+          <view class='foot'>
+                    <!-- 收藏 -->
+                   <view  bindtap="addCollection"  class='collection'>
+                        <text  wx:if="{{isClick}}" class='yellow'>★</text>
+                        <text  wx:else>☆</text>
+                        <text class="collection-text">{{isClick?'已收藏':'收藏'}}</text>
+                  </view> 
+                   <view bindtap="addCar"  class="address-collection">
+                      <text>加入购物车</text>
+                  </view>
+                  <view bindtap="add-buy"  class="address-buy">
+                      <text>立即购买</text>
+                 </view>
+         </view>

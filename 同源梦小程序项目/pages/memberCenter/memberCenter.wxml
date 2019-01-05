@@ -1,0 +1,46 @@
+<!-- 会员卡 -->
+<image class="memberCart" src='{{memberInformation.memberCartImage}}' mode="scaleToFill"></image>
+<!-- 会员区块 -->
+<view class='memberSection'>
+  <view class='space-between'>
+    <text class='memberSectionTitle'>专属会员</text>
+    <view class='more center' bindtap='more'>
+      <text>更多</text>
+      <image class='downArrow' mode="scaleToFill" src='http://47.107.183.112/img/downArrow.png'></image>
+    </view>
+  </view>
+  <view class="{{first_click?'show':'hide'}} {{state?'open':'close'}}" id='telescopicBox'>
+    <view class='wrap'>
+      <view wx:for="{{memberCategory}}" id="{{item.ischecked?'active':''}}" class='memberBox center' catchtap='chooseMember' data-index='{{index}}'>
+        <text>{{item.memberCategoryName}}</text>
+        <text>￥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='memberPrivileges'>
+  <text class='title'>会员专享</text>
+
+  <view class='privilegesBox wrap jcflex-start'>
+    <view class='privilegesIndex center'>1</view>
+    <view class='column'>
+      <view class='bigfont'>专属会员标志</view>
+      <view>会员拥有专属标志，彰显尊贵身份</view>
+    </view>
+  </view>
+  <view class='privilegesBox wrap jcflex-start'>
+    <view class='privilegesIndex center'>2</view>
+    <view class='column'>
+      <view class='bigfont'>商城购物享受8折优惠</view>
+      <view>购买商品时享受8折优惠</view>
+    </view>
+  </view>
+  <view class='privilegesBox wrap aiflex-start'>
+    <view class='privilegesIndex center'>3</view>
+    <view class='column'>
+      <view class='bigfont'>{{memberCategory[thisindex].memberCategoryName}}赠送服务</view>
+      <text class='longtext'>{{memberCategory[thisindex].program}}</text>
+    </view>
+  </view>
+</view>
+<button class='footer'>购买会员</button>

@@ -1,0 +1,245 @@
+/* 上面的部分 */
+.goodspic{
+  width: 100%;
+  min-height: 40%;
+  padding-top: 40rpx;
+  text-align: center;
+  /* box-sizing: border-box; */
+  /* margin:0 auto; */
+  border: 8rpx solid #f0f0f0;
+}
+swiper-item image{
+  width:60%;
+  height: 80%; 
+}
+.goodsInfo{
+  padding: 20rpx;
+  position: relative;
+}
+.info{
+display: flex;
+line-height: 2;
+flex-direction: row;
+ justify-content: space-between;
+}
+.share{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  right:30rpx;
+  top: 50rpx;
+}
+.share+text{
+  font-size: 32rpx;
+  color: #999;
+  position: absolute;
+  right:30rpx;
+  top: 120rpx;
+}
+.info+view{
+display: flex;
+flex-direction: column;
+ justify-content: space-between;
+}
+.price{
+  color: red;
+  display: flex;
+  line-height: 2;
+  justify-content: flex-start;
+}
+.price text:nth-child(2){
+  height: 24rpx;
+  line-height: 24rpx;
+  padding: 4rpx 8rpx;
+  border-radius: 8rpx;
+  margin-left: 40rpx;
+  font-size: 20rpx;
+  border: 2rpx solid red;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.price+view{
+  font-size: 32rpx;
+  line-height: 2;
+  display: flex;
+  justify-content: flex-start;
+  color: #999;
+}
+.price+view text{
+  text-decoration: line-through;
+}
+.sale{
+  display: flex;
+  justify-content: space-between;
+  color: #999;
+  font-size: 32rpx;
+  line-height: 2;
+}
+ 
+ /* 中间的部分 */
+.content{
+  background-color: #f0f0f0;
+  padding-top: 20rpx;
+  height: auto;
+  /* min-height: 1000rpx; */
+  padding-bottom: 300rpx;
+  font-size: 32rpx;
+}
+.discount{
+  min-height: 120rpx;
+  background-color: #fff;
+  padding: 30rpx 20rpx;
+  line-height: 2;
+  font-size: 34rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #f0f0f0;
+  position: relative;
+}
+.discount view:nth-child(1) text:nth-child(1),.discount view:nth-child(2) text:nth-child(1){
+  font-size: 28rpx;
+  color: red;
+  border: 2rpx solid red;
+  margin-right: 20rpx;
+  padding: 10rpx;
+  text-align: center;
+}
+.discount .linqu{
+  width: 120rpx;
+  height: 50rpx;
+  line-height: 58rpx;
+  color: #999;
+  text-align: center;
+  border: 2rpx solid #f0f0f0;
+  border-radius: 20rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 72rpx;
+}
+.jifen,.confirm{
+  background-color: #fff;
+  padding: 20rpx;
+}
+.jifen{
+  line-height: 2;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+.integral{
+  font-size: 28rpx;
+  padding: 8rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  border: 2rpx solid red;
+  color: red;
+}
+.confirm view:nth-child(1){
+  display: flex;
+  flex-direction: row;
+  line-height: 2;
+  justify-content: space-between;
+}
+.confirm view:nth-child(2) text:nth-child(1){
+  color: red;
+  font-size: 28rpx;
+  line-height: 2;
+  margin-right: 30rpx;
+}
+.goodsinfo{
+  padding: 10rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.goodsinfo view{
+  line-height: 2;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+}
+.goodsinfo view:last-child{
+  font-size: 35rpx;
+  border-bottom: none;
+}
+.appraise{
+  padding: 40rpx;
+  margin: 20rpx 0;
+  background-color: #fff;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+.appTitle{
+  display: flex;
+  font-size: 38rpx;
+  line-height:2;
+}
+.appraiseinfo{
+  width: 30%;
+  line-height: 2;
+  text-align: center;
+  margin: 40rpx 40rpx;
+  border-radius: 14rpx;
+  border: 2rpx solid rgba(255, 0, 0,.1);
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #999;
+}
+.user{
+  width: 100%;
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding-bottom: 30rpx;
+}
+.user text{
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.user text:nth-child(2){
+  text-indent: 2em;
+}
+.user text:nth-child(3){
+  margin: 0 auto;
+  width: 300rpx;
+  display: flex;
+  color: #999;
+  border: 2rpx solid #f0f0f0;
+  text-align: center;
+}
+.content text:last-child{
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: center;
+}
+.footer{
+  width: 100vh;
+  height: 120rpx;
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  text-align: center;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+}
+.footer view{
+  display: flex;
+  padding: 12rpx 18rpx;
+  flex-direction:column;
+  border: 2rpx solid #f0f0f0;
+}
+.fotpic{
+  width: 80rpx;
+  height: 80rpx;
+}
+.footer text:nth-child(4),.footer text:nth-child(5){
+ padding: 0 20rpx;
+ color: #fff;
+ font-size: 36rpx;
+ line-height: 120rpx;
+ border: 2rpx solid orange;
+ background-color: orange;
+}
+.footer text:nth-child(5){
+ border: 2rpx solid red;
+ background-color: red;
+}

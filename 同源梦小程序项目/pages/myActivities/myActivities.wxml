@@ -1,0 +1,39 @@
+<view class='canvas'>
+  <!-- 头部开始啦 -->
+    <view>
+      <view class="header">
+    <!-- 搜索图标 -->
+    <image src='http://47.107.183.112/img/search.png' class='icon_search'></image>
+    <input type='text' placeholder='输入你想要的内容' confirm-type='search' bindinput='inputBind' bindconfirm='query' value='{{searchinput}}'></input>
+    <!-- 叉号图标 -->
+    <image src='http://47.107.183.112/img/cross.png' catchtap='deleteSearch'></image>
+  </view>
+  </view>
+  <!-- 头部结束啦 -->
+
+  <!-- 展示栏开始啦 -->
+  <view class="selection"wx:for="{{activitiesList}}">
+      <view class='module' >
+           <!-- 图片 -->
+            <view class="images">
+                  <image src='{{item.coverPath}}'></image>
+            </view>
+            <!-- 描述 -->
+            <view class="describe">
+                  <view class='describe-tilte'>
+                   <text>{{item.productTitle}}</text>
+                 </view>
+                 <view class='describe-describe'>
+                  <text>{{item.activitiPlace}}</text>
+                 </view>
+                 <view class='describe-describe'>
+                 <text>时间：{{item.beginTime}}至{{item.endTime}}</text>
+                 </view>
+                 <view class='money'>
+                 <text>￥{{item.price}}</text>
+                 </view>
+            </view>
+        </view>
+  </view>
+  <!-- 展示栏结束了 -->
+</view>

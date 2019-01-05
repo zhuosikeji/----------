@@ -1,0 +1,84 @@
+.header{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 2rpx solid lightgray;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.question{
+  position: relative;
+  left: 16rpx;
+  top: 12rpx;
+}
+.right{
+  position: relative;
+  top: 34rpx;
+}
+.header_b{
+  padding: 40rpx 20rpx 20rpx;
+}
+.distance{
+  color: #999;
+  line-height: 2;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.selected{
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  border-bottom: 2rpx solid lightgray;
+  padding: 20rpx;
+}
+.selected checkbox{
+  position: relative;
+  right: -36rpx;
+}
+.recommend{
+  display: flex;
+  padding-right: 10rpx;
+  white-space: nowrap;
+  color: blue;
+}
+.default{
+  font-size: 28rpx;
+  line-height: 2;
+  color: #999;
+  position: relative;
+}
+.default image{
+  position:relative;
+  left:16rpx;
+  top:12rpx;
+}
+.select{
+  background-color: #f0f0f0;
+  padding: 20rpx 0 60rpx 0;
+}
+.select view:nth-child(1){
+  background: #fff;
+}
+.item{
+  font-size: 32rpx;
+  padding: 40rpx 80rpx 20rpx 20rpx;
+  border-bottom: 2rpx solid lightgray;
+  position: relative;
+}
+.item view:nth-child(1){
+  display: flex;
+  justify-content: space-between;
+}
+.item checkbox{
+  position: absolute;
+  right: 0;
+  top: 50rpx;
+}
+
+
+

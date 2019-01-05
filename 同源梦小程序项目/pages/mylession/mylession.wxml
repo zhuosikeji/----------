@@ -1,0 +1,64 @@
+<!-- <view bindtap="tap">1111</view>  -->
+<view>
+  <view class='vmimg'>
+    <view class='lf1' bindtap='videoles' style="background-color:{{backcolor}}">
+      <image src='../img/video.png'></image>
+      <text class='videole'>视频课程</text>
+    </view>
+    <!-- <view class='mid2'>  </view> -->
+    <view class='ri1' bindtap='musicles' style="background-color:{{backcolorff}}">
+      <image src='../img/music.png'></image>
+      <text class='soundle'>声音课程</text>
+    </view>
+  </view>
+</view>
+<!-- 轮播图 -->
+<!-- <view class='head-slideshow'>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <swiper-item>
+      <image src='../img/l4.jpg' class="slide-image" width="355" height="150" />
+    </swiper-item>
+       <swiper-item>
+      <image src='../img/l2.jpg' class="slide-image" width="355" height="150" />
+    </swiper-item>
+       <swiper-item>
+      <image src='../img/l3.jpg' class="slide-image" width="355" height="150" />
+    </swiper-item>
+</swiper>   
+  </view> -->
+
+
+<!-- 视频列表 -->
+<view class='video-class' hidden="{{videoles}}">
+  <view class='video-list'  wx:for="{{videoList}}"  bindtap='ToVideoPlay'>
+    <view class='video-img-left'>
+      <image src='../img/true.jpg'></image>
+    </view>
+    <view class='video-decribe-mid'>
+      <view class='book-name'>{{item.videoName}}</view>
+      <view class='video-tea'>{{item.author}}</view>
+      <view class='person-num'>
+        <image src='../img/person.png'></image>
+        <text>{{item.buyNumber}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 声音列表 -->
+<view class='video-class' hidden="{{musicles}}">
+  <view class='video-list' wx:for="{{audioList}}"  bindtap='ToAudioPlay'>
+    <view class='video-img-left'>
+      <image src='../img/true.jpg'></image>
+    </view>
+    <view class='video-decribe-mid'>
+      <view class='book-name'>{{item.audioName}}</view>
+      <view class='video-tea'>{{item.author}}</view>
+      <view class='person-num'>
+        <image src='../img/person.png'></image>
+        <text>{{item.buyNumber}}</text>
+      </view>
+    </view>
+  </view>
+</view>

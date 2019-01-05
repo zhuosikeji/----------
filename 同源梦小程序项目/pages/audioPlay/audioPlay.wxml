@@ -1,0 +1,70 @@
+<view class='audioPlayer'>
+  <view class='player'>
+    <image src='{{audioInformation.coverimg}}' class='audioBack'></image>
+    <view class='audioControls'>
+      <view class='flex'>
+        <view class='bottom' catchtap='playAudio'>
+          <!-- 按钮 -->
+          <view wx:if="{{isPlayAudio}}">
+            <image src='http://47.107.183.112/img/play.png' />
+          </view>
+          <view wx:else>
+            <image src='http://47.107.183.112/img/pause.png' />
+          </view>
+        </view>
+        <view class='slider'>
+          <slider bindchange='sliderChange' activeColor='red' block-size="12" value='{{audioTime}}' />
+        </view>
+        <view class='time'>
+          {{showTime1}}/{{showTime2}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 简介 -->
+<view class="section">
+  <view class='introduction'>
+    <view class='vedioDescription'>
+      <view class='text'>
+        <text class='name'>{{audioInformation.name}}</text>
+        <view>
+          <text class='score'>{{audioInformation.score}}分</text>
+          <text> / {{audioInformation.category}} / 更新至{{audioInformation.nowEpisodes}}集 共{{audioInformation.allEpisodes}}集</text>
+        </view>
+      </view>
+
+      <label bindtap="toggle">
+        <view class=' center jianjie'>
+          简介</view>
+        <image class='downArrow' mode="scaleToFill" src='http://47.107.183.112/img/downArrow.png'></image>
+      </label>
+    </view>
+    <!-- 下拉框思路 替换箭头 cs3动画 -->
+
+    <!-- 下拉隐藏区域 -->
+    <view id="box" class="{{first_click?'show':'hide'}} {{state?'open':'close'}}">
+
+
+      <text decode="true" class='description'>{{audioInformation.desption}}
+
+    </text>
+    </view>
+  </view>
+</view>
+<!-- 选集 -->
+<view class='selectionbox'>
+  <view class='selection_text'>
+    <image mode="scaleToFill" src='http://47.107.183.112/img/selection.png'></image>
+    <text>选集</text>
+  </view>
+
+  <view wx:for="{{audiolist}}" class='selection' data-index="{{index}}" bindtap='choosevideo'>
+    <view class='index center'>{{index+1}}</view>
+    <view class='colum'>
+      <view>{{item.audioName}}</view>
+      <view class='time'>视频 7:55</view>
+    </view>
+  </view>
+</view>

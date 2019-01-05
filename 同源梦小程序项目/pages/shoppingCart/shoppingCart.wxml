@@ -1,0 +1,45 @@
+<view class='header'>
+  <image class='productListImage' mode="scaleToFill" src='http://47.107.183.112/img/shop.png'></image>
+  <text>同源梦幸福学院</text>
+  <image class='productListImage' mode="scaleToFill" src='http://47.107.183.112/img/trash.png' catchtap='delete'></image>
+</view>
+
+<checkbox-group bindchange="checkboxChange">
+  <view class="productList" wx:for="{{productList}}" wx:key="*this">
+    <!-- 多选框 -->
+    <checkbox class='productListCheckbox' value="{{item.productId}}" checked="{{item.checked}}"></checkbox>
+    <!-- 商品主图 -->
+    <image class='productListImage' mode="scaleToFill" src='{{item.productImage}}'> </image>
+    <view class='productDescription'>
+      <!-- 商品名 -->
+      <text class='productListName'>{{item.productName}}</text>
+      <view class='row'>
+        <!-- 折扣后金额 -->
+        <text class='productPrice'>￥{{item.price}}</text>
+        <!-- 折扣前金额 -->
+        <text class='productOldPrice'>{{item.oldprice}}</text>
+        <view class='numberControl'>
+          <!-- 减 -->
+          <button class='less' catchtap='minusNumber' data-index='{{index}}'>-</button>
+          <!-- 数量 -->
+          <text class='productListCount'>{{item.count}}</text>
+          <!-- 加 -->
+          <!-- 自定义data-index取索引 -->
+          <button class='Add' catchtap='addNumber' data-index='{{index}}'>+</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</checkbox-group>
+
+<!-- 底部 -->
+<view class='footer'>
+  <!-- 全选框 -->
+  <checkbox-group bindchange="checkAll" class="checkAll">
+    <label class="checkboxLabel">
+      <checkbox value='all' checked="{{checkAll}}" />全选
+    </label>
+  </checkbox-group>
+  <text>合计:￥{{totalPrice}}</text>
+  <button catchtap='settlementOrder'>去结算({{totalCount}})</button>
+</view>

@@ -1,0 +1,92 @@
+<!--index.wxml-->
+<!-- 头部 -->
+<view class='header'>
+  <view class='header_box'>
+    <!-- 头像 -->
+    <image src='{{user.userImg}}' class='userImg'></image>
+    <!-- 用户名 -->
+    <text class='userName'>{{user.userName}}</text>
+    <view class='view_VIP' wx:if="{{user.member}}==true">
+      <image class="VIP" src='http://47.107.183.112/img/VIP.png'></image>
+    </view>
+    <view class='VIP' wx:elif="{{user.member}}==false">
+      <image class="ordinary" src='http://47.107.183.112/img/normal.png'></image>
+    </view>
+  </view>
+</view>
+<!-- 订单模块 -->
+<view class='Order'>
+  <view class='myOrder'>
+    <text class='myOrderTxt'>我的订单</text>
+    <view class='OrderNavigator'>
+      <navigator url='../orderdetails/orderdetails'>
+        全部订单
+      </navigator>
+      <image class="iconImage" src='http://47.107.183.112/img/rightArrow.png'></image>
+    </view>
+  </view>
+  <view class='orderStatus'>
+    <navigator class='li' url='../orderdetails/orderdetails'>
+      <image src='http://47.107.183.112/img/待付 款.png'></image>
+      <text>待付款</text>
+    </navigator>
+    <navigator class='li' url='../orderdetails/orderdetails'>
+      <image src='http://47.107.183.112/img/待发 货.png'></image>
+      <text>待发货</text>
+    </navigator>
+    <navigator class='li' url='../orderdetails/orderdetails'>
+      <image src='http://47.107.183.112/img/已完成订单.png'></image>
+      <text>已完成</text>
+    </navigator>
+    <navigator class='li' url='../orderdetails/orderdetails'>
+      <image src='http://47.107.183.112/img/售后退款.png'></image>
+      <text>售后/退款</text>
+    </navigator>
+  </view>
+</view>
+<!-- 用户中心模块 -->
+<view class='section'>
+  <!-- 个人中心 -->
+  <view class='title'>
+    <view class='colom'></view>
+    <text>个人中心</text>
+  </view>
+  <view class='module'>
+    <navigator class='moduleli sannjiayi' url='../wallet/wallet'>
+      <image src='http://47.107.183.112/img/wallet.png' mode='scaleToFill'></image>
+      <text>我的钱包</text>
+    </navigator>
+    <navigator class='moduleli' url='../collection/collection'>
+      <image src='http://47.107.183.112/img/collection.png' mode='scaleToFill'></image>
+      <text>收藏商品</text>
+    </navigator>
+    <navigator class='moduleli third' url='../memberCenter/memberCenter'>
+      <image src='http://47.107.183.112/img/member.png' mode='scaleToFill'></image>
+      <text>会员中心</text>
+    </navigator>
+    <navigator class='moduleli sannjiayi' url='../mylession/mylession'>
+      <image src='http://47.107.183.112/img/course.png' mode='scaleToFill'></image>
+      <text>我的课程</text>
+    </navigator>
+    <navigator class='moduleli' url='../integral/integral'>
+      <image src='http://47.107.183.112/img/myIntegral.png' mode='scaleToFill'></image>
+      <text>我的积分</text>
+    </navigator>
+    <navigator class='moduleli third' url='../favourable/favourable'>
+      <image src='http://47.107.183.112/img/myCoupon.png' mode='scaleToFill'></image>
+      <text>我的优惠券</text>
+    </navigator>
+    <navigator class='moduleli sannjiayi lastsan' url='../myActivities/myActivities'>
+      <image src='http://47.107.183.112/img/activity.png' mode='scaleToFill'></image>
+      <text>我的活动</text>
+    </navigator>
+    <navigator class='moduleli lastsan' url='../message/message'>
+      <image src='http://47.107.183.112/img/message.png' mode='scaleToFill'></image>
+      <text>我的消息</text>
+    </navigator>
+    <navigator class='moduleli third lastsan' url='../address/address'>
+      <image src='http://47.107.183.112/img/management.png' mode='scaleToFill'></image>
+      <text>地址管理</text>
+    </navigator>
+  </view>
+</view>

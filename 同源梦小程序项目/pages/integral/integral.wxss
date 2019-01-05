@@ -1,0 +1,89 @@
+
+.box{
+  font-size: 28rpx;
+}
+
+.space{
+  height: 20rpx;
+  background-color: #ccc;
+}
+.user_info{
+  margin-top: 100rpx ;
+  margin-bottom: 100rpx;
+  margin-left: 40rpx;
+}
+.user_img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.user_detail{
+  margin-left: 30rpx;
+  height: 100rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.user_jifen{
+  margin-top: 20rpx;
+}
+.user_jifen text{
+  display: inline-block;
+}
+.user_jifen .jifen_number{
+  margin-left: 60rpx;
+}
+.jifen_number {
+  color: red;
+}
+
+.jifen_history{
+  margin-top: 50rpx;
+  text-align: center;
+}
+/* .jifen_deatil{
+  padding: 0 30rpx;
+  border-bottom: 1px solid #ccc;
+  height: 100rpx; 
+  display: flex;
+  
+}
+.jifen_deatil text{
+
+  line-height: 100rpx;
+}
+.jifen_text {
+  letter-spacing: 2rpx;
+  width: 170rpx;
+}
+.jifen_type{
+  width: 100rpx;
+}
+.jifen_num{
+ width: 100rpx;
+}
+.jifen_date{
+  width: 100rpx;
+} */
+
+
+.flinter{
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+.fx1{
+  padding-left: 20rpx;
+  flex: 1;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+.fx2{
+  flex: 2;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+.cored{
+  color: red;
+}

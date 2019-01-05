@@ -1,0 +1,33 @@
+<view class='row'>
+   <view class='item' wx:for="{{messageList}}">
+   <view> 
+      <view class='mesPic' >
+        <image src='{{item.imagePath}}'></image>
+        <view class='circle'>{{item.number}}</view> 
+      </view>
+  <view class='prompt'>
+      <text>{{item.title}}</text>
+      <text>{{item.inform}}</text>
+  </view>
+  </view>
+  </view>
+  <view class='content'>
+     <view>
+      <view class='item' wx:for="{{activity}}">
+         <view> 
+             <view class='contPic' >
+               <image src='{{item.imagePath}}'></image>
+               <view class='circle'>{{item.number}}</view> 
+             </view>
+             <view class='prompt'>
+                <view class='time'>
+                <text>{{item.title}}</text>
+                <text>{{item.time}}</text>
+                </view>
+                 <text>{{item.inform}}</text>
+             </view>
+          </view>
+     </view>
+    </view>
+  </view>
+</view>

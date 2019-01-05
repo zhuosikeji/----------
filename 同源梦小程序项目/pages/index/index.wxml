@@ -1,0 +1,114 @@
+<view class="header">
+  <!-- 搜索图标 -->
+  <image src='http://47.107.183.112/img/search.png' class='icon_search'></image>
+  <input type='text' placeholder='输入你想要的内容' confirm-type='search' bindinput='inputBind' bindconfirm='query' value='{{searchinput}}'></input>
+  <!-- 叉号图标 -->
+  <image src='http://47.107.183.112/img/cross.png' catchtap='deleteSearch'></image>
+</view>
+
+<view class='selection'>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" indicator-active-color="{{indicatorActiveColor}}" circular="{{circular}}" indicator_color="{{indicatorColor}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item>
+        <image class='slipe-img' mode="scaleToFill" src='{{item}}'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='nav'>
+  <!-- 充值 -->
+  <navigator url="../recharge/recharge" hover-class="navigator-hover" class='nav_block'>
+    <image src='http://47.107.183.112/img/recharge.png' class='nav_img'></image>
+    <text class='nav_text'>充值</text>
+  </navigator>
+  <!-- 领券 -->
+  <navigator url="../favourable/favourable" hover-class="navigator-hover" class='nav_block'>
+    <image src='http://47.107.183.112/img/coupon.png' class='nav_img'></image>
+    <text class='nav_text'>领券中心</text>
+  </navigator>
+  <!-- 会员 -->
+  <navigator url="../memberCenter/memberCenter" hover-class="navigator-hover" class='nav_block'>
+    <image src='http://47.107.183.112/img/crown.png' class='nav_img'></image>
+    <text class='nav_text'>会员中心</text>
+  </navigator>
+  <!-- 领积分 -->
+  <navigator url="../find/find" hover-class="navigator-hover" class='nav_block'>
+    <image src='http://47.107.183.112/img/integral.png' class='nav_img'></image>
+    <text class='nav_text'>领积分</text>
+  </navigator>
+  <!-- 粉丝 -->
+  <navigator url="../recomend/recomend" hover-class="navigator-hover" class='nav_block'>
+    <image src='http://47.107.183.112/img/fan.png' class='nav_img'></image>
+    <text class='nav_text'>专属粉丝</text>
+  </navigator>
+  <!-- 健康 -->
+  <navigator url="../find/find" hover-class="navigator-hover" class='nav_block'>
+    <image src='http://47.107.183.112/img/health.png' class='nav_img'></image>
+    <text class='nav_text'>健康</text>
+  </navigator>
+  <!-- 生活 -->
+  <navigator url="../find/find" hover-class="navigator-hover" class='nav_block'>
+    <image src='http://47.107.183.112/img/life.png' class='nav_img'></image>
+    <text class='nav_text'>生活</text>
+  </navigator>
+  <!-- 教育 -->
+  <navigator url="../find/find" hover-class="navigator-hover" class='nav_block'>
+    <image src='http://47.107.183.112/img/education.png' class='nav_img'></image>
+    <text class='nav_text'>教育</text>
+  </navigator>
+</view>
+<!-- 书城 -->
+<view class='selection'>
+  <!-- 商城标题 -->
+  <view class='header'>
+    <text>—— 精品书城 ——</text>
+  </view>
+  <!-- 商城内容 -->
+  <view class='content'>
+    <view class='content-item' wx:for="{{BookItem}}" bindtap='ToGoods' data-index='{{index}}' data-FristClassify='BookItem'>
+      <image src='{{item.ProductImgUrl}}' mode="scaleToFill"></image>
+      <text class='productName'>{{item.content}}</text>
+      <view class='detail'>
+        <text>{{item.buyNumber}}人已购买</text>
+        <text class='price'>￥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 随心听课 -->
+<view class='selection'>
+  <!-- 商城标题 -->
+  <view class='header audioheader'>
+    <text>—— 随心听课 ——</text>
+  </view>
+  <!-- 商城内容 -->
+  <view class='content'>
+    <view class='content-item' wx:for="{{AudioItem}}" bindtap='ToGoods' data-index='{{index}}' data-FristClassify='BookItem'>
+      <image src='{{item.ProductImgUrl}}' mode="scaleToFill"></image>
+      <text class='productName'>{{item.content}}</text>
+      <view class='detail'>
+        <text>{{item.buyNumber}}人已购买</text>
+        <text class='price'>￥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 优质慕课 -->
+<view class='selection'>
+  <!-- 商城标题 -->
+  <view class='header videoheader '>
+    <text>—— 优质慕课 ——</text>
+  </view>
+  <!-- 商城内容 -->
+  <view class='content'>
+    <view class='content-item' wx:for="{{VideoItem}}" bindtap='ToGoods' data-index='{{index}}' data-FristClassify='BookItem'>
+      <image src='{{item.ProductImgUrl}}' mode="scaleToFill"></image>
+      <text class='productName'>{{item.content}}</text>
+      <view class='detail'>
+        <text>{{item.buyNumber}}人已购买</text>
+        <text class='price'>￥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+</view>

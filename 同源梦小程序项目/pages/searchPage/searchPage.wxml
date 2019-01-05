@@ -1,0 +1,73 @@
+<view class="header">
+  <!-- 搜索图标 -->
+  <image src='http://47.107.183.112/img/search.png' class='icon_search'></image>
+  <input type='text' placeholder='输入你想要的内容' confirm-type='search' bindinput='inputBind' bindconfirm='query' focus="true" value='{{searchinput}}'></input>
+  <!-- 叉号图标 -->
+  <image src='http://47.107.183.112/img/cross.png' catchtap='deleteSearch'></image>
+</view>
+<view class='contain'>
+  <!-- 分类 -->
+  <view class='category'>
+    <view class='{{fisrtCategory}}' catchtap='firstchose'>综合
+    </view>
+    <view wx:for="{{categoryList}}" class='categoryList {{item.isActive}}' data-index='{{index}}' catchtap='chooseCategory'>{{item.category}}</view>
+  </view>
+  <!-- 筛选区域 -->
+  <view id="region" class="{{first_click?'show':'hide'}} {{state?'open':'close'}}">
+    <view class='section'>
+      <view class='productTypes'>商品类型</view>
+      <view class='buttonGroup'>
+        <button catchtap='typesClick' class='{{typesBtnActive[0]}}' data-index="0">实体商品</button>
+        <button catchtap='typesClick' class='{{typesBtnActive[1]}}' data-index="1">音频</button>
+        <button catchtap='typesClick' class='{{typesBtnActive[2]}}' data-index="2">视频</button>
+        <button catchtap='typesClick' class='{{typesBtnActive[3]}}' data-index="3">线下活动</button>
+      </view>
+    </view>
+
+    <view class='section'>
+      <view class='productTypes'>价格区间</view>
+      <view class='buttonGroup'>
+        <input bindconfirm="priceConfirm" class='' data-index="0" placeholder='最低价' placeholder-class="placeholdercenter" value='{{priceFilter[0]}}'></input>
+        <text class='center'>——</text>
+        <input bindconfirm="priceConfirm" class='' data-index="1" placeholder='最高价' placeholder-class="placeholdercenter" value='{{priceFilter[1]}}'></input>
+      </view>
+    </view>
+    <view class='section mb60'>
+      <view class="sectionHeader">
+        <view class='productTypes mlnone'>全部分类</view>
+        <label bindtap='allBtn'>
+          <view>全部</view>
+          <image class='downArrow' mode="scaleToFill" src='http://47.107.183.112/img/downArrow.png'></image>
+        </label>
+      </view>
+      <view id='categoryList' class="{{all_state?'down':'up'}}">
+        <view wx:for="{{category}}" id="productcategory">
+          <button catchtap='categoryClick' class='{{category[index].class}}' data-index="{{index}}">{{item.categoryName}}</button>
+        </view>
+      </view>
+    </view>
+    <view class='regionFooter'>
+      <button class='reset' bindtap='reset'>重置</button>
+      <button catchtap='toggle' class='determine'>确定</button>
+    </view>
+  </view>
+
+
+
+
+  <!-- 商品区 -->
+  <view wx:for="{{product}}" class='boxSize'>
+    <image class="activityImage" src="{{item.productImageUrl}}" mode="scaleToFill"></image>
+    <view class='sectionCenter'>
+      <text>{{item.productName}}</text>
+    </view>
+    <view class='sectionFooter'>
+      <text class='money'>{{item.price}}</text>
+      <view class='collectionNumber'>
+        <text>收藏</text>
+        <image class="icon" src="http://47.107.183.112/img/love.png" mode="scaleToFill"></image>
+        <text>{{item.collectionNumber}}</text>
+      </view>
+    </view>
+  </view>
+</view>

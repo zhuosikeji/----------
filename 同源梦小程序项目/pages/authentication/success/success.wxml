@@ -1,0 +1,27 @@
+<view class='box'>
+  <view class='certified'>
+    <text>已认证</text>
+  </view>
+  <view class='authentication_info'>
+    <view class='real_name detail'>
+      <text>姓名</text>
+      <text class='value'>{{user.name}}</text>
+    </view>
+    <view class='detail'>
+      <text>性别</text>
+      <text class='value'>{{user.sex}}</text>
+    </view>
+    <view class='detail'>
+      <text>证件类型</text>
+      <picker class='value'>{{user.IdType}}</picker>
+    </view>
+    <view class='detail id_number'>
+      <text>身份证号</text>
+      <text class='value'>{{user.IdNumber}}</text>
+    </view>
+  </view>
+  <view>
+    <button bindtap='checkId'>修改</button>
+  </view>
+
+</view>

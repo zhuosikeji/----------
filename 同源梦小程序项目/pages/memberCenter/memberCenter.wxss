@@ -1,0 +1,167 @@
+/* common */
+
+page {
+  background-color: #f7f7f7;
+}
+
+.bigfont{
+  font-size: 16px;
+  font-weight: 600;
+}
+.jcflex-start{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.aiflex-start {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+/* 会员卡 */
+
+.memberCart {
+  width: 96%;
+  height: 400rpx;
+  margin: 0 3%;
+  border-radius: 20rpx;
+  box-shadow: 3px 3px 5px #888;
+}
+
+/* 会员区域 */
+.memberSection {
+  margin-top: 30rpx;
+}
+
+.memberSection .memberSectionTitle {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 20rpx;
+}
+
+.memberSection .more {
+  width: auto;
+  font-size: 16px;
+  margin-right: 20rpx;
+}
+
+.memberSection .memberBox {
+  width: 47%;
+  margin: 10rpx 1%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  height: 170rpx;
+  font-size: 16px;
+}
+
+.downArrow {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+#active {
+  border: 1px solid #f30;
+  color: #f30;
+}
+
+/* 动画 */
+#telescopicBox{
+  /* 190rpx */
+  height: 190rpx;
+  overflow: hidden;
+  animation-fill-mode: forwards;
+}
+@keyframes slidedown{
+    from {
+        height: 190rpx;
+    }
+    to {
+        height: auto;
+    }
+}
+
+@keyframes slideup{
+    from {
+        height: auto;
+    }
+    to {
+        height: 190rpx;
+    }
+}
+
+.open{
+    animation: slidedown 1s;
+}
+
+.close{
+    animation: slideup 1s; 
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+
+/* 会员权益 */
+
+.memberPrivileges {
+}
+
+.memberPrivileges .title {
+  margin-left: 20rpx;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.privilegesIndex {
+  border-radius: 50%;
+  width: 48rpx;
+  height: 48rpx;
+  font-size: 14px;
+  margin-right: 40rpx;
+  background-color: #ddd;
+  margin-left: 50rpx;
+}
+.privilegesBox {
+ font-size: 16px;
+ font-weight: 500;
+ margin: 20rpx 0;
+}
+.longtext {
+  width: 300px;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f30;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}

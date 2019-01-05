@@ -1,0 +1,63 @@
+<!--logs.wxml-->
+<view class="log-list">
+  <view class='userInfo'>
+    <view class='name'>
+      <text class='user'>收货人：{{order.username}}</text>
+      <text class="tel">{{order.telephone}}</text>
+    </view>
+    <view class="address">
+      <image class="map" src='../image/map.svg'></image>
+      <text> 收货地址：{{order.address}}</text>
+      <image bindtap='address' class="edit" src='../image/right.svg'></image>
+    </view>
+    <text class='no-actived'>（收货不便时，可选择免费代收货服务）</text>
+  </view>
+</view>
+
+<!-- 商品循环开始 -->
+<view class='goodsList' wx:for="{{goodsList}}">
+  <view class='goodsInfo'>
+    <text class='goodstitle'>商品信息</text>
+    <view class='goods'>
+      <image class='goodsPic' src='{{item.imagePath}}'></image>
+      <text class='goodsname'>{{item.name}}</text>
+      <view class='space-bewteen'>
+        <text class='goodsprice'>￥{{item.oldprice}}</text>
+        <text class='goodsnumber'>x{{item.number}}</text>
+      </view>
+      <text class='goodsBtn'>七天退换</text >
+  </view>
+  <view class='sends'>
+    <text>配送方式</text>
+      <text>快递免邮</text>
+    </view>
+  </view>
+  <view class='delivery'>
+    
+    <view class='item'>
+      <text>买家留言：</text>
+      <input bindinput="bindKeyInput" placeholder="选填：对本次交易的说明"></input>
+    </view>
+    <view class='item'>
+      <text>积分抵扣</text>
+      <text>￥10</text>
+    </view>
+    <view class='item'>
+      <text>优惠券</text>
+      <image bindtap='favourable' class='dis_pic' src='../image/discount.svg'></image>
+    </view>
+    <view class='item'>
+      <text>会员</text>
+      <text>{{delivery.discount}}折</text>
+    </view>
+    <view class='count'>
+      <text>共1件商品  小计</text>
+      <text>￥66.00</text>
+    </view>
+  </view>
+</view>
+<view class='submit'>
+  合计：
+  <text>￥66.00</text>
+  <button bindtap='paid' type="warn" size="{{warnSize}}">提交订单</button>
+</view>

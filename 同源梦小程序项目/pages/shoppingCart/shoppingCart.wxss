@@ -1,0 +1,186 @@
+page {
+  background-color: #f7f7f7;
+}
+
+button::after {
+  border: none;
+  font-size: 14px;
+}
+/* 头部 */
+.header{
+  height: 60rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.header text{
+  font-size: 16px;
+  margin-left: -110px;
+  word-wrap:break-word;
+}
+.header :last-child{
+  margin-right: -30rpx;
+}
+/* 购物车商品 */
+
+.productList {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 96%;
+  height: 300rpx;
+  margin: 15rpx 1%;
+}
+
+/* 未选中的全选框背景样式 */
+
+checkbox .wx-checkbox-input {
+  border-radius: 50%; /* 圆角 */
+  width: 40rpx; /* 背景的宽 */
+  height: 40rpx; /* 背景的高 */
+  margin: 0 20rpx;
+}
+
+/* 选中后的全选框样式*/
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #f53f2c;
+  border-color: #f53f2c;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%;
+  width: 46rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  font-size: 28rpx; /* 对勾大小 28rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.productList .productListImage {
+  width: 340rpx;
+  height: 88%;
+}
+
+.productList .productDescription {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+}
+
+.productList .productDescription .productListName {
+  font-size: 16px;
+  font-weight: 500;
+  width: 190px;
+}
+
+.productList .productDescription .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 20rpx;
+  height: 80rpx;
+  vertical-align: middle;
+  padding-right: -18rpx;
+}
+
+.productList .productDescription .productPrice {
+  color: #EE0000;
+  font-size: 14px;
+  margin-right: 10rpx;
+  font-weight: 600;
+}
+
+.productList .productDescription .productOldPrice {
+  text-decoration: line-through;
+  font-size: 12px;
+  color: #999;
+  margin-right: 14rpx;
+}
+
+.productList .productDescription .productListCount {
+  margin: 0 5rpx;
+  background-color: #f0f0f0;
+  font-size: 14px;
+  width: 80rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productList .productDescription .row .numberControl{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -15rpx;
+}
+
+.productList .productDescription .less,.Add {
+  width: 50rpx;/* 背景的宽 */
+  height: 50rpx; /* 背景的高 */
+  background-color: #f0f0f0;
+  font-size: 26px;
+  color: #ADADAD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  padding-bottom: 8rpx;
+}
+.productList .productDescription .less {
+  color: #C4C4C4;
+}
+
+/* 底部 */
+.footer{
+  /* 固定定位 */
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  height: 130rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  /* 层级最高 */
+  z-index: 1000;
+}
+.footer .checkboxLabel {
+  margin-right: -40px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 16px;
+}
+.footer .checkboxLabel checkbox{
+  color: #ADADAD;
+  
+}
+.footer text{
+  font-size: 16px;
+}
+.footer button{
+  margin: 0;
+  margin-right: 10rpx;
+  background-color: #EE0000;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 50rpx;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+}

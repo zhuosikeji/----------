@@ -1,0 +1,63 @@
+page{
+  height: 60%;
+  background-color:#eeeeee;
+  position: relative;
+}
+.box{
+  background-color: #fff;
+  font-size: 32rpx;
+  
+}
+.certified {
+  
+  height: 80rpx;
+  background-color: #eee;
+}
+.certified text{
+  font-size: 32rpx;
+  margin-left: 30rpx;
+  display: block;
+  line-height: 80rpx;
+  color: red;
+}
+.authentication_info{
+  display: flex;
+  flex-direction: column;
+  
+  padding: 0 30rpx;
+}
+.detail{
+  height: 30rpx;
+  border-bottom: 1px solid #ccc;
+  text-align: right;
+  padding-top: 60rpx;
+  padding-bottom: 30rpx;
+}
+.detail text{
+  display: block;
+  float: left;
+}
+.detail .value{
+  display: block;
+  float: right;
+}
+.detail picker{
+  float: right;
+}
+
+.id_number{
+  margin-bottom: 20rpx;
+}
+
+button{
+  position: absolute;
+  left: 22rpx;
+  bottom: 0;
+  width: 94%;
+  height: 100rpx;
+  /* border-radius: 100rpx; */
+  font-size: 38rpx;
+  text-align: center;
+  background-color: red;
+  color: #fff;
+}

@@ -1,0 +1,33 @@
+.row{
+  padding: 20rpx 0;
+  background-color: #f0f0f0;
+}
+.discount{
+  width: 99%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+  border: 2rpx solid #999;
+  background-color: #fff;
+}
+.discount view{
+  display: flex;
+  line-height: 2;
+  flex-direction: column;
+}
+.discount view:nth-child(1){
+  color: red;
+}
+.discount view:nth-child(3){
+  margin-top: 20rpx;
+  padding: 10rpx 26px;
+  height: 64rpx;
+  line-height: 64rpx;
+  background-color: red;
+  color: #fff;
+  border-radius: 42rpx;
+}

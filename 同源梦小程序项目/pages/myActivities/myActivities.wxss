@@ -1,0 +1,76 @@
+.canvas{
+  width: 100%;
+  background-color: #f8f8f8;
+}
+/* 头部 */
+.header {
+  height: 80rpx;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+  /* margin: 0 3%; */
+}
+.header image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.header .icon_search {
+  margin-right: -30rpx;
+}
+input{
+  font-size: 15px;
+}
+
+.selection{
+  width: 90%;
+  height: 550rpx;
+  /* background-color: pink; */
+  margin-left: 38rpx;
+  margin-top: 25rpx;
+}
+.module{
+  width: 100%;
+  height: 500rpx;
+  background-color: white;
+    border-radius: 5%;
+  overflow:hidden;
+  position: relative;
+  box-shadow:5px 5px 10px rgba(0,0,0,0.3);
+}
+
+.images{
+  width: 100%;
+  height: 300rpx;
+  /* background-color: gold; */
+}
+.images image{
+  width: 100%;
+  height: 100%;
+}
+.describe-tilte{
+font-size: 30rpx;
+margin: 10rpx 10rpx;
+}
+.describe-describe{
+  font-size: 27rpx;
+  margin: 6rpx 0rpx 0rpx 10rpx;
+  color: #6a6a6a;
+}
+.money {
+  color: red;
+  position: absolute;
+  margin-left: 520rpx;
+  margin-top: -12px;
+}
+.free{
+    color: #F9A505;
+  position: absolute;
+  margin-left: 520rpx;
+  margin-top: -12px;
+}
+
+
+

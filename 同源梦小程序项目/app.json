@@ -1,0 +1,74 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/shoppingCart/shoppingCart",
+    "pages/goods/goods",
+    "pages/favourable/favourable",
+    "pages/personalCenter/personalCenter",
+    "pages/authentication/authentication",
+    "pages/integral/integral",
+    "pages/phoneBinding/phoneBinding",
+    "pages/myActivities/myActivities",
+    "pages/confirm/confirm",
+    "pages/login/login",
+    
+    "pages/account/account",
+    "pages/searchPage/searchPage",
+    "pages/memberCenter/memberCenter",
+    "pages/videoPlay/videoPlay",
+    "pages/audioPlay/audioPlay",
+    "pages/find/find",
+    "pages/address/address",
+    "pages/paid/paid",
+    "pages/message/message",
+    "pages/cash/cash",
+    "pages/wallet/wallet",
+    "pages/recharge/recharge",
+    "pages/eventDetails/eventDetails",
+    "pages/virtualCourse/virtualCourse",
+    "pages/orderdetails/orderdetails",
+    "pages/bindbankcards/bindbankcards",
+    "pages/collection/collection",
+    "pages/mylession/mylession",
+    "pages/recomend/recomend",
+    "pages/secfan/secfan",
+    "pages/direcfan/direcfan",
+    "pages/pay/pay"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "同源梦幸福学院",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "selectedColor": "#303030",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/indexSelect.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "images/found.png",
+        "selectedIconPath": "images/foundSelect.png"
+      },
+      {
+        "pagePath": "pages/shoppingCart/shoppingCart",
+        "text": "购物车",
+        "iconPath": "images/buy.png",
+        "selectedIconPath": "images/buySelect.png"
+      },
+      {
+        "pagePath": "pages/personalCenter/personalCenter",
+        "text": "我的",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/userSelect.png"
+      }
+    ]
+  }
+}

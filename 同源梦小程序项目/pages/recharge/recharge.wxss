@@ -1,0 +1,68 @@
+.bg{
+  background-color: #f0f0f0;
+}
+
+.recharge{
+  display: flex;
+  justify-content: space-between;
+  color: #999;
+  font-size: 32rpx;
+  line-height: 2;
+  padding: 20rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+  background-color: #fff;
+}
+.recharge image{
+  position: relative;
+  top: 8rpx;
+}
+.money{
+  padding: 20rpx;
+  background-color: #fff;
+}
+.money text{
+  color: #999;
+}
+.money view{
+  display: flex;
+  flex-direction: row;
+  margin-top: 40rpx;
+  font-size: 40rpx;
+  line-height: 2;
+  border-bottom: 1px solid #f0f0f0;
+}
+.money view text{
+  color: #000;
+  font-weight: bold;
+  font-size: 80rpx;
+  position: relative;
+  top: -36rpx;
+}
+.money input{
+  height: 80rpx;
+  font-size: 60rpx;
+  margin-left: 20rpx;
+  line-height: 80rpx;
+}
+.place-holder{
+  color: #e0e0e0;
+}
+.remainder{
+  font-size: 32rpx;
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.remainder text{
+  color: #999;
+}
+.cash{
+  width: 99%;
+  line-height: 3;
+  margin-top: 20rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 20rpx;
+  background: rgba(255, 0, 0, 0.8);
+}

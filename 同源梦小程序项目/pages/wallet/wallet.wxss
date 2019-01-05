@@ -1,0 +1,70 @@
+.wallet{
+  color: #fff;
+  width: 100%;
+  padding: 40rpx 0;
+  text-align: center;
+  min-height: 160rpx;
+  background-color: rgba(255, 0, 0, 0.7);
+}
+.money{
+  display: flex;
+  flex-direction: column;
+  line-height: 2;
+}
+.money text:nth-child(1){
+   font-size: 60rpx;
+   font-weight: bold;
+}
+.activity{
+  font-weight: 600;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.activity image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+  position: relative;
+  top: 12rpx;
+}
+.content{
+  padding-bottom: 120rpx;
+  background-color: #f0f0f0;
+}
+.set{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  line-height: 3;
+  background-color: #fff;
+  margin: 20rpx 0;
+}
+.set image{
+  position: relative;
+  top: 30rpx;
+}
+.pay{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+  padding:20rpx;
+  line-height: 2;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+.add{
+  margin-right:20rpx;
+}
+.footer{
+  width: 100%;
+  line-height: 2;
+  position: fixed;
+  bottom: 0;
+  font-size: 32rpx;
+  color: rgb(0, 162, 255);
+  text-align: center;
+  background: #f0f0f0;
+}
+

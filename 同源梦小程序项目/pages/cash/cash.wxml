@@ -1,0 +1,24 @@
+<view class='bg'>
+   <view class='recharge'>
+   <text>充值方式</text>
+   <view>
+     <text>{{cash.card}}</text>
+     <image class='pic' src='{{cash.imagePath}}'></image>
+   </view>
+   </view>
+<view class='money'>
+    <text>充值金额</text>
+    <view>
+    <text>￥</text>
+    <input bindinput="bindKeyInput" placeholder-class='place-holder' placeholder="请输入提现金额" value='{{searchinput}}' />
+    </view>
+    
+</view>
+<view class='remainder'>
+     <text>可提现余额￥10000</text>
+     <text>全部提现</text>
+</view>
+<view class='cash'>
+     <text>2小时到账，确认提现</text>
+</view>
+</view>

@@ -1,0 +1,14 @@
+<view class='row'>
+  <view class='discount' wx:for="{{discount}}">
+    <view>
+      <text>{{item.money}}</text>
+      <text>{{item.dikou}}</text>
+      
+    </view>
+    <view>
+      <text>{{item.name}}</text>
+      <text>{{item.manjian}}</text>
+    </view>
+    <view>{{item.use}}</view>
+  </view>
+</view>

@@ -1,0 +1,52 @@
+page{
+  height: 55%;
+  background-color:#eeeeee;
+  position: relative;
+}
+.box{
+  background-color: #fff;
+  font-size: 32rpx;
+  
+}
+.authentication_info{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx;
+}
+.detail{
+  height: 30rpx;
+  border-bottom: 1px solid #ccc;
+  text-align: right;
+  padding-top: 60rpx;
+  padding-bottom: 30rpx;
+}
+.detail text{
+  float: left;
+}
+.detail input{
+  float: right;
+}
+.detail picker{
+  float: right;
+}
+
+.id_number{
+  margin-bottom: 20rpx;
+}
+
+button{
+  position: absolute;
+  left: 22rpx;
+  bottom: 0;
+  width: 94%;
+  height: 100rpx;
+  /* border-radius: 100rpx; */
+  font-size: 38rpx;
+  text-align: center;
+  background-color:#F53F2C;
+  color: #fff;
+}
+.asterisk{
+  color: #F53F2C;
+}

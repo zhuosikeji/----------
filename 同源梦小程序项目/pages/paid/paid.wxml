@@ -1,0 +1,69 @@
+<view class='header'>
+   <view class='title'>
+   <text>买家已付款</text>
+   </view>
+    <view class='userInfo'>
+    <view class='name'>
+    <text class='user'>收货人：{{order.username}}</text>
+    <text class="tel">{{order.telephone}}</text>
+    </view>
+    <view class="address">
+      <image class="map" src='{{order.imagePath[0]}}'></image>
+      <text> 收货地址：{{order.address}}</text>
+     </view>
+  </view>
+</view>
+<view class='content'>
+    <view class='storename'>
+       <image class='pic' src='{{order.imagePath[1]}}'></image>
+       <text>{{order.storename}}</text>
+    </view>
+    <view class='goods'>
+      <image class='goodsPic' src='{{goodsInfo.imagePath}}'></image>
+      <text class='goodsname'>{{goodsInfo.name}}</text>
+      <view>
+         <text class='goodsprice'>{{goodsInfo.price}}</text>
+         <text class='goodsnumber'>x{{goodsInfo.number}}</text>
+      </view>
+      <text class='goodsBtn'>七天退换</text >
+       <view class='backpaid'>
+       <text>退款</text>
+       </view>
+     </view>
+    <view class='price'>
+       <view class='confirm'>
+          <view>
+             <text>商品总价</text>
+             <text>{{order.price}}</text>
+          </view>
+          <view>
+              <text>运费 （快递）</text>
+              <text>{{order.delivery}}</text>
+          </view>
+          <view>
+               <text>订单总价</text>
+               <text class='black'>{{order.price}}</text>
+          </view>
+       </view>
+       <view>
+           <text>实付款</text>
+           <text class='red'>{{order.price}}</text>
+       </view>
+    </view>
+    <view class='integral'>
+       <view>
+          <text>积分</text>
+          <text>返积分{{order.point}}点</text>
+       </view>
+       <view>
+           <text>联系卖家</text>
+       </view>
+    </view>
+</view>
+
+
+
+
+<view class='footer'>
+
+</view>

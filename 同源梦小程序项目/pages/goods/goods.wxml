@@ -1,0 +1,92 @@
+<view class='goodspic'>
+   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150" />
+    </swiper-item>
+  </block>
+</swiper>
+      <view class='goodsInfo'>   
+          <text class='info'>{{goods.productTitle}}</text>
+          <view>
+           <image class='share' src='../image/share.svg'>分享</image>
+           <text >分享</text>
+           </view>
+          <view>
+               <view class="price">
+                   <text>￥{{goods.memberPrice}}</text>
+               </view>
+               <view>价格<text>￥{{goods.originalPrice}}</text></view>
+               <view class='sale'>
+                   <text>快递：5.00</text>
+                   <text>月销：{{goods.productSales}}</text>
+                   <text>广东深圳</text>
+               </view>
+          </view>
+      </view>
+</view>
+<view class='content'>
+   <view class='discount'>
+      <view>
+         <text>同缘梦购物券</text>
+         <text>全同梦缘商品共用</text>
+      </view>
+      <text class='linqu'>领取</text>
+   </view>
+   <view class='jifen'>
+      <text class='integral'>积分</text>
+      <text>购买可得{{goods.price}}积分</text>
+   </view>
+   <view class='confirm'>
+       <view>
+          <text>急速退货</text>
+          <text>正品保证</text>
+          <text>赠运险费</text>
+          <text>极速退款</text>
+       </view>
+       <view>
+          <text>同梦缘无忧购</text>
+          <text>为您的购物保驾护航</text>
+       </view>
+   </view>
+
+   <view class='goodsinfo'>
+      <view>
+      <text>送至 ：福建厦门思明莲前软件园二期海路</text>
+      <image class='pic' src='../image/right.svg'></image>
+      </view>
+      <view>
+        <text>ISBN : 978-7-302-22446-4</text>
+        <image class='pic' src='../image/right.svg'></image>
+      </view>
+   </view>
+
+   <view class='appraise'>
+      <text class='appTitle'>商品评价（123435）</text>
+      <text class='appraiseinfo' wx:for="{{appraiseList}}">{{item.appraise}}({{item.count}})</text>
+   </view>
+    <view class='user'>
+          <text>{{appraiseInfo.name}}</text>
+          <text>{{appraiseInfo.info}}</text>
+          <text>查看全部评价</text>
+   </view>
+   <text>继续拖动，查看图文详情</text>
+</view>
+
+
+<view class='footer'>
+       <view>
+         <image class='fotpic' src='../image/service2.svg'></image>
+         <text>客服</text>
+       </view>
+       <view>
+         <image class='fotpic' src='../image/store2.svg'></image>
+         <text>进店</text>
+       </view>
+       <view>
+          <image class='fotpic' src='../image/collect.svg'></image>
+          <text>收藏</text>
+       </view>
+       <text catchtap='JoinShoppingCart'>加入购物车</text>
+       <text>立即购买</text>
+   </view>

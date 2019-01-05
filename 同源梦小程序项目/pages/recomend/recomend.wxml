@@ -1,0 +1,35 @@
+<view class='rechead'>
+  <image src='../img/head.png'></image>
+  <view class='nickname'>初晴</view>
+  <view class='integral-value'>积分值：3456</view>
+</view>
+<view class='scan-img'>
+  <image src='../img/scan.jpg'></image>
+</view>
+<view class='scanbrif'>
+  扫一扫加我粉丝
+</view>
+<view class='recomendimg'>
+  <image src='../img/recomd.png'></image>
+</view>
+<view class='pl5'>
+  <view> 说明：</view>
+  <view>
+    1.您在购买任一会员时，您将享受您的粉丝购买会员的优惠。
+  </view>
+  <view>
+    2.分享此二维码，有人通过二维码点进来即可成为你的指数粉丝，您的粉丝再次推广，即可获得二级粉丝。
+  </view>
+</view>
+<view class='recoper'>
+  <text>我的推荐人</text>
+  <text class='recoperr'>小明</text>
+</view>
+<view class='directfan'>
+  <text>我的直属粉丝</text>
+  <image src='../img/dreri.png' bindtap='directfan'></image>
+</view>
+<view class='secfan'>
+  <text>我的二级粉丝</text>
+  <image src='../img/dreri.png' bindtap='secfan'></image>
+</view>

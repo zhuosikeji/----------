@@ -1,0 +1,39 @@
+<view class='row'>
+   <view>
+      <view class='header'>
+         <view>
+          <text>请选择代收货服务</text>
+             <image class='question pic' src='{{header.imagePath[0]}}'></image>
+         </view>
+         <image class='right pic' src='{{header.imagePath[1]}}'></image>
+      </view>
+         <view class='header_b'>
+             <view class='distance'>
+                <text>附近驿站</text>
+                <text>距离所选地址{{ header.distance}}米</text>
+             </view>
+             <view class='selected'>
+                <text class='recommend'>[推荐驿站]</text>
+                <navigator url='#'>{{ header.address}}</navigator>
+                <checkbox></checkbox>
+             </view>
+             <view class='default'>
+                <text>使用菜鸟驿站默认同意代收条例</text>
+                <image class='pic' src='{{header.imagePath[2]}}'></image>
+             </view>
+         </view>
+   </view>
+   <view class='select'>
+       <view>
+          <view class='item' wx:for="{{userInfolist}}">
+           <view>
+           <text>{{item.username}}</text>
+           <text>{{item.telephone}}</text>
+           </view>
+           <text>{{item.address}}</text>
+           <checkbox></checkbox>
+         </view>
+       </view>
+    </view>
+    <button type='warn'>新增收货地址</button>
+</view>

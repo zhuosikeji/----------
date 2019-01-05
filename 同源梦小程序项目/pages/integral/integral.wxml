@@ -1,0 +1,53 @@
+
+
+<view class='.box'>
+  <view class='space'></view>
+
+  <view class='user_info'>
+      <image src='../images/labixiaoxin.jpg' class='user_img'></image>
+      <view class='user_detail'>
+        <text class='user_nickname'>{{user.nickname}}</text>
+        <view class='user_jifen'>
+          <text>我的积分</text>
+          <text class='jifen_number'>{{user.jifenTotal}}</text>
+        </view>
+      </view>
+  </view>
+
+  <view class='space'></view>
+
+  <view>
+    <view class='jifen_history'>
+      <text>积分交易记录</text>
+    </view>
+  
+    <!-- <block wx:for="{{user.jifenDetail}}" wx:for-item="item">
+      <view class='jifen_deatil'>
+        <view  class='jifen_text'>
+          <text>{{item.jifenName}}</text>
+        </view>
+        <view class='jifen_type'>
+          <text>{{item.jifenType}}</text>
+        </view>
+        <view class='jifen_num'>
+          <text>+{{item.jifenNumber}}</text>
+        </view>
+        <view class='jifen_date'>
+          <text>{{item.jifenDate}}</text>
+        </view>
+      </view>
+      </block> -->
+
+<block wx:for="{{user.jifenDetail}}" wx:for-item="item">
+      <view class='flinter'>
+          <text class='fx1'>{{item.jifenName}}</text> 
+           <text class='fx1'>{{item.jifenType}}</text> 
+           <text class='fx1 cored'>{{item.jifenNumber}}</text>  
+          <text class='fx2'>{{item.jifenDate}}</text>   
+      </view>
+ </block>
+   
+  </view>
+
+
+</view>

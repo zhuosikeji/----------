@@ -1,0 +1,86 @@
+.item{
+  padding: 30rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+  background-color: #fff;
+}
+.item:last-child{
+  border-bottom: none;
+}
+.item view:nth-child(1){
+  display: flex;
+  flex-direction: row;
+  margin-right:40rpx;
+}
+.prompt{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+	/* 超出部分隐藏 */
+	overflow:hidden;
+	/*不换行*/
+	white-space:nowrap;
+	/*添加...*/
+	text-overflow:ellipsis;
+}
+.prompt view:nth-child(1){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.time{
+  display: flex;
+  justify-content: space-around;
+}
+.prompt text:nth-child(2){
+  font-size: 32rpx;
+}
+.mesPic{
+  width: 80rpx;
+  height: 80rpx;
+  background-color: rgb(14, 131, 14);
+  border-radius: 20rpx;
+  padding: 10rpx;
+  text-align: center;
+  margin-right: 20rpx;
+  position: relative;
+}
+.mesPic image{
+  width: 70rpx;
+  height:70rpx;
+}
+.circle{
+  width: 40rpx;
+  height: 40rpx;
+  background-color: red;
+  border-radius: 50%;
+  color: #fff;
+  padding: 4rpx;
+  text-align: center;
+  position: absolute;
+  right: -16rpx;
+  top: -24rpx;
+}
+.content{
+  background-color: #f0f0f0;
+  padding: 10rpx 0;
+  padding-bottom: 100rpx;
+}
+.contPic{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  background-color:red;
+  padding: 8rpx;
+  text-align: center;
+  position: relative;
+}
+.contPic image{
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+}
+
+
+

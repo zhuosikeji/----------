@@ -1,0 +1,188 @@
+page {
+  background-color: #f7f7f7;
+}
+
+.space-bewteen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding:20rpx 80rpx;
+  font-size: 28rpx;
+  box-shadow: 4rpx 30rpx 4rpx #e0e0e0;
+}
+.userInfo{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20rpx;
+}
+.name{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  font-size: 34rpx;
+}
+.address{
+  padding: 20rpx 20rpx;
+  position: relative;
+}
+.map{
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: -40rpx;
+  top: 20rpx;
+}
+.edit{
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: -40rpx;
+  top: 20rpx;
+}
+.no-actived{
+  line-height: 36rpx;
+  color: orange;
+}
+/* 商品订单区 */
+.goodsList {
+  margin: 30rpx 0;
+  background-color: #fff;
+}
+.goodsInfo{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  padding: 20rpx 16rpx;
+  position: relative;
+}
+.goodstitle{
+  /* font-weight: bold; */
+  font-size: 40rpx;
+  line-height: 2;
+}
+.goods{
+  width: 100%;
+  min-height: 400rpx;
+  padding: 20rpx 40rpx 20rpx 260rpx;
+  background-color: #EEE;
+  box-sizing: border-box;
+  position: relative;
+}
+.goods view{
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.goodsPic{
+  width:200rpx;
+  height: 260rpx;
+  position: absolute;
+  left: 36rpx;
+  top: 40rpx;
+  z-index: 2;
+}
+.dis_pic{
+  width: 70rpx;
+  height: 66rpx;
+}
+.goodsprice{
+  line-height: 3;
+  font-size: 36rpx;
+}
+.goodsnumber{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: red;
+  font-size: 36rpx;
+}
+.goodsBtn{
+  width: 160rpx;
+  color: red;
+  border: 1px solid red;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 36rpx;
+  display: flex;
+  justify-content: center;
+  margin-top: 40rpx;
+}
+.sends{
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-between;
+  position: relative;
+  bottom: 72rpx;
+  padding: 0 40rpx;
+}
+.sendsPic{
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: -2rpx;
+  top: 8rpx;
+}
+.delivery{
+  min-height: 600rpx;
+  padding: 20rpx 20rpx;
+  position: relative;
+}
+.item{
+   display: flex;
+   justify-content: space-between;
+   height: 60rpx;
+   line-height: 60rpx;
+   border-bottom: 2rpx solid lightgray;
+   padding: 20rpx 40rpx 20rpx 10rpx;
+}
+.item .sendsPic{
+  position: position;
+  right: 18rpx;
+  top: 46rpx;
+}
+.item .sendsPic{
+  position: position;
+  right: 18rpx;
+  top: 48rpx;
+}
+/* .item text:nth-child(2){
+  font-size: 26rpx;
+} */
+.item input{
+  color: #999;
+}
+.item:nth-child(3) text:nth-child(2){
+  color: red;
+}
+.count{
+  padding: 20rpx;
+  display: flex;
+  margin-top: 80rpx;
+  justify-content: flex-end;
+}
+.count text:nth-child(2){
+  color: red;
+}
+.submit{
+  height: 100rpx;
+  width: 100%;
+  margin: 0 auto;
+  border: 4rpx solid lightgray;
+  display: flex;
+  padding-left: 20rpx;
+  justify-content: space-between;
+  line-height: 100rpx;
+}
+.submit text{
+  color: red;
+}
+button{
+  margin: 0;
+  border-radius: 0;
+}
+
+
