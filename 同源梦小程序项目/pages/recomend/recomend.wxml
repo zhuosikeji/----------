@@ -1,7 +1,9 @@
 <view class='rechead'>
-  <image src='../img/head.png'></image>
-  <view class='nickname'>初晴</view>
-  <view class='integral-value'>积分值：3456</view>
+  <view class='rechead1'>
+    <image src='{{avatarUrl}}'></image>
+  </view>
+  <view class='nickname'>{{nickName}}</view>
+  <!-- <view class='integral-value'>积分值：3456</view> -->
 </view>
 <view class='scan-img'>
   <image src='../img/scan.jpg'></image>
@@ -23,13 +25,13 @@
 </view>
 <view class='recoper'>
   <text>我的推荐人</text>
-  <text class='recoperr'>小明</text>
+  <text class='recoperr'>{{refereesUserNickName}}</text>
 </view>
-<view class='directfan'>
+<view class='directfan' bindtap='secfan'>
   <text>我的直属粉丝</text>
-  <image src='../img/dreri.png' bindtap='directfan'></image>
+  <image src='../img/dreri.png'></image>
 </view>
-<view class='secfan'>
+<!-- <view class='secfan'>
   <text>我的二级粉丝</text>
   <image src='../img/dreri.png' bindtap='secfan'></image>
-</view>
+</view> -->
