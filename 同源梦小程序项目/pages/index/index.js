@@ -369,49 +369,36 @@ Page({
     })
   },
   /**
-   * 跳转虚拟课程
-   */
-  ToVirtual:function(e){
-    var index = e.currentTarget.dataset.index;
-    var firstClassify = e.currentTarget.dataset.fristclassify;
-    var TotalList = this.data.TotalList;
-    var TotalIndex = "";
-    if (firstClassify == 'BookItem') {
-      TotalIndex = index;
-    } else if (firstClassify == 'AudioItem') {
-      TotalIndex = index + 4;
-    } else if (firstClassify == 'VideoItem') {
-      TotalIndex = index + 8;
-    }
-    var productInfo = JSON.stringify(TotalList[TotalIndex]);
-    wx: wx.navigateTo({
-      url: '../virtualCourse/virtualCourse?productInfo=' + productInfo,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-  /**
    * 跳转商品详情
    */
   ToGoods: function(e) {
+    console.log(e);
+    
     var index = e.currentTarget.dataset.index;
     var firstClassify = e.currentTarget.dataset.fristclassify;
     var TotalList = this.data.TotalList;
     var TotalIndex = "";
+    console.log('index:'+ index);
     if (firstClassify == 'BookItem') {
       TotalIndex = index;
-    } else if (firstClassify == 'AudioItem') {
+      var productInfo = JSON.stringify(TotalList[TotalIndex])
+      wx: wx.navigateTo({
+        url: '../goods/goods?productInfo=' + productInfo,
+      })
+    } if (firstClassify == 'AudioItem') {
       TotalIndex = index + 4;
+      var productInfo = JSON.stringify(TotalList[TotalIndex])
+      wx: wx.navigateTo({
+        url: '../virtualCourse/virtualCourse?productInfo=' + productInfo,
+      })
     } else if (firstClassify == 'VideoItem') {
       TotalIndex = index + 8;
+      var productInfo = JSON.stringify(TotalList[TotalIndex])
+      wx: wx.navigateTo({
+        url: '../virtualCourse/virtualCourse?productInfo=' + productInfo,
+      })
     }
-    var productInfo = JSON.stringify(TotalList[TotalIndex])
-    wx: wx.navigateTo({
-      url: '../goods/goods?productInfo=' + productInfo,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+    console.log('TotalIndex:'+TotalIndex);
+   
   }
 })
