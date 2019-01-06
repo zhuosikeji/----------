@@ -71,6 +71,7 @@ page {
   background-color: #EEE;
   box-sizing: border-box;
   position: relative;
+  margin-bottom: 10rpx;
 }
 .goods view{
   margin-top: 40rpx;
@@ -221,5 +222,11 @@ button{
   margin: 0;
   border-radius: 0;
 }
-
+.pay{
+  background-color: red;
+  color: white;
+  margin-right: 40rpx;
+  padding: 0 20rpx;
+  border-radius: 20rpx;
+}
 

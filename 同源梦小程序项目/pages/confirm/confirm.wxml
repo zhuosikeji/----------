@@ -15,36 +15,36 @@
 </view>
 
 <!-- 商品循环开始 -->
-<view class='goodsList' wx:for="{{goodsList}}">
+<view class='goodsList'>
   <view class='goodsInfo'>
     <text class='goodstitle'>商品信息</text>
-    <view class='goods'>
+    <view class='goods' wx:for="{{goodsList}}">
       <image class='goodsPic' src='{{item.productImage}}'></image>
       <text class='goodsname'>{{item.productName}}</text>
       <view class='space-bewteen'>
-        <text class='goodsprice'>￥{{item.oldprice}}</text>
+        <text class='goodsprice'>￥{{item.price}}</text>
         <text class='goodsnumber'>x{{item.count}}</text>
       </view>
       <text class='goodsBtn'>七天退换</text >
   </view>
-  <view class='sends'>
+</view>
+  <!-- <view class='sends'>
     <text>配送方式</text>
       <text>快递免邮</text>
-    </view>
+    </view> -->
   </view>
   <view class='delivery'>
-
     <view class='item'>
       <text>买家留言：</text>
       <input bindinput="bindKeyInput" placeholder="选填：对本次交易的说明"></input>
     </view>
     <view class='item'>
-      <text>积分抵扣</text>
-      <text>￥10</text>
+      <text>可用积分</text>
+      <text>{{integral}}</text>
     </view>
     <view class='item'>
       <text>优惠券</text>
-      <image bindtap='favourable' class='dis_pic' src='http://47.107.183.112/img/downArrow.png' bindtap="toggle"></image>
+      <image class='dis_pic' src='http://47.107.183.112/img/downArrow.png'></image>
     </view>
     <view id='box'>
       <view class='discount' wx:for="{{coupon}}">
@@ -64,13 +64,13 @@
       <text>{{delivery.discount}}折</text>
     </view>
     <view class='count'>
-      <text>共1件商品  小计</text>
-      <text>￥66.00</text>
+      <text>共{{TotalCount}}件商品  小计</text>
+      <text>￥{{TotalPrice}}</text>
     </view>
   </view>
-</view>
-<view class='submit'>
-  合计：
-  <text>￥66.00</text>
-  <button bindtap='paid' type="warn" size="{{warnSize}}">提交订单</button>
-</view>
+
+  <view class='submit'>
+    合计：
+    <text>￥{{TotalPrice}}</text>
+    <view bindtap='pay' class='pay'>提交订单</view>
+  </view>
