@@ -368,6 +368,29 @@ Page({
     })
   },
   /**
+   * 跳转虚拟课程
+   */
+  ToVirtual:function(e){
+    var index = e.currentTarget.dataset.index;
+    var firstClassify = e.currentTarget.dataset.fristclassify;
+    var TotalList = this.data.TotalList;
+    var TotalIndex = "";
+    if (firstClassify == 'BookItem') {
+      TotalIndex = index;
+    } else if (firstClassify == 'AudioItem') {
+      TotalIndex = index + 4;
+    } else if (firstClassify == 'VideoItem') {
+      TotalIndex = index + 8;
+    }
+    var productInfo = JSON.stringify(TotalList[TotalIndex]);
+    wx: wx.navigateTo({
+      url: '../virtualCourse/virtualCourse?productInfo=' + productInfo,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  /**
    * 跳转商品详情
    */
   ToGoods: function(e) {
