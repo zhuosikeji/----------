@@ -92,12 +92,14 @@ Page({
     wx.showModal({
       title: '成功添加购物车！！！',
       content: '可在购物车中修改商品数量！',
-      showCancel: true,
-      confirmText: '去购物车',
+      showCancel: false,
+      confirmText: '返回',
       success: function (res) {
         if (res.confirm) {
           //商品添加购物车接口
           var id = that.data.goods.id;
+          console.log("id:" + id);
+          console.log("userId:" + app.globalData.uid);
           wx.request({
             url: app.globalData.url + '/api/productCart/addToProductCart?sid=' + app.globalData.sid + "&userId=" + app.globalData.uid + "&productId=" + id,
             method: "POST",
@@ -108,13 +110,6 @@ Page({
               console.log(res);
              
             }
-          })
-        
-          wx.switchTab({
-            url: '../shoppingCart/shoppingCart',
-            success: function(res) {},
-            fail: function(res) {},
-            complete: function(res) {},
           })
         }
       }

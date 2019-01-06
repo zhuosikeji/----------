@@ -23,12 +23,15 @@ Page({
     delivery:{
       discount:"8.5",
       integral:"2000"
-    }
+    },
+    inputValue:""
   },
   onLoad: function (options){
-    var productList = JSON.parse(options.productList);
-    console.log(productList);
+    console.log(options);
+    // var productList = JSON.parse(options.productList);
+    // console.log(productList);
   },
+
   bindKeyInput(e) {
     this.setData({
       inputValue: e.detail.value
