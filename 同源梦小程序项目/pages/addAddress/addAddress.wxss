@@ -30,6 +30,7 @@ margin-bottom: 10rpx;
 }
 .detail input{
   float: right;
+  margin-right: 10rpx;
 }
 .detail picker{
   float: right;
@@ -52,18 +53,7 @@ button{
 .asterisk{
   color: #F53F2C;
 }
-  
 
-
-
-
-
-
-
-
-
-
-  
 .section {
   padding-top: 20rpx;
 } 
