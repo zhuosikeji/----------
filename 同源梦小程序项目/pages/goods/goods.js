@@ -108,7 +108,7 @@ Page({
             },
             success: function (res) {
               console.log(res);
-             
+              console.log('url:' + app.globalData.url + '/api/productCart/addToProductCart?sid=' + app.globalData.sid + "&userId=" + app.globalData.uid + "&productId=" + id);
             }
           })
         }

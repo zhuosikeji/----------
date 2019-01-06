@@ -13,7 +13,6 @@ Page({
   onLoad: function() {
     //获取用户购物车内容
     this.getAllProductFirstClassify();
-    
   },
   /**
    * 从后台获取用户购物车信息
@@ -53,6 +52,7 @@ Page({
           console.log(product);
           productList[x++] = product;
         }
+        console.log('productList:');
         console.log(productList);
         that.setData({
           'productList': productList
@@ -77,8 +77,22 @@ Page({
         duration: 2000
       })
     } else {
+      var productList = that.data.productList;
+      var x = 0;
+      var ToproductList = [];
+      for (var i = 0; i < productList.length; i++) {
+        if(productList[i].checked == true){
+          var product = productList[i];
+          ToproductList.push(product);
+        }
+      }
+      console.log("ToproductList:");
+      console.log(ToproductList);
+      //购物车数据存到app里，因为url传递参数有长度限制，所以只能这么搞
+      app.globalData.productCartList = ToproductList;
+      console.log(app.globalData.productCartList);
       wx.navigateTo({
-        url: '../confirm/confirm?productList=' + JSON.stringify(that.data.productList)
+        url: '../confirm/confirm'
       })
     }
   },
@@ -224,7 +238,7 @@ Page({
     this.calculateTotal();
   },
   /**
-   * 用户点击全选 TODO
+   * 用户点击全选
    */
   checkAll: function(e) {
     console.log('用户点击全选，携带value值为：', e.detail.value);

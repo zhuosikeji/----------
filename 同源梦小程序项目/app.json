@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+        "pages/confirm/confirm",
+   
     "pages/shoppingCart/shoppingCart",
     "pages/goods/goods",
     "pages/favourable/favourable",
@@ -9,7 +11,7 @@
     "pages/integral/integral",
     "pages/phoneBinding/phoneBinding",
     "pages/myActivities/myActivities",
-    "pages/confirm/confirm",
+
     "pages/login/login",
     
     "pages/account/account",
