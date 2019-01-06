@@ -1,27 +1,30 @@
 <view class='p5'>
   <view>
     <text class='menutolmon'>订单总金额</text>
-    <text class='moneytoll'>￥9.9</text>
+    <text class='moneytoll'>￥{{TotalPrice}}</text>
   </view>
   <view class='bkee10'></view>
   <view class='choseway'>请选择支付方式</view>
-  <view class='wxpay'>
+  <radio-group>
+  <view class='otherpay'>
     <text class='wxpay1'>微信支付</text>
-    <checkbox checked="true" color='red' class='wxpay11' />
+    <radio checked="true" color='red' class='wxpay11' />
   </view>
-  <view class='balancepay'>
+  <view class='otherpay'>
     <text class='balancepay1'>余额支付</text>
-    <checkbox checked="true" color='red' class='balancepay11' />
+    <radio checked="true" color='red' class='balancepay11' />
   </view>
-  <view class='bankpay'>
+  <view class='otherpay'>
     <text class='bankpay1'>银行卡支付</text>
-    <checkbox checked="true" color='red' class='bankpay11' />
+    <radio checked="true" color='red' class='bankpay11' />
   </view>
   <view class='otherpay'>
     <text class='otherpay1'>第三方支付</text>
-    <checkbox checked="true" color='red' class='otherpay11' />
+    <radio checked="true" color='red' class='otherpay11' />
   </view>
+  </radio-group>
 </view>
+
 <view class='atpay'>
   <view class='redbtnpay'>立即支付</view>
 </view>

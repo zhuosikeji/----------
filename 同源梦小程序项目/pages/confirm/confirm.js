@@ -48,11 +48,11 @@ Page({
   },
   pay: function() {
     //TODO 支付
-
+    var that = this
     //支付成功存储订单
     this.createOrder();
     wx.navigateTo({
-      url: '../paid/paid',
+      url: '../pay/pay?TotalPrice=' + that.data.TotalPrice,
     })
   },
   /**
