@@ -122,6 +122,7 @@ Page({
                 that.requestCarousel();
                 that.getAllProductFirstClassify();
               }
+ 
             }
           });
         } else {
@@ -268,8 +269,6 @@ Page({
 
   },
 
-
-
   /**
    * 查询所有一级分类
    */
@@ -287,6 +286,8 @@ Page({
         var firstClassifyList = that.data.firstClassifyList;
         var FromList = res.data.data.hcProductFirstClassifyList;
         app.globalData.firstClassifyList = FromList;
+        console.log('===================');
+        console.log(app.globalData.firstClassifyList);
         for (var i = 0; i < FromList.length - 1; i++) {
           firstClassifyList[i] = FromList[i].id;
         }
