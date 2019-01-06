@@ -1,51 +1,50 @@
 <view class='canvas'>
   <!-- 展示栏开始啦 -->
   <view class="selection">
-      <view class='module'>
-           <!-- 图片 -->
-            <view class="detail-images">
-                  <image src='{{activities.coverPath}}'></image>
-            </view>
-            <!-- 描述 -->
-            <view class="detail">
-                  <view class='detail-tilte'>
-                   <text>{{activities.productTitle}}</text>
-                 </view>
-                 <view class='detail-describe'>
-                  <text>地点：{{activities.activitiPlace}}</text>
-                 </view>
-                 <view class='detail-describe'>
-                 <text>时间：{{activities.beginTime}}至{{activities.endTime}}</text>
-                 </view>
-                 <view class='detail-money'>
-                       <text>{{activities.price}}</text>
-                 </view>
-            </view>
+    <view class='module'>
+      <!-- 图片 -->
+      <view class="detail-images">
+        <image src='{{activitiesList.coverPath}}'></image>
+      </view>
+      <!-- 描述 -->
+      <view class="detail">
+        <view class='detail-tilte'>
+          <text>{{activitiesList.productTitle}}</text>
         </view>
+        <view class='detail-describe'>
+          <text>地点：{{activitiesList.activitiPlace}}</text>
+        </view>
+        <view class='detail-describe'>
+          <text>时间：{{activitiesList.beginTime}}至{{activitiesList.endTime}}</text>
+        </view>
+        <view class='detail-money' style='color="{{item.showColor}}"'>
+          <text>{{activitiesList.price}}</text>
+        </view>
+      </view>
+    </view>
   </view>
   <!-- 展示栏结束了 -->
   <!-- 活动介绍模块开始啦 -->
-    <view class='activity-introduced' >
-              <view class='introduce'>
-                      <text>活动介绍</text>
-              </view>
-             <view class='activity-details' style="-webkit-line-clamp:{{rows}}">
-                  <text>{{activities.activitiIntroduction}}</text>
-             </view>
-                <view bindtap="change" class="more">{{isFolded?'点击查看更多':'收起'}}</view> 
+  <view class='activity-introduced'>
+    <view class='introduce'>
+      <text>活动介绍</text>
     </view>
-   <!-- 活动介绍模快结束了 -->
-   <!-- 图片展示模块开始了 -->
-   <view>
-              <view class='introduce'>
-                      <text>活动图片</text>
-              </view>
-              <view  class='activity-picture'>
-                    <view class='picture-detail' wx:for="{{activities.imgArr}}">
-                          <image src='{{item}}' data-index='{{index}}' bindtap='previewImg'></image>
-                    </view>
-              </view>
-   </view>
-   <!-- 图片展示模块结束了 -->
+    <view class='activity-details' style="-webkit-line-clamp:{{rows}}">
+      <text>{{activitiesList.activitiIntroduction}}</text>
+    </view>
+    <view bindtap="change" class="more">{{isFolded?'点击查看更多':'收起'}}</view>
+  </view>
+  <!-- 活动介绍模快结束了 -->
+  <!-- 图片展示模块开始了 -->
+  <view>
+    <view class='introduce'>
+      <text>活动图片</text>
+    </view>
+    <view class='activity-picture'>
+      <view class='picture-detail' wx:for="{{activitiesList.imgArr}}">
+        <image src='{{item}}' data-index='{{index}}' bindtap='previewImg'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 图片展示模块结束了 -->
 </view>
-
