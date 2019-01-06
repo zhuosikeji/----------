@@ -36,10 +36,11 @@ App({
     })
   },
   globalData: {
-    url: "http://xp26cc.natappfree.cc",
+    url: "http://4kj9qt.natappfree.cc",
     userInfo: null,
     sid:null,
     uid:'',
-    firstClassifyList:""
+    firstClassifyList:"",
+    productCartList: null
   }
 })
