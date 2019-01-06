@@ -79,6 +79,13 @@
   right: 0;
   top: 50rpx;
 }
+.delete{
+  display: block;
+  margin-left:613rpx;
+  margin-top: -30rpx;
+  position: absolute;
+  color: #F53F2C;
+}
 
 
 

@@ -15,7 +15,6 @@
              <view class='selected'>
                 <text class='recommend'>[推荐驿站]</text>
                 <navigator url='#'>{{address}}</navigator>
-                <checkbox></checkbox>
              </view>
              <view class='default'>
                 <text>使用菜鸟驿站默认同意代收条例</text>
@@ -31,7 +30,7 @@
            <text>{{item.userPhone}}</text>
            </view>
            <text>{{item.userAddress}}</text>
-           <checkbox></checkbox>
+           <text class='delete' data-index='{{index}}'  bindtap='deletes'>删除</text>
          </view>
        </view>
     </view>
