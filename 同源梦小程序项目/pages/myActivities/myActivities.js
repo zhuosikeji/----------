@@ -39,7 +39,7 @@ Page({
     //data对象中的活动列表
     var activitiesList = that.data.activitiesList;
     wx.request({
-      url: app.globalData.url + '/api/activities/getAllByUserId?&sid=' + app.globalData.sid + '&userId=' + '6ac0cbbd-0d55-49f5-b832-8a3746879101',
+      url: app.globalData.url + '/api/activities/getAllByUserId?&sid=' + app.globalData.sid + '&userId=' + app.globalData.uid ,
       header: {
         'X-Requested-With': 'APP'
       },
