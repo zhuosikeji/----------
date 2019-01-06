@@ -117,6 +117,7 @@ Page({
               console.log('用户已经授权过');
               if (app.globalData.sid == null) {
                 that.login();
+                
               } else {
                 that.requestCarousel();
                 that.getAllProductFirstClassify();
@@ -124,8 +125,6 @@ Page({
  
             }
           });
-
-
         } else {
           wx.redirectTo({
             url: '../login/login'
@@ -138,14 +137,14 @@ Page({
    * 获取用户信息
    */
   getUserInfo: function () {
-    var that = this
+    var that = this;
     _getUserInfo();
     function _getUserInfo() {
       wx.getUserInfo({
         success: function (res) {
           app.globalData.userInfo = res.userInfo;
           console.log('=====================');
-          console.log(app.globalData.userInfo.avatarUrl);
+          console.log(app.globalData.userInfo);
         }
       })
     }

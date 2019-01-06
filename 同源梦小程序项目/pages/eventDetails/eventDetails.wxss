@@ -36,7 +36,7 @@ margin: 20rpx 0 0 30rpx;
   color: #6a6a6a;
 }
 .detail-money  {
-  color: #F9A505;
+  color: red;
   position: absolute;
   margin-left: 570rpx;
   margin-top: -40rpx;

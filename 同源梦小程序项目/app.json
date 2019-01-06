@@ -10,7 +10,7 @@
     "pages/phoneBinding/phoneBinding",
     "pages/myActivities/myActivities",
     "pages/confirm/confirm",
-    "pages/login/login", 
+    "pages/login/login",
     "pages/account/account",
     "pages/searchPage/searchPage",
     "pages/memberCenter/memberCenter",
@@ -31,6 +31,7 @@
     "pages/mylession/mylession",
     "pages/recomend/recomend",
     "pages/secfan/secfan",
+    "pages/direcfan/direcfan",
     "pages/pay/pay"
   ],
   "window": {

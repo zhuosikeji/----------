@@ -1,42 +1,20 @@
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    header:{
-      imagePath: [
-        "../image/question.svg",
-        "../image/right.svg",
-        "../image/warning.svg"
-      ],
       distance:1032,
-      address: "福建省厦门市思明区道前街道明发城明发囤物业旁中通快递"
-    },
-    userInfolist:[
-      {
-        username: "南墙先生",
-        telephone: 18806030603,
-        address: "福建省厦门市思明区道前街道明发城明发囤物业旁中通快递"
-      },
-      {
-        username: "南墙先生1",
-        telephone: 18806030603,
-        address: "福建省厦门市思明区道前街道明发城明发囤物业旁中通快递"
-      },
-      {
-        username:"南墙先生2",
-        telephone: 18806030603,
-        address: "福建省厦门市思明区道前街道明发城明发囤物业旁中通快递"
-      },
-     ]
+      address: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    that.getAddress();
   },
 
   /**
@@ -86,5 +64,40 @@ Page({
    */
   onShareAppMessage: function () {
     
-  }
+  },
+
+  addAddress:function(){
+      wx:wx.navigateTo({
+        url: '../addAddress/addAddress',
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+  },
+  getAddress: function () {
+    var that = this;
+    console.log(app.globalData.uid);
+    wx.request({
+      url: app.globalData.url + '/api/userAddress/getAddress?sid=' + app.globalData.sid + '&userId=' + app.globalData.uid,
+      method: "POST",
+      header: {
+        'X-Requested-With': 'APP'
+      },
+      success: function (res) {
+        console.log(res);
+        var address = "";
+        var addressList = res.data.data.hcUserAddressList;
+        for (var i = 0; i < addressList.length;i++){
+          if(addressList[i].isDefault){
+            address = addressList[i].userAddress;
+          }
+        }
+        that.setData({
+          'addressList': addressList,
+          'address': address,
+        });
+      }
+    })
+  },
+  
 })
