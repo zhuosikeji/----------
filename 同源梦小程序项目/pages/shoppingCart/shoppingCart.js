@@ -41,24 +41,21 @@ Page({
             count: null, //数量
             oldprice: "",
             discount: 1,
-            price: 0,
-            cartId: 0
+            price: 0
           }
           product.productName = productCartVOList[i].productTitle;
-          product.productId = productCartVOList[i].productId;
+          product.productId = productCartVOList[i].id;
           product.productImage = app.globalData.url + ':80/common/file/showPicture.do?id=' + productCartVOList[i].productCovermap; 
           product.discount = productCartVOList[i].productDiscount;
           product.count = productCartVOList[i].productNumber;
           product.oldprice = productCartVOList[i].memberPrice;
-          product.cartId = productCartVOList[i].id
           console.log(product);
           productList[x++] = product;
         }
         console.log('productList:');
         console.log(productList);
         that.setData({
-          'productList': productList,
-          
+          'productList': productList
         })
         //计算总金额
         that.calculateTotal();
@@ -219,14 +216,12 @@ Page({
     var checkboxItems = this.data.productList;
     //获取对应的ID
     var values = e.detail.value;
-    console.log('values:'+values);
     console.log('选取了ID为' + e.detail.value + '的商品');
     for (var i = 0; i < checkboxItems.length; ++i) {
       checkboxItems[i].checked = false;
       for (var j = 0; j < values.length; ++j) {
         if (checkboxItems[i].productId == values[j]) {
           checkboxItems[i].checked = true;
-          console.log('============================');
           break;
         }
       }
@@ -286,7 +281,7 @@ Page({
           // for循环找到选中的商品并将其从数组删掉
           for (var i = 0; i < productList.length; i++) {
             if (productList[i].checked == true) {
-              ids += productList[i].cartId + ",";
+              ids += productList[i].ids + ",";
               productList.splice(i, 1);
             }
           }

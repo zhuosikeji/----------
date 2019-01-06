@@ -42,12 +42,22 @@ Page({
     ],
     category: [{
         categoryName: "管理",
-        class: "",
-        id: ""
+        class: ""
       }, {
         categoryName: "文学",
-        class: "",
-        id:""
+        class: ""
+      }, {
+        categoryName: "教育",
+        class: ""
+      }, {
+        categoryName: "文化",
+        class: ""
+      }, {
+        categoryName: "心理学",
+        class: ""
+      }, {
+        categoryName: "法律",
+        class: ""
       }],
     // 商品类型样式 
     // 索引对应字段：0：实体商品 1：音频 2：视频 3：线下活动
@@ -68,79 +78,10 @@ Page({
     this.setData({
       'searchinput': keyword
     })
-    this.getSecondClassify();
     // TODO正则验证价格区间是否为正整数 若不是则弹框
     // var myreg = /^[1 - 9]\d*$/;
     // console.log(myreg.test('aasd'));
     // TODO综合，销量，价格筛选，调整商品数组顺序
-  },
-  /**
-   * 拿二级分类
-   */
-  getSecondClassify:function(){
-    var that = this;
-    var typesBtnActive = this.data.typesBtnActive;
-    var firstClassifyId = "";
-    for (let i = 0; i < typesBtnActive.length; i++){
-      if (typesBtnActive[i] == "btnActive"){
-        firstClassifyId = app.globalData.firstClassifyList[i].id;
-      }
-    }
-    wx.showLoading({
-      title: '加载中',
-      mask: true
-    })
-    wx.request({
-      url: app.globalData.url + '/api/product/getSecondClassify?sid=' + app.globalData.sid + "&firstClassifyId=" + firstClassifyId,
-      method: "POST",
-      header: {
-        'X-Requested-With': 'APP'
-      },
-      success: function (res) {
-        console.log(res);
-        // category: [{
-        //   categoryName: "管理",
-        //   class: "",
-        //   id: ""
-        // }
-        var SecondClassifyList = res.data.data.hcProductSecondClassifyList;
-        var category = [];
-        for (let i = 0; i < SecondClassifyList.length;i++){
-          var SecondClassify = new Object;
-          SecondClassify.categoryName = SecondClassifyList[i].secondClassName;
-          SecondClassify.class = "";
-          SecondClassify.id = SecondClassifyList[i].id;
-          category.push(SecondClassify);
-        }
-        that.setData({
-          'category': category
-        })
-        wx.hideLoading();
-      }
-    })
-  },
-  /**
-   * 筛选搜索
-   */
-  searchProduct:function(){
-    var that = this;
-    var typesBtnActive = this.data.typesBtnActive;
-    var firstClassifyId = "";
-    for (let i = 0; i < typesBtnActive.length; i++){
-      if (typesBtnActive[i] == "btnActive"){
-        firstClassifyId = app.globalData.firstClassifyList[i].id;
-      }
-    }
-    wx.request({
-      url: app.globalData.url + '/api/product/searchProduct?sid=' + app.globalData.sid + "&firstClassifyId=" + firstClassifyId + "",
-      method: "POST",
-      header: {
-        'X-Requested-With': 'APP'
-      },
-      success: function (res) {
-        console.log(res);
-      }
-    })
   },
   /**
    * 分类打开全部
@@ -188,11 +129,9 @@ Page({
     this.setData({
       'category': category
     })
-    
-    
   },
   /**
-   * 选择商品类型(一级分类)
+   * 选择商品类型
    */
   typesClick: function(e) {
     var index = e.target.dataset.index;
@@ -204,7 +143,6 @@ Page({
     this.setData({
       'typesBtnActive': typesBtnActive
     })
-    this.getSecondClassify();
   },
   /**
    * 框架动画事件

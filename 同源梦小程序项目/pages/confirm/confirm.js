@@ -26,7 +26,7 @@ Page({
     },
     inputValue: "",
     coupon: [{
-        money: "40",
+        money: "￥40",
         dikou: "抵用券",
         name: "通用",
         manjian: "290",
@@ -34,7 +34,7 @@ Page({
         check: false
       },
       {
-        money: "40",
+        money: "￥40",
         dikou: "抵用券",
         name: "通用",
         manjian: "290",
@@ -63,22 +63,12 @@ Page({
     var index = e.currentTarget.dataset.index;
     //拿到优惠券
     var coupon = this.data.coupon;
-
-  
     if (!coupon[index].check) {
-      if(this.data.TotalPrice >= coupon.manjian){
       for (let i; i < coupon.length; i++) {
         coupon[index].check = false;
       }
       coupon[index].check = true;
       coupon[index].use = '已选择';
-    } else{
-        wx.showToast({
-          title: '未达到满足条件',
-          icon: 'none',
-          duration: 2000
-        })
-    }
     } else {
       coupon[index].check = false;
       coupon[index].use = '立即选择';
@@ -188,25 +178,15 @@ Page({
     var goodsList = this.data.goodsList;
     var TotalPrice = 0;
     var TotalCount = 0;
-    var coupon = this.data.coupon;
     for (let i = 0; i < goodsList.length; i++) {
       TotalPrice += goodsList[i].count * goodsList[i].price;
       console.log('goodsList[i].count:' + goodsList[i].count);
       console.log('goodsList[i].price:' + goodsList[i].price);
       TotalCount += goodsList[i].count
     }
-    var couponMoney = 0;
     console.log("1:" + TotalPrice);
-    for (let i = 0; i < coupon.length; i++){
-      if (coupon[i].check == true){
-        couponMoney = parseFloat(coupon[i].money);
-      }
-    }
-
-    TotalPrice -= couponMoney;
-    TotalPrice -= (this.data.integral / 1000)
     TotalPrice *= this.data.delivery.discount;
-    
+    TotalPrice -= (this.data.integral / 1000)
     this.setData({
       'TotalPrice': TotalPrice.toFixed(2),
       'TotalCount': TotalCount
@@ -243,10 +223,11 @@ Page({
     hcOrder.freight = 0;
     hcOrder.actualPayment = 232323;
     hcOrder.allPayment = 1;
+    console.log(JSON.stringify(hcOrder));
+    console.log(JSON.stringify(hcOrderItemList));
     var json = new Object();
     json.hcOrder = hcOrder;
     json.hcOrderItemList = hcOrderItemList;
-    json.userId = app.globalData.uid;
     console.log('JSON:');
     console.log(json);
     console.log(JSON.stringify(json))
