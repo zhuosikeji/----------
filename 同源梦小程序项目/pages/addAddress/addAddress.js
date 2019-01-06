@@ -8,14 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-        hcUserAddress: {
-        userId: '',
-        userName: '',
-        userPhone: '',
-        areaIdPath: '',
-        userAddress: '',
-        isDefault: '',
-      },
+    hcUserAddress: {
+      userId: '',
+      userName: '',
+      userPhone: '',
+      areaIdPath: '',
+      userAddress: '',
+      isDefault: '',
+    },
 
     isSelection: 0,
     provinces: [],
@@ -44,54 +44,54 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   },
 
-   // 是否选中框
+  // 是否选中框
   isSelection: function (e) {
-    if (this.data.isSelection== 0) {
+    if (this.data.isSelection == 0) {
       this.data.isSelection = 1
       console.log("没有默认地址" + this.data.isSelection);
     }
@@ -100,7 +100,7 @@ Page({
       console.log("默认地址" + this.data.isSelection);
     }
   },
-// 省市区
+  // 省市区
   bindChange: function (e) {
     var val = e.detail.value
     var t = this.data.values;
@@ -156,7 +156,7 @@ Page({
       return;
     }
   },
-// 打开
+  // 打开
   open: function () {
     this.setData({
       condition: !this.data.condition
@@ -203,27 +203,27 @@ Page({
     console.log(e);
     console.log('uid' + app.globalData.uid);
     var that = this;
-    var valuesList =that.data.values;
+    var valuesList = that.data.values;
     var cityData = this.data.cityData;
-    var a=0,b=0,c=0;
+    var a = 0, b = 0, c = 0;
     var code;
-     for(var i=0; i<valuesList.length;i++){
-         //  省
-         if (i == 0) {
-            a = valuesList[i];
-         }
-        //  市
-         if (i == 1) {
-           b = valuesList[i];
-         }
-        //  县
-         if (i == 2) {         
-            c = valuesList[i];
-         }      
-     }
+    for (var i = 0; i < valuesList.length; i++) {
+      //  省
+      if (i == 0) {
+        a = valuesList[i];
+      }
+      //  市
+      if (i == 1) {
+        b = valuesList[i];
+      }
+      //  县
+      if (i == 2) {
+        c = valuesList[i];
+      }
+    }
     code = cityData[a].code + "-" + cityData[a].sub[b].code + "-" + cityData[a].sub[b].sub[c].code;
-    console.log("code："+code);
-   
+    console.log("code：" + code);
+
     // 交互
     var formdata = {
       hcUserAddress: {
@@ -243,7 +243,7 @@ Page({
       },
       data: JSON.stringify(formdata),
       success: function (data) {
-        console.log("保存成功！" );
+        console.log("保存成功！");
       }
     })
 
@@ -253,15 +253,15 @@ Page({
       showCancel: false,
       confirmText: '返回',
       success: function (res) {
-        wx:wx.navigateTo({
+        wx: wx.navigateTo({
           url: '../address/address',
-          success: function(res) {},
-          fail: function(res) {},
-          complete: function(res) {},
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
         })
       }
     })
 
-    },
+  },
 })
 

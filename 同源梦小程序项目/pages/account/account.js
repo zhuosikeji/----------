@@ -14,7 +14,6 @@ Page({
 
   onLoad: function () {
     this.getWalletRecord();
-    this.judgePay();
   },
 
   //TODO 区分收入与支出
