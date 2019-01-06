@@ -1,16 +1,23 @@
+var app = getApp();
 //index.js
 //获取应用实例
 var tcity = require("../../utils/citys.js");
-var app = getApp()
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    hcUserAddress:{
-      userId:'',
-      userName: '',
-      userPhone: '',
-      userAddress:'',
-      isDefault:'',
-    },
+        hcUserAddress: {
+        userId: '',
+        userName: '',
+        userPhone: '',
+        areaIdPath: '',
+        userAddress: '',
+        isDefault: '',
+      },
+
+    isSelection: 0,
     provinces: [],
     province: "",
     citys: [],
@@ -21,14 +28,84 @@ Page({
     values: [0, 0, 0],
     condition: false,
   },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    that.formSubmit();
+    that.bindChange();
+    that.open();
+    that.onLoad();
+    that.isSelection();
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    
+  },
+
+   // 是否选中框
+  isSelection: function (e) {
+    if (this.data.isSelection== 0) {
+      this.data.isSelection = 1
+      console.log("没有默认地址" + this.data.isSelection);
+    }
+    else {
+      this.data.isSelection = 0
+      console.log("默认地址" + this.data.isSelection);
+    }
+  },
+// 省市区
   bindChange: function (e) {
     var val = e.detail.value
     var t = this.data.values;
     var cityData = this.data.cityData;
 
-    console.log("*******************")
-    console.log(cityData);
-    
     if (val[0] != t[0]) {
       console.log('province no ');
       const citys = [];
@@ -36,7 +113,6 @@ Page({
 
       for (let i = 0; i < cityData[val[0]].sub.length; i++) {
         citys.push(cityData[val[0]].sub[i].name)
-        console.log(cityData[val[0]].sub[i]);
       }
       for (let i = 0; i < cityData[val[0]].sub[0].sub.length; i++) {
         countys.push(cityData[val[0]].sub[0].sub[i].name)
@@ -51,9 +127,9 @@ Page({
         values: val,
         value: [val[0], 0, 0]
       })
-      console.log("citys" + that.data.citys);
       return;
     }
+
     if (val[1] != t[1]) {
       console.log('city no');
       const countys = [];
@@ -79,27 +155,22 @@ Page({
       })
       return;
     }
-
-
   },
+// 打开
   open: function () {
     this.setData({
       condition: !this.data.condition
     })
   },
+  // 关闭
   onLoad: function () {
     console.log("onLoad");
     var that = this;
-
     tcity.init(that);
-
     var cityData = that.data.cityData;
-
-
     const provinces = [];
     const citys = [];
     const countys = [];
-
     for (let i = 0; i < cityData.length; i++) {
       provinces.push(cityData[i].name);
     }
@@ -113,9 +184,8 @@ Page({
     console.log('city完成');
     for (let i = 0; i < cityData[0].sub[0].sub.length; i++) {
       countys.push(cityData[0].sub[0].sub[i].name)
-      
     }
-// 初始化
+    // 初始化
     that.setData({
       'provinces': provinces,
       'citys': citys,
@@ -125,16 +195,73 @@ Page({
       'county': cityData[0].sub[0].sub[0].name
     })
     console.log('初始化完成');
+
   },
-// 保存交互
+
+  // 保存
   formSubmit: function (e) {
-     console.log('form发生了submit事件，携带数据为：', 
-     e.detail.value); 
-    //  let { phone, pwd, isPub, sex } = e.detail.value; 
-    //  if (!phone || !pwd) { this.setData({ warn: "手机号或密码为空！", isSubmit: true
-    //   })      
-    //  return;
-    //   }
-    //    this.setData({ warn: "", isSubmit: true, phone, pwd, isPub, sex }) 
+    console.log(e);
+    console.log('uid' + app.globalData.uid);
+    var that = this;
+    var valuesList =that.data.values;
+    var cityData = this.data.cityData;
+    var a=0,b=0,c=0;
+    var code;
+     for(var i=0; i<valuesList.length;i++){
+         //  省
+         if (i == 0) {
+            a = valuesList[i];
+         }
+        //  市
+         if (i == 1) {
+           b = valuesList[i];
+         }
+        //  县
+         if (i == 2) {         
+            c = valuesList[i];
+         }      
+     }
+    code = cityData[a].code + "-" + cityData[a].sub[b].code + "-" + cityData[a].sub[b].sub[c].code;
+    console.log("code："+code);
+   
+    // 交互
+    var formdata = {
+      hcUserAddress: {
+        userId: app.globalData.uid,
+        userName: e.detail.value.userName,
+        userPhone: e.detail.value.userPhone,
+        areaIdPath: code,
+        userAddress: e.detail.value.detilAddress,
+        isDefault: this.data.isSelection,
+      },
+    }
+    wx.request({
+      url: app.globalData.url + '/api/userAddress/saveAddress?sid=' + app.globalData.sid,
+      method: "POST",
+      header: {
+        'X-Requested-With': 'APP',
+      },
+      data: JSON.stringify(formdata),
+      success: function (data) {
+        console.log("保存成功！" );
+      }
+    })
+
+    wx.showModal({
+      title: '保存成功',
+      content: '请返回查看',
+      showCancel: false,
+      confirmText: '返回',
+      success: function (res) {
+        wx:wx.navigateTo({
+          url: '../address/address',
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {},
+        })
+      }
+    })
+
     },
 })
+

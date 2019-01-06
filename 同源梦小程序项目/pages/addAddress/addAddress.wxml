@@ -50,7 +50,13 @@
       <view class='detail id_number'>
       <text class='asterisk'>*</text>
       <text>是否设为默认地址</text>
-      <checkbox></checkbox>
+
+<checkbox-group bindtap="isSelection">
+    <label>
+        <checkbox/>
+    </label>
+</checkbox-group>
+      <!-- <checkbox bindtap='isSelection '></checkbox> -->
     </view>
     </view>
   <view>
