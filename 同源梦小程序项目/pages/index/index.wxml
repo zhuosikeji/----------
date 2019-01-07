@@ -84,7 +84,7 @@
   </view>
   <!-- 商城内容 -->
   <view class='content'>
-    <view class='content-item' wx:for="{{AudioItem}}" bindtap='ToGoods' data-index='{{index}}' data-FristClassify='BookItem'>
+    <view class='content-item' wx:for="{{AudioItem}}" bindtap='ToGoods' data-index='{{index}}' data-fristClassify='AudioItem'>
       <image src='{{item.ProductImgUrl}}' mode="scaleToFill"></image>
       <text class='productName'>{{item.content}}</text>
       <view class='detail'>
@@ -102,7 +102,7 @@
   </view>
   <!-- 商城内容 -->
   <view class='content'>
-    <view class='content-item' wx:for="{{VideoItem}}" bindtap='ToGoods' data-index='{{index}}' data-FristClassify='BookItem'>
+    <view class='content-item' wx:for="{{VideoItem}}" bindtap='ToGoods' data-index='{{index}}' data-FristClassify='VideoItem'>
       <image src='{{item.ProductImgUrl}}' mode="scaleToFill"></image>
       <text class='productName'>{{item.content}}</text>
       <view class='detail'>

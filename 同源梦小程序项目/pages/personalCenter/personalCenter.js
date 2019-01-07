@@ -11,6 +11,8 @@ Page({
     }
     
   },
+  
   onLoad: function () {
+  
   }
 })

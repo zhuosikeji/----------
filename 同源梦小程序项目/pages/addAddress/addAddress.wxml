@@ -1,0 +1,67 @@
+<view class='box'>
+<form bindsubmit='formSubmit'>
+  <view class='authentication_info'>
+    <view class='real_name detail'>
+      <text class='asterisk'>*</text>
+      <text>收货人</text>
+      <input placeholder='请输入姓名' name="userName" ></input>
+    </view>
+    <view class='detail'>
+      <text class='asterisk'>*</text>
+      <text>手机号码</text>
+       <input placeholder='请输入手机号码' name="userPhone"></input>
+    </view>
+
+    
+    <view class='detail'>
+      <text class='asterisk'>*</text>
+      <text>所在区域</text>
+   
+   
+           <view class="input">
+    <input placeholder="选择" value="{{province}}-{{city}}-{{county}}" focus="{{focus}}" bindfocus="open" />
+  </view>
+    </view>
+
+<view class='addressBox'>
+    <view wx:if="{{condition}}" class="citypicker">
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 250px; "  value="{{value}}" bindchange="bindChange" class="citybody">
+    <view class="cityheader">
+      <view bindtap="open" class="city-cancel">取消</view>
+      <view bindtap="open" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+ </view>
+ </view>
+    <view class='detail id_number'>
+      <text class='asterisk'>*</text>
+      <text>详细地址</text>
+      <input placeholder='请输入详细地址' name="detilAddress"></input>
+    </view>
+      <view class='detail id_number'>
+      <text class='asterisk'>*</text>
+      <text>是否设为默认地址</text>
+
+<checkbox-group bindtap="isSelection">
+    <label>
+        <checkbox/>
+    </label>
+</checkbox-group>
+      <!-- <checkbox bindtap='isSelection '></checkbox> -->
+    </view>
+    </view>
+  <view>
+    <button formType="submit">保存</button>
+  </view>
+</form>
+</view>
+

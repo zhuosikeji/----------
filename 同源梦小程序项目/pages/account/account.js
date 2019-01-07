@@ -14,7 +14,6 @@ Page({
 
   onLoad: function () {
     this.getWalletRecord();
-    this.judgePay();
   },
 
   //TODO 区分收入与支出
@@ -59,10 +58,10 @@ Page({
               recardSours[i].sourceType= that.data.payClass[j];
               if(j<=2){
                 recardSours[i].transactionAmount = 0- recardSours[i].transactionAmount;
-                this.selected1();
+                // selected1();
               }else{
                 recardSours[i].transactionAmount = '+'+recardSours[i].transactionAmount;
-                this.selected2();
+                // selected2();
               }
             }
           }

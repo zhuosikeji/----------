@@ -117,14 +117,14 @@ Page({
               console.log('用户已经授权过');
               if (app.globalData.sid == null) {
                 that.login();
+                
               } else {
                 that.requestCarousel();
                 that.getAllProductFirstClassify();
               }
+ 
             }
           });
-
-
         } else {
           wx.redirectTo({
             url: '../login/login'
@@ -137,14 +137,14 @@ Page({
    * 获取用户信息
    */
   getUserInfo: function () {
-    var that = this
+    var that = this;
     _getUserInfo();
     function _getUserInfo() {
       wx.getUserInfo({
         success: function (res) {
           app.globalData.userInfo = res.userInfo;
           console.log('=====================');
-          console.log(app.globalData.userInfo.avatarUrl);
+          console.log(app.globalData.userInfo);
         }
       })
     }
@@ -269,8 +269,6 @@ Page({
 
   },
 
-
-
   /**
    * 查询所有一级分类
    */
@@ -288,6 +286,8 @@ Page({
         var firstClassifyList = that.data.firstClassifyList;
         var FromList = res.data.data.hcProductFirstClassifyList;
         app.globalData.firstClassifyList = FromList;
+        console.log('===================');
+        console.log(app.globalData.firstClassifyList);
         for (var i = 0; i < FromList.length - 1; i++) {
           firstClassifyList[i] = FromList[i].id;
         }
@@ -372,23 +372,33 @@ Page({
    * 跳转商品详情
    */
   ToGoods: function(e) {
+    console.log(e);
+    
     var index = e.currentTarget.dataset.index;
     var firstClassify = e.currentTarget.dataset.fristclassify;
     var TotalList = this.data.TotalList;
     var TotalIndex = "";
+    console.log('index:'+ index);
     if (firstClassify == 'BookItem') {
       TotalIndex = index;
-    } else if (firstClassify == 'AudioItem') {
+      var productInfo = JSON.stringify(TotalList[TotalIndex])
+      wx: wx.navigateTo({
+        url: '../goods/goods?productInfo=' + productInfo,
+      })
+    } if (firstClassify == 'AudioItem') {
       TotalIndex = index + 4;
+      var productInfo = JSON.stringify(TotalList[TotalIndex])
+      wx: wx.navigateTo({
+        url: '../virtualCourse/virtualCourse?productInfo=' + productInfo,
+      })
     } else if (firstClassify == 'VideoItem') {
       TotalIndex = index + 8;
+      var productInfo = JSON.stringify(TotalList[TotalIndex])
+      wx: wx.navigateTo({
+        url: '../virtualCourse/virtualCourse?productInfo=' + productInfo,
+      })
     }
-    var productInfo = JSON.stringify(TotalList[TotalIndex])
-    wx: wx.navigateTo({
-      url: '../goods/goods?productInfo=' + productInfo,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+    console.log('TotalIndex:'+TotalIndex);
+   
   }
 })

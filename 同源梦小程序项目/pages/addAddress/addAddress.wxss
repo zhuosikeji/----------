@@ -1,0 +1,111 @@
+page{
+  background-color:#eeeeee;
+  padding:0rpx;
+}
+.box{
+  background-color: #fff;
+  font-size: 32rpx;
+    margin-top: 70rpx;
+}
+.authentication_info{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx;
+}
+
+.placeholder-class{
+margin-bottom: 10rpx;
+}
+
+.detail{
+  height: 30rpx;
+  border-bottom: 1px solid #ccc;
+  text-align: right;
+  padding-top: 60rpx;
+  padding-bottom: 30rpx;
+}
+.detail text{
+  float: left;
+}
+.detail input{
+  float: right;
+  margin-right: 10rpx;
+}
+.detail picker{
+  float: right;
+}
+
+.id_number{
+  margin-bottom: 20rpx;
+}
+
+button{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  font-size: 38rpx;
+  text-align: center;
+  background-color:#F53F2C;
+  color: #fff;
+}
+.asterisk{
+  color: #F53F2C;
+}
+
+.section {
+  padding-top: 20rpx;
+} 
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 50rpx;
+}
+
+
+.citypicker{
+  position: fixed;
+   justify-content:flex-start;
+   bottom: 0px;
+}
+.citybody {
+  position: fixed;
+  justify-content:center;
+  bottom: 1px;
+}
+
+.cityheader {
+  position: absolute;
+  top:0px;
+  width: 100%;
+  z-index: 4;
+}
+
+.city-cancel {
+  float: left;
+  margin: 20rpx;
+  color: #818181;
+}
+
+.city-true {
+  float: right;
+  margin: 20rpx 50rpx 20rpx 0rpx;
+  color: #2FB42E
+}
+
+.section .picker {
+  background-color: #fff;
+  border-bottom: 1px #d9d9d9 solid;
+  border-top: 1px #d9d9d9 solid;
+}
