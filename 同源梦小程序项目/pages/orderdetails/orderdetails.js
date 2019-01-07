@@ -1,91 +1,19 @@
-var app = getApp()
+var app = getApp();
+var pendingOrderList = new Array();
+var shippedOrderList = new Array();
+var receivedOrderList = new Array();
+var successAndRefundOrderList = new Array();
 Page({
   data: {
-    local_database: [{
-        orderId: "13564747834",
-        state: "待支付",
-        bookImg: "../img/true.jpg",
-        bookName: "数据结构视频",
-        teacherName: "张三老师",
-        price: "66",
-        number: "1",
-        orderNumber: 0,
-        chose: false,
-        req: true,
-        returngoods: 0, // 0-退货 1-退货退款
-      },
-      {
-        orderId: "13564747834",
-        state: "待支付",
-        bookImg: "../img/true.jpg",
-        bookName: "数据结构视频",
-        teacherName: "张三老师",
-        price: "66",
-        number: "1",
-        orderNumber: 1,
-        chose: false,
-        req: true,
-        returngoods: "退货",
-        underproval: "退款中"
-      },
-      {
-        orderId: "13564747834",
-        state: "待支付",
-        bookImg: "../img/true.jpg",
-        bookName: "数据结构视频",
-        teacherName: "张三老师",
-        price: "66",
-        number: "1",
-        orderNumber: 2,
-        chose: false,
-        req: true,
-        returngoods: 0, // 0-退货 1-退货退款
-      },
-      {
-        orderId: "13564747834",
-        state: "待支付",
-        bookImg: "../img/true.jpg",
-        bookName: "数据结构视频",
-        teacherName: "张三老师",
-        price: "66",
-        number: "1",
-        orderNumber: 3,
-        chose: false,
-        req: true,
-        returngoods: 0, // 0-退货 1-退货退款
-      },
-      {
-        orderId: "13564747834",
-        state: "待支付",
-        bookImg: "../img/true.jpg",
-        bookName: "数据结构视频",
-        teacherName: "张三老师",
-        price: "66",
-        number: "1",
-        orderNumber: 4,
-        chose: false,
-        req: true,
-        returngoods: 0, // 0-退货 1-退货退款
-      },
-      {
-        orderId: "13564747834",
-        state: "待支付",
-        bookImg: "../img/true.jpg",
-        bookName: "数据结构视频",
-        teacherName: "张三老师",
-        price: "66",
-        number: "1",
-        orderNumber: 5,
-        chose: false,
-        returngoods: 0, // 0-退货 1-退货退款
-      }
-    ],
+    h: 320,
     inputvalue: "",
-    h: 1,
     winWidth: 0,
     winHeight: 0,
     // tab切换
     currentTab: 1,
+    current: 0,
+    page: 0,
+    pageSize: 3,
     state: false,
     first_click: false
   },
@@ -123,31 +51,16 @@ Page({
       state: false,
     });
 
-    var local_database = this.data.local_database;
+    var local_database = this.data.orderVOList;
 
     //从退货变成退货中
     local_database[this.data.thisIndex].returngoods = 1;
-    this.load();
+    //this.load();
     this.setData({
       inputvalue: ""
     })
   },
-  load: function() {
-    var local_database = this.data.local_database;
-    for (var i = 0; i < local_database.length; i++) {
-      if (local_database[i].returngoods == 0) {
-        local_database[i].returngoods = "退货";
-      } else if (local_database[i].returngoods == 1) {
-        local_database[i].returngoods = "退货中";
-      } else if (local_database[i].returngoods == 2) {
-        local_database[i].returngoods = "已退货";
-      }
-      //若要扩展退货类型在此添加
-    }
-    this.setData({
-      'local_database': local_database,
-    });
-  },
+  
   check: function(e) {
     var input = e.detail.value; // 获取当前表单元素输入框内容
     if (input) {
@@ -158,41 +71,120 @@ Page({
 
     }
   },
+  //获得订单
+  getOrders: function(orderState) {
+    var that = this;
+    wx.request({
+      url: app.globalData.url + '/api/order/getOrderByOrderState?sid=' + app.globalData.sid + "&userId=" + app.globalData.uid + "&orderState=" + orderState + "&page=" + 1 + "&size=" + 5,
+      method: "POST",
+      header: {
+        'X-Requested-With': 'APP'
+      },
+      success: function(res) {
+        switch (orderState) {
+          case '1':
+            //待付款货订单
+            for (var i = 0; i < res.data.data.orderVOList.length; i++) {
+              if (that.getList(pendingOrderList, res.data.data.orderVOList[i])) {
+                pendingOrderList.push(res.data.data.orderVOList[i]);
+              }
+            }
+            that.setData({
+              pendingOrderList: pendingOrderList
+            })
+            break;
+          case '2':
+            for (var i = 0; i < res.data.data.orderVOList.length; i++) {
+              if (that.getList(shippedOrderList, res.data.data.orderVOList[i])) {
+                shippedOrderList.push(res.data.data.orderVOList[i]);
+              }
+            }
+            that.setData({
+              shippedOrderList: shippedOrderList
+            })
+            break;
+          case '3':
+            for (var i = 0; i < res.data.data.orderVOList.length; i++) {
+              if (that.getList(receivedOrderList, res.data.data.orderVOList[i])) {
+                receivedOrderList.push(res.data.data.orderVOList[i]);
+              }
+            }
+            that.setData({
+              receivedOrderList: receivedOrderList
+            })
+            break;
+          case '4':
+            for (var i = 0; i < res.data.data.orderVOList.length; i++) {
+              if (that.getList(successAndRefundOrderList, res.data.data.orderVOList[i])) {
+                  successAndRefundOrderList.push(res.data.data.orderVOList[i]);
+              }
+            }
+            break;
+          case '5':
+            for (var i = 0; i < res.data.data.orderVOList.length; i++) {
+              if (that.getList(successAndRefundOrderList, res.data.data.orderVOList[i])) {
+                  successAndRefundOrderList.push(res.data.data.orderVOList[i]);
+              }
+            }
+            that.setData({
+              successAndRefundOrderList: successAndRefundOrderList
+            })
+            console.log(successAndRefundOrderList);
+            console.log(that.data.successAndRefundOrderList);
+            break;
+        }
 
-
-
+      }
+    })
+  },
+  //判断数组中存在某个元素
+  getList: function(list, item) {
+    if (list.length != 0) {
+      for (var j = 0; j < list.length; j++) {
+        if (item.orderNum != list[j].orderNum) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    } else {
+      return true;
+    }
+  },
+  //下拉分页请求
+  onPullDownRefresh: function() {
+    var page = this.data.page;
+    this.data.page += this.data.pageSize;
+    this.data.pageSize = (page + 1) * this.data.pageSize;
+    var options = {
+      state: this.data.currentTab
+    };
+    this.onLoad(options);
+  },
 
 
   onLoad: function(options) {
     var state = options.state;
     console.log("state=" + state);
-    if (state != null){
+    if (state != null) {
       this.setData({
-        currentTab: state
+        currentTab: JSON.parse(state),
+      })
+      this.setData({
+        current: this.data.currentTab - 1
       })
     }
-    var local_database = this.data.local_database;
-    this.load();
-    var that = this;
-    var obj = wx.createSelectorQuery();
-    var h1;
-    this.setData({
-      local_database: local_database,
-    })
-    obj.select('.obligation').boundingClientRect(function(rect) {
-      h1 = rect.height * local_database.length;
-      that.setData({
-        h: h1
-      })
-    })
-    obj.exec();
-
-    console.log(this.data.local_database[1].chose); //false
-    console.log(this.data.local_database[1].orderNumber); //1
+    if (this.data.currentTab < 4) {
+      this.getOrders(state);
+    } else {
+      this.getOrders("4");
+      this.getOrders("5");
+    }
 
     /**
      * 获取系统信息
      */
+    var that = this;
     wx.getSystemInfo({
 
       success: function(res) {
@@ -203,6 +195,10 @@ Page({
       }
 
     });
+    //}
+  },
+  onShow: function() {
+    //this.getOrders(this.data.currentTab);
   },
   cancelMenu: function() {
     var that = this
@@ -227,7 +223,7 @@ Page({
 
     var that = this;
     that.setData({
-      currentTab: e.detail.current
+      currentTab: e.detail.current + 1
     });
 
   },
@@ -235,15 +231,18 @@ Page({
    * 点击tab切换
    */
   swichNav: function(e) {
-
     var that = this;
-
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
       that.setData({
-        currentTab: e.target.dataset.current
+        currentTab: e.target.dataset.current,
+        current: e.target.dataset.current - 1
       })
+      var options = {
+        state: e.target.dataset.current
+      }
+      that.onLoad(options);
     }
   }
 })
