@@ -47,4 +47,5 @@
     </view>
   </view>
   <!-- 图片展示模块结束了 -->
+  <button type="primary" class="button-hover">立即参加</button>
 </view>
