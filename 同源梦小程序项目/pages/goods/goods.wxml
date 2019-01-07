@@ -88,5 +88,5 @@
           <text>收藏</text>
        </view>
        <text catchtap='JoinShoppingCart'>加入购物车</text>
-       <text>立即购买</text>
+       <text bindtap='buyNow'>立即购买</text>
    </view>

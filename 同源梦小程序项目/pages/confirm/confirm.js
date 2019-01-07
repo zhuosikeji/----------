@@ -44,7 +44,8 @@ Page({
     ],
     integral: 0,
     TotalPrice: 0,
-    TotalCount: 0
+    TotalCount: 0,
+    IsLoad:false
   },
   pay: function() {
     //TODO 支付
@@ -64,21 +65,21 @@ Page({
     //拿到优惠券
     var coupon = this.data.coupon;
 
-  
+
     if (!coupon[index].check) {
-      if(this.data.TotalPrice >= coupon.manjian){
-      for (let i; i < coupon.length; i++) {
-        coupon[index].check = false;
-      }
-      coupon[index].check = true;
-      coupon[index].use = '已选择';
-    } else{
+      if (this.data.TotalPrice >= coupon.manjian) {
+        for (let i; i < coupon.length; i++) {
+          coupon[index].check = false;
+        }
+        coupon[index].check = true;
+        coupon[index].use = '已选择';
+      } else {
         wx.showToast({
           title: '未达到满足条件',
           icon: 'none',
           duration: 2000
         })
-    }
+      }
     } else {
       coupon[index].check = false;
       coupon[index].use = '立即选择';
@@ -88,14 +89,80 @@ Page({
     })
   },
   onLoad: function(options) {
-    //拿到订单数据
-    this.setData({
-      'goodsList': app.globalData.productCartList
-    })
+      var that = this;
+      if (options.type == 'goods') {
+        console.log("type=goods");
+        var productInfo = JSON.parse(options.productInfo);
+        productInfo.count = 1;
+        productInfo.productCovermap = app.globalData.url + ':80/common/file/showPicture.do?id=' + productInfo.productCovermap;
+        var goodsList = [1];
+        goodsList[0] = productInfo;
+        console.log(goodsList);
+        that.setData({
+          'goodsList': goodsList
+        })
+      } else { //拿到订单数据
+        var data = this.change(app.globalData.productCartList);
+        that.setData({
+          'goodsList': data
+        })
+      }
     //拿到可用优惠券
     this.showCoupon();
     this.getAddress();
     this.getWallet();
+  },
+  /**
+   * 把购物车传来的数据属性名转换一下
+   */
+  change:function(obejct){
+    // var product = {
+    //   productName: "",
+    //   productId: "",
+    //   productImage: "",
+    //   checked: false,
+    //   count: null, //数量
+    //   oldprice: "",
+    //   discount: 1,
+    //   price: 0,
+    //   cartId: 0
+    // }
+    // {
+      var data = obejct.map(function(item){
+        return {
+          productTitle : item.productName,
+          originalPrice: item.price,
+          productDiscount: item.discount,
+          id: item.productId,
+          productCovermap: item.productImage,
+          count: item.count, //数量
+        }
+      })
+      return data;
+    
+  },
+  onShow(options) {
+    if (this.data.IsLoad==true){
+    var that = this;
+    if (options.type == 'goods') {
+      console.log("type=goods");
+      var productInfo = JSON.parse(options.productInfo);
+      var goodsList = [1];
+      goodsList[0] = productInfo;
+      console.log(goodsList);
+      that.setData({
+        'goodsList': goodsList
+      })
+    } else { //拿到订单数据
+      that.setData({
+        'goodsList': app.globalData.productCartList
+      })
+    }
+    //拿到可用优惠券
+    this.showCoupon();
+    this.getAddress();
+    this.getWallet();
+    }
   },
   /**
    * 获取积分总额
@@ -190,15 +257,15 @@ Page({
     var TotalCount = 0;
     var coupon = this.data.coupon;
     for (let i = 0; i < goodsList.length; i++) {
-      TotalPrice += goodsList[i].count * goodsList[i].price;
+      TotalPrice += goodsList[i].count * goodsList[i].originalPrice;
       console.log('goodsList[i].count:' + goodsList[i].count);
-      console.log('goodsList[i].price:' + goodsList[i].price);
+      console.log('goodsList[i].originalPrice:' + goodsList[i].originalPrice);
       TotalCount += goodsList[i].count
     }
     var couponMoney = 0;
     console.log("1:" + TotalPrice);
-    for (let i = 0; i < coupon.length; i++){
-      if (coupon[i].check == true){
+    for (let i = 0; i < coupon.length; i++) {
+      if (coupon[i].check == true) {
         couponMoney = parseFloat(coupon[i].money);
       }
     }
@@ -206,7 +273,7 @@ Page({
     TotalPrice -= couponMoney;
     TotalPrice -= (this.data.integral / 1000)
     TotalPrice *= this.data.delivery.discount;
-    
+
     this.setData({
       'TotalPrice': TotalPrice.toFixed(2),
       'TotalCount': TotalCount
@@ -221,7 +288,7 @@ Page({
     var goodsList = this.data.goodsList;
     for (var i = 0; i < goodsList.length; i++) {
       var OrderItem = new Object();
-      OrderItem.product_id = goodsList[i].productId;
+      OrderItem.product_id = goodsList[i].id;
       OrderItem.shop_number = goodsList[i].count;
       hcOrderItemList[i] = OrderItem;
     }
@@ -253,7 +320,7 @@ Page({
     wx.request({
       url: app.globalData.url + '/api/order/createOrder?sid=' + app.globalData.sid,
       method: "POST",
-      data:  json,
+      data: json,
       header: {
         'X-Requested-With': 'APP',
       },

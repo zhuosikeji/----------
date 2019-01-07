@@ -14,10 +14,18 @@ Page({
     //获取用户购物车内容
     this.getAllProductFirstClassify();
   },
+  onShow: function(){
+    //切到改页就加载一次
+    this.getAllProductFirstClassify();
+  },
   /**
    * 从后台获取用户购物车信息
    */
   getAllProductFirstClassify: function() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     var that = this;
     wx.request({
       url: app.globalData.url + '/api/productCart/getProductCart?sid=' + app.globalData.sid + "&userId=" + app.globalData.uid,
@@ -26,12 +34,11 @@ Page({
         'X-Requested-With': 'APP'
       },
       success: function(res) {
-        console.log(res);
- 
+        console.log(res); 
         var productCartVOList = res.data.data.productCartVOList;
         var productList = new Array(productCartVOList.length);
         var x = 0;
-        
+        //TODO 修改属性名和后台同步
         for (var i = 0; i < productCartVOList.length; i++) {
           var product = {
             productName: "",
@@ -58,10 +65,10 @@ Page({
         console.log(productList);
         that.setData({
           'productList': productList,
-          
         })
         //计算总金额
         that.calculateTotal();
+        wx.hideLoading();
       }
     })
   },
@@ -95,7 +102,7 @@ Page({
       app.globalData.productCartList = ToproductList;
       console.log(app.globalData.productCartList);
       wx.navigateTo({
-        url: '../confirm/confirm'
+        url: '../confirm/confirm?type=0'
       })
     }
   },

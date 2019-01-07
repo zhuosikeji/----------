@@ -114,6 +114,12 @@ Page({
         }
       }
     })
+  },
+  buyNow:function(){
+    
+    wx:wx.navigateTo({
+      url: '../confirm/confirm?productInfo=' + JSON.stringify(this.data.goods)+'&type='+'goods',
+    })
   }
 
 })

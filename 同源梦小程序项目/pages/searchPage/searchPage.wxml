@@ -27,9 +27,9 @@
     <view class='section'>
       <view class='productTypes'>价格区间</view>
       <view class='buttonGroup'>
-        <input bindconfirm="priceConfirm" class='' data-index="0" placeholder='最低价' placeholder-class="placeholdercenter" value='{{priceFilter[0]}}'></input>
+        <input bindinput="priceConfirm" class='' data-index="0" placeholder='最低价' placeholder-class="placeholdercenter" value='{{priceFilter[0]}}'></input>
         <text class='center'>——</text>
-        <input bindconfirm="priceConfirm" class='' data-index="1" placeholder='最高价' placeholder-class="placeholdercenter" value='{{priceFilter[1]}}'></input>
+        <input bindinput="priceConfirm" class='' data-index="1" placeholder='最高价' placeholder-class="placeholdercenter" value='{{priceFilter[1]}}'></input>
       </view>
     </view>
     <view class='section mb60'>
@@ -48,7 +48,7 @@
     </view>
     <view class='regionFooter'>
       <button class='reset' bindtap='reset'>重置</button>
-      <button catchtap='toggle' class='determine'>确定</button>
+      <button bindtap='confirm' class='determine'>确定</button>
     </view>
   </view>
 
@@ -57,16 +57,17 @@
 
   <!-- 商品区 -->
   <view wx:for="{{product}}" class='boxSize'>
-    <image class="activityImage" src="{{item.productImageUrl}}" mode="scaleToFill"></image>
+    <image class="activityImage" src="{{item.productCovermap}}" mode="scaleToFill"></image>
     <view class='sectionCenter'>
-      <text>{{item.productName}}</text>
+      <text>{{item.productTitle}}</text>
     </view>
     <view class='sectionFooter'>
-      <text class='money'>{{item.price}}</text>
+      <text class='money'>￥{{item.originalPrice}}</text>
       <view class='collectionNumber'>
         <text>收藏</text>
         <image class="icon" src="http://47.107.183.112/img/love.png" mode="scaleToFill"></image>
-        <text>{{item.collectionNumber}}</text>
+        <text>{{item.productSales
+}}</text>
       </view>
     </view>
   </view>

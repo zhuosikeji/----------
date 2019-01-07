@@ -19,11 +19,11 @@
   <view class='goodsInfo'>
     <text class='goodstitle'>商品信息</text>
     <view class='goods' wx:for="{{goodsList}}">
-      <image class='goodsPic' src='{{item.productImage}}'></image>
-      <text class='goodsname'>{{item.productName}}</text>
+      <image class='goodsPic' src='{{item.productCovermap}}'></image>
+      <text class='goodsname'>{{item.productTitle}}</text>
       <view class='space-bewteen'>
-        <text class='goodsprice'>￥{{item.price}}</text>
-        <text class='goodsnumber'>x{{item.count}}</text>
+        <text class='goodsprice'>￥{{item.originalPrice}}</text>
+        <text class='goodsnumber'>x{{item.productDiscount}}</text>
       </view>
       <text class='goodsBtn'>七天退换</text >
   </view>

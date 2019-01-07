@@ -14,16 +14,16 @@
 
   <!-- 商品区 -->
   <view wx:for="{{activity}}" class='boxSize'>
-    <image class="activityImage" src="{{item.activityImageUrl}}" mode="scaleToFill"></image>
+    <image class="activityImage" src="{{item.productCovermap}}" mode="scaleToFill"></image>
     <view class='sectionCenter'>
-      <text>{{item.activityName}}</text>
+      <text>{{item.productTitle}}</text>
     </view>
     <view class='sectionFooter'>
-      <text class='money'>{{item.price}}</text>
+      <text class='money'>{{item.originalPrice}}</text>
       <view class='collectionNumber'>
         <text>收藏</text>
         <image class="icon" src="http://47.107.183.112/img/love.png" mode="scaleToFill"></image>
-        <text>{{item.collectionNumber}}</text>
+        <text>{{item.productSales}}</text>
       </view>
     </view>
   </view>
