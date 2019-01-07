@@ -13,7 +13,7 @@
   </view>
 
   <!-- 商品区 -->
-  <view wx:for="{{activity}}" class='boxSize'>
+  <view wx:for="{{activity}}" class='boxSize' bindtap='activityDetail' data-index='{{index}}'>
     <image class="activityImage" src="{{item.productCovermap}}" mode="scaleToFill"></image>
     <view class='sectionCenter'>
       <text>{{item.productTitle}}</text>

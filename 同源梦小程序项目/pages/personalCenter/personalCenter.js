@@ -13,6 +13,30 @@ Page({
   },
   
   onLoad: function () {
-  
+    wx.request({
+      url: app.globalData.url + '/api/personalCenter/checkAuthentication?sid=' + app.globalData.sid + '&userId=' + app.globalData.uid,
+      method: "POST",
+      header: {
+        'X-Requested-With': 'APP'
+      },
+      success(res) {
+        console.log(res);
+        console.log(res.data.data.isAuthentication)
+        if (!res.data.data.isAuthentication) {
+          wx.showModal({
+            title: '提示',
+            showCancel: true,
+            content: '请绑定手机号',
+            success: function (res) {
+              if (res.confirm) {
+                wx.redirectTo({
+                  url: '../authentication/authentication',
+                });
+              }
+            }
+          })
+        }
+      }
+    })
   }
 })

@@ -17,51 +17,70 @@ Page({
       endTime: "",
       price: 0,
       activitiIntroduction: "",
-      showColor:"#ff0000",
+      showColor: "#ff0000",
       imgArr: []
     },
-    
   },
 
   showActiveDetail: function(options) {
     var that = this;
-    var activeDetail = JSON.parse(options.activeDetail);
-    var activitiesList = this.data.activitiesList;
-
-    //填写属性
-    activitiesList.coverPath = activeDetail.coverPath;
-    activitiesList.productTitle = activeDetail.productTitle;
-    if (activeDetail.price == 0) {
-      activitiesList.price = "免费"
-      activitiesList.showColor = "#F9A505";
-    } else {
-      activitiesList.price = activeDetail.price;
+    var activeDetail = null;
+    var activitiesList = new Object();
+    if (options.type == "find") {
+      activeDetail = app.globalData.activeDetail;
+      console.log(app.globalData.activeDetail);
+      //填写属性
+      activitiesList.coverPath = activeDetail.productCovermap;
+      activitiesList.productTitle = activeDetail.productTitle;
+      if (activeDetail.price == 0) {
+        activitiesList.price = "免费"
+        activitiesList.showColor = "#F9A505";
+      } else {
+        activitiesList.price = activeDetail.originalPrice;
+      }
+      activitiesList.activitiPlace = activeDetail.productTitle;
+      activitiesList.beginTime = "2019年1月10日";
+      activitiesList.endTime = "2019年1月25日";
+      activitiesList.activitiIntroduction = activeDetail.courseIntroduce;
+    } else { 
+      //填写属性
+      activeDetail = JSON.parse(options.activeDetail);
+      
+      activitiesList.coverPath = activeDetail.coverPath;
+      activitiesList.productTitle = activeDetail.productTitle;
+      if (activeDetail.price == 0) {
+        activitiesList.price = "免费"
+        activitiesList.showColor = "#F9A505";
+      } else {
+        activitiesList.price = activeDetail.price;
+      }
+      activitiesList.activitiPlace = activeDetail.activitiPlace;
+      activitiesList.beginTime = that.dateSplite(activeDetail.beginTime);
+      activitiesList.endTime = that.dateSplite(activeDetail.endTime);
+      activitiesList.activitiIntroduction = activeDetail.activitiIntroduction;
     }
-    activitiesList.activitiPlace = activeDetail.activitiPlace;
-    activitiesList.beginTime = that.dateSplite(activeDetail.beginTime);
-    activitiesList.endTime = that.dateSplite(activeDetail.endTime);
-    activitiesList.activitiIntroduction = activeDetail.activitiIntroduction;
-
+    console.log(activitiesList);
     that.setData({
       'activitiesList': activitiesList
     })
-    
+
   },
 
-  setImgArr: function (options){
+/**
+ * 设置图片数组
+ */
+  setImgArr: function() {
     var that = this;
-    var activeDetail = JSON.parse(options.activeDetail);
+    var activeDetail = this.data.activeDetailList;
     wx.request({
-      url: app.globalData.url + '/api/product/getProductPicture?&sid=' + app.globalData.sid + '&id=' + activeDetail.productId,
+      url: app.globalData.url + '/api/product/getProductPicture?&sid=' + app.globalData.sid + '&id=' + activeDetail.id,
       header: {
         'X-Requested-With': 'APP'
       },
       method: 'POST',
-      success: function (res) {
-        
+      success: function(res) {
         var TotalList = res.data.data.hcProductPictureList;
         var imgArrList = new Array(TotalList.length);
-
         for (var i = 0; i < TotalList.length; i++) {
           var imgPath = TotalList[i].productImgPath
           imgArrList[i] = imgPath;
@@ -87,7 +106,7 @@ Page({
    */
   onLoad: function(options) {
     this.showActiveDetail(options);
-    this.setImgArr(options);
+    // this.setImgArr();
   },
 
   /**

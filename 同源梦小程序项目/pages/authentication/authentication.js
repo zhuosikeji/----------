@@ -1,32 +1,25 @@
-var md5 = require('../../utils/md5.js');
-
+var md5 = require('../utils/md5.js');
 var app = getApp();
-
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    sex:['男','女'],
-    sfz:421023199909216116,
-    user:{
+    sex: ['男', '女'],
+    sfz: 421023199909216116,
+    user: {
       userId: "275e9cba-94ac-4ce3-9450-081fa1192723",
       realName: "dqq",
-      sex: "",
+      sex: "男",
       documentType: "身份证",
-      provinceCardNumber:"43**************11"
+      provinceCardNumber: "43**************11"
     },
-
-  
     // 手机号跟验证码
     phoneNumber: "",
     verificationCode: "",
-
     showView: true,
     beginTime: 30,
-    timeset: null,
-
+    timeset: null
   },
   bindSexChange(e) {
     var userSex = "user.sex";
@@ -43,8 +36,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    //设置选择时的默认id
+  onLoad: function(options) {
+    // 设置选择时的默认id
     this.setData({
       index: 0
     });
@@ -53,7 +46,7 @@ Page({
       [userId]: app.globalData.uid,
     })
     var userSex = "user.sex";
-    if(this.data.index == 0){
+    if (this.data.index == 0) {
       this.setData({
         [userSex]: this.data.sex[this.data.index]
       });
@@ -61,7 +54,7 @@ Page({
     console.log(this.data.user.sex);
   },
 
-  checkUser:function(e){
+  checkUser: function(e) {
 
     var that = this;
     var userName = "user.realName";
@@ -72,7 +65,7 @@ Page({
     })
 
 
-    if (this.data.user.realName == "" || this.data.user.sex == "" || this.data.user.documentType == "" || this.data.user.provinceCardNumber == "" || this.data.phoneNumber=="" || this.data.verificationCode==""){
+    if (this.data.user.realName == "" || this.data.user.sex == "" || this.data.user.documentType == "" || this.data.user.provinceCardNumber == "" || this.data.phoneNumber == "" || this.data.verificationCode == "") {
       wx.showToast({
         title: '信息不完整',
         duration: 2000,
@@ -87,7 +80,7 @@ Page({
         icon: 'none'
       });
       return false;
-    }else {
+    } else {
       console.log(that.data.user);
       wx.request({
         url: app.globalData.url + '/api/personalCenter/authentication?sid=' + app.globalData.sid,
@@ -95,16 +88,14 @@ Page({
         header: {
           'X-Requested-With': 'APP'
         },
-        data:{
+        data: {
           "hcPUnUserRealInfo": that.data.user
         },
-        success: function (res) {
+        success: function(res) {
           console.log(res);
           that.checkCode(e);
         }
       })
-
-
 
 
       // wx.navigateTo({
@@ -113,21 +104,21 @@ Page({
     }
   },
 
-  getPhoneNumber: function (e) {
+  getPhoneNumber: function(e) {
     this.setData({
       phoneNumber: e.detail.value
     })
   },
-  getVerificationCode: function (e) {
+  getVerificationCode: function(e) {
     this.setData({
       verificationCode: e.detail.value
     })
     console.log(this.data.verificationCode);
   },
   //定时器
-  settime: function () {
+  settime: function() {
     var that = this;
-    this.data.timeset = setInterval(function () {
+    this.data.timeset = setInterval(function() {
       that.setData({
         beginTime: --that.data.beginTime
       })
@@ -141,8 +132,7 @@ Page({
       }
     }, 1000);
   },
-
-  getCode: function (e) {
+  getCode: function(e) {
 
     var that = this;
     console.log(that.data.phoneNumber);
@@ -174,7 +164,7 @@ Page({
       });
       //向后台发起请求
       //获取验证码
-   
+
       console.log(key);
       wx.request({
         url: app.globalData.url + '/api/anon/sendCode?sid=' + app.globalData.sid + '&type=' + type + '&key=' + key + '&to=' + that.data.phoneNumber,
@@ -194,11 +184,11 @@ Page({
     }
   },
 
-  checkCode: function (e) {
+  checkCode: function(e) {
     var that = this;
     //判断手机号和验证码是否为空
     if (this.data.verificationCode == "" || this.data.phoneNumber == "") {
-      var title = this.data.phoneNumber == ""?'请填写手机号':'请填写验证码';
+      var title = this.data.phoneNumber == "" ? '请填写手机号' : '请填写验证码';
       wx.showToast({
         title: title,
         duration: 2000,
@@ -206,15 +196,7 @@ Page({
       });
       return false;
     }
-    // console.log(app.globalData.uid);
-    // console.log(that.data.verificationCode);
-    // console.log(that.data.phoneNumber);
-
-    // console.log("验证码发送的时间");
-    // console.log(that.data.codeSendTime);
     var codeEndTime = Date.now();
-    // console.log("验证码失效的时间");
-    // console.log(codeEndTime);
     //判断验证码是否失效
     if ((codeEndTime - that.data.codeSendTime) > 180 * 1000) {
       wx.showToast({
@@ -224,7 +206,6 @@ Page({
       });
       return false;
     }
-
     //验证手机号
     wx.request({
       url: app.globalData.url + '/api/personalCenter/mobilePhoneBinding?sid=' + app.globalData.sid + '&userId=' + app.globalData.uid + '&code=' + that.data.verificationCode + '&to=' + that.data.phoneNumber,
@@ -232,7 +213,7 @@ Page({
       header: {
         'X-Requested-With': 'APP'
       },
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         wx.showToast({
           title: '验证成功',
@@ -241,12 +222,15 @@ Page({
         wx.switchTab({
           url: '../personalCenter/personalCenter',
         })
+      },
+      fall:function(){
+        wx.showToast({
+          title: '验证失败',
+          duration: 2000,
+          icon:'none'
+        });
       }
     })
-  },
+  }
 
-  
-
-
- 
 })

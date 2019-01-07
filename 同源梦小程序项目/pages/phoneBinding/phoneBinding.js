@@ -1,5 +1,5 @@
 
-var md5 = require('../../utils/md5.js');
+var md5 = require('../utils/md5.js');
 
 // var verificationCode = 1234556;
 

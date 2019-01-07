@@ -73,6 +73,17 @@ Page({
     })
   },
   /**
+   * 跳转活动详情
+   */
+  activityDetail:function(e){
+    var index = e.currentTarget.dataset.index;
+    console.log(JSON.stringify(this.data.activity[index]));
+    app.globalData.activeDetail = this.data.activity[index];
+    wx.navigateTo({
+      url: '../eventDetails/eventDetails?type=find'
+    })
+  },
+  /**
    * 搜索
    */
   searchProduct: function () {

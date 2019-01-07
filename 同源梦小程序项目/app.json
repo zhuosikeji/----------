@@ -20,6 +20,7 @@
     "pages/audioPlay/audioPlay",
     "pages/find/find",
     "pages/address/address",
+    "pages/addAddress/addAddress",
     "pages/paid/paid",
     "pages/message/message",
     "pages/cash/cash",

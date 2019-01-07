@@ -23,7 +23,7 @@
       <text class='goodsname'>{{item.productTitle}}</text>
       <view class='space-bewteen'>
         <text class='goodsprice'>￥{{item.originalPrice}}</text>
-        <text class='goodsnumber'>x{{item.productDiscount}}</text>
+        <text class='goodsnumber'>x{{item.count}}</text>
       </view>
       <text class='goodsBtn'>七天退换</text >
   </view>
