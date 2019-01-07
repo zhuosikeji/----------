@@ -1,3 +1,4 @@
+var app = getApp();
 Page({
 
   /**
@@ -5,12 +6,16 @@ Page({
    */
   data: {
     vritualCourse: {
-      coverPath: 'http://47.107.94.80/virtual8.jpg',
-      productTitle: "Java入门第一季",
-      productAuthor: "张三老师",
-      totalNum: 13,
-      nowNum: 7,
-      price: 299,
+      id:'',
+      coverPath: '',
+      productTitle: "",
+      productAuthor: "",
+      totalNum: '',
+      nowNum:'',
+      productSales:'',
+      productStock:'',
+      price: '',
+      memberPrice:'',
       courseIntroduce: "本教程为Java入门第一季，欢迎来到精彩的Java编程世界！Java语言已经成为当前软件开发行业中主流的开发语言。本教程将介绍Java环境搭建、工具使用、基础语法。带领大家一步一步的踏入Java达人殿堂！Let’s go!",
     },
     courseList: [{
@@ -43,57 +48,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(JSON.parse(options.productInfo));
+   
+    var json = JSON.parse(options.productInfo);
+    console.log(json);
+    var vritualCourse = this.data.vritualCourse;
+    vritualCourse.id = json.id;
+    vritualCourse.coverPath = app.globalData.url +'80/common/file/showPicture.do?id='+  json.productCovermap;
+    vritualCourse.productTitle = json.productTitle;
+    vritualCourse.productAuthor = json.productAuthor;
+    vritualCourse.price = json.originalPrice;
+    vritualCourse.memberPrice = json.memberPrice;
+    vritualCourse.productSales = json.productSales;
+    vritualCourse.productStock = json.productStock;
+    vritualCourse.courseIntroduce = json.courseIntroduce;
+
+    this.setData({
+      'vritualCourse': vritualCourse
+    })
+   
+    this.getCourseInfo();
+    // this.checkCourse();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  },
   change: function(e) {
     if (this.data.isFolded) {
       this.setData({
@@ -162,5 +138,56 @@ Page({
         complete: function(res) {},
       })
     }
-  }
+  },
+ 
+/**列表数据表交互*/
+  getCourseInfo: function () {
+    var that = this;
+    var id = this.data.vritualCourse.id;
+    var vritualCourse = this.data.vritualCourse;
+    console.log("id:"+id);
+    wx.request({
+      url: app.globalData.url + '/api/course/getCourseInfo?sid=' + app.globalData.sid + '&id=' + id ,
+      method: "POST",
+      header: {
+        'X-Requested-With': 'APP'
+      },
+      success: function (res) {
+        console.log(res);
+        var course = res.data.data.courseVO;
+        var courseList = res.data.data.courseVO.hcFSectionInfoList;
+
+        vritualCourse.totalNum = course.totalNum
+        vritualCourse.nowNum = course.nowNum
+    
+        that.setData({
+          'vritualCourse': vritualCourse,
+          'courseList': courseList
+        });
+      }
+    })
+  },
+
+  /**判断用户是否购买交互 */
+  checkCourse: function () {
+    var that = this;
+    var id = this.data.vritualCourse.id;
+    var number = that.data.vritualCourse
+    wx.request({
+      url: app.globalData.url + '/api/course/checkCourse?sid=' + app.globalData.sid + '&userId=' + app.globalData.uid + '&productId=' +id,
+      method: "POST",
+      header: {
+        'X-Requested-With': 'APP'
+      },
+      // success: function (res) {
+      //   console.log(res);
+      //   that.setData({
+      //     'number': number,
+      //   });
+      // }
+    })
+  },
+
+  /**判断视屏与音频交互*/
 })
+

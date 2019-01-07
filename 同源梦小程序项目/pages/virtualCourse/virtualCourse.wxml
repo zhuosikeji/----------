@@ -17,8 +17,14 @@
                  <view class='detail-describe'>
                  <text>已更新{{vritualCourse.nowNum}}/{{vritualCourse.totalNum}}节</text>
                  </view>
+                  <view class='sale'>
+                   <text class='left-sale'>快递：5</text>
+                   <text>月销：{{vritualCourse.productSales}}</text>
+                   <text class='right-sale'>库存：{{vritualCourse.productStock}}</text>
+                    </view>
                  <view class='detail-money'>
-                       <text>￥{{vritualCourse.price}}</text>
+                       <text class='original-price'>￥{{vritualCourse.price}}\n</text>
+                      <text class='membership-price'>￥{{vritualCourse.memberPrice}}</text>
                  </view>
             </view>
         </view>
@@ -49,9 +55,9 @@
                     </view>
               </view>
 
-            <view class='playing-time'>
+            <!-- <view class='playing-time'>
                        <text>视频：7:56</text>
-            </view>
+            </view> -->
 
            <!-- 图标 -->
            <view wx:if="{{isCharge}}">   
