@@ -19,7 +19,7 @@
       <text>{{item.productTitle}}</text>
     </view>
     <view class='sectionFooter'>
-      <text class='money'>{{item.originalPrice}}</text>
+      <text class='money'>￥{{item.originalPrice}}</text>
       <view class='collectionNumber'>
         <text>收藏</text>
         <image class="icon" src="http://47.107.183.112/img/love.png" mode="scaleToFill"></image>

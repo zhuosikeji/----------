@@ -1,0 +1,184 @@
+.ordet {
+  width: 100%;
+  height: 90px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.ordet image {
+  width: 100%;
+  height: 100%;
+  mode: aspectFit;
+}
+
+.popaytype {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.buyadress {
+  /* padding: 5px; */
+  color: #636363;
+  font-size: 16px;
+}
+
+.buyper {
+  margin-left: 5px;
+}
+
+.perfon {
+  float: right;
+  margin-right: 5px;
+}
+
+.peradmes {
+  height: 40px;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.ee10 {
+  height: 10px;
+  background: #f1f0f6;
+}
+
+.clear {
+  clear: both;
+}
+
+.goodsitem {
+  display: flex;
+  padding: 5px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  height: 120px;
+  border-bottom: 1px solid #f1f0f6;
+  align-content: center;
+}
+
+.goodstil {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.f1 {
+  flex: 1;
+}
+
+.fadrimg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #f1f0f6;
+  margin-bottom: 5px;
+}
+
+.pricegoods {
+  margin-top: 10px;
+}
+
+.fadrimg image {
+  width: 30px;
+  height: 30px;
+}
+
+.peradress {
+  flex: 9;
+}
+
+.f1 {
+  flex: 1;
+}
+
+.f8 {
+  flex: 8;
+}
+
+.f2 {
+  flex: 2;
+}
+
+.f4 {
+  flex: 4;
+}
+
+.goodsitem .f2 {
+  height: 120px;
+}
+
+.notbuy {
+  color: red;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.numgoods {
+  color: gray;
+  font-size: 14px;
+  margin-top: 40px;
+  display: inline-block;
+  margin-left: 100px;
+}
+
+.odernum, .odermon, .odernumb {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #f1f0f6;
+  font-size: 14px;
+  padding: 10px;
+}
+.odernumb {
+  margin-bottom: 10px;
+}
+.ordrresu {
+  float: right;
+  margin-right: 10px;
+}
+
+.oderzeng {
+  height: 46px;
+  line-height: 46px;
+  border-bottom: 1px solid #f1f0f6;
+  display: flex;
+  align-items: center;
+}
+
+.oderzeng image {
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.roadmon {
+  font-weight: bold;
+}
+
+.roadmone {
+  margin-left: 220px;
+  color: #f53f2c;
+}
+
+.odertol {
+  height: 50px;
+  line-height: 50px;
+  letter-spacing: 2px;
+}
+
+.summon {
+  font-weight: bold;
+  float: right;
+}
+
+.summondeta {
+  color: #f53f2c;
+  font-weight: bold;
+  float: right;
+  margin-right: 10px;
+}

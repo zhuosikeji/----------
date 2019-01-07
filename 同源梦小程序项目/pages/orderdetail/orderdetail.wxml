@@ -1,0 +1,67 @@
+<view class='ordet'>
+  <image src='../../img/bj.jpg'></image>
+  <view class='popaytype'>等待买家付款</view>
+</view>
+
+<view class='buyadress'>
+  <view class='peradmes'>
+    <text class='buyper'>收货人：耨某某</text>
+    <text class='perfon'>12352563748</text>
+  </view>
+  <view class='ee10'></view>
+  <view class='fadrimg'>
+    <view class='f1'>
+      <image src='../../img/address.png'></image>
+    </view>
+    <view class='peradress'>
+      收货地址：湖北身份甘道夫哈哈v附件报价和大陆架航空科技邻居
+    </view>
+  </view>
+</view>
+<view class='clear'></view>
+<!-- 商品1 -->
+<view class='goodsitem'>
+  <image src='../../img/goodsimg.jpg' class='f2'></image>
+  <view class='f4 goodstil'>
+    <view class='goodstitle'>棉袄</view>
+    <text class='pricegoods'>￥34</text>
+    <text class='numgoods'>x1</text>
+    <view class='notbuy'>7天退货</view>
+  </view>
+</view>
+
+<!-- 商品2 -->
+<view class='goodsitem'>
+  <image src='../../img/goodsimg.jpg' class='f2'></image>
+  <view class='f4 goodstil'>
+    <view class='goodstitle'>棉袄</view>
+    <text class='pricegoods'>￥34</text>
+    <text class='numgoods'>x1</text>
+    <view class='notbuy'>7天退货</view>
+  </view>
+</view>
+<view class='oderzeng'>
+  <image src='../../img/zeng.png'></image>
+  <text class='roadmon'>运费险</text>
+  <text class='roadmone'>￥0</text>
+</view>
+<view class='odernum'>
+  <text>订单编号：</text>
+  <text>4554657788959770708</text>
+</view>
+<view class='odermon'>
+  <text>商品总额：</text>
+  <text class='ordrresu'>￥230</text>
+</view>
+<view class='odernumb'>
+  <text>商品数量：</text>
+  <text class='ordrresu'>1件</text>
+</view>
+<view class='odernumb'>
+  <text>商品数量：</text>
+  <text class='ordrresu'>1件</text>
+</view>
+<view class='odertol'>
+  <text class='summondeta'>￥390</text>
+  <text class='summon'>合计：</text>
+</view>

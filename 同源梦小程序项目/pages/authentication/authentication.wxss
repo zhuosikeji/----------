@@ -1,12 +1,12 @@
 page{
-  height: 55%;
+  height: 100%;
   background-color:#eeeeee;
-  position: relative;
+  /* position: relative; */
 }
 .box{
   background-color: #fff;
   font-size: 32rpx;
-  
+   
 }
 .authentication_info{
   margin-top: 20rpx;
@@ -15,38 +15,65 @@ page{
   padding: 0 30rpx;
 }
 .detail{
-  height: 30rpx;
   border-bottom: 1px solid #ccc;
   text-align: right;
-  padding-top: 60rpx;
-  padding-bottom: 30rpx;
+  /* padding-top: 60rpx;
+  padding-bottom: 30rpx; */
+  height: 100rpx;
+  display: flex;
+
 }
 .detail text{
-  float: left;
+  /* float: left; */
+  line-height: 100rpx;
+  
 }
 .detail input{
-  float: right;
+  /* float: right; */
+  flex: 1;
+  margin-top: 25rpx;
 }
 .detail picker{
-  float: right;
+  /* float: right; */
+  flex: 1;
+  margin-top: 30rpx;
 }
 
 .id_number{
-  margin-bottom: 20rpx;
+  /* margin-bottom: 20rpx; */
 }
 
-button{
-  position: absolute;
-  left: 22rpx;
-  bottom: 0;
-  width: 94%;
-  height: 100rpx;
-  /* border-radius: 100rpx; */
-  font-size: 38rpx;
+.detail .get_code{
+  width: 145rpx;
+  height: 60rpx;
+  font-size: 24rpx;
   text-align: center;
   background-color:#F53F2C;
   color: #fff;
+  padding: 0;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+.bottom{
+ margin-bottom:20rpx; 
 }
 .asterisk{
   color: #F53F2C;
+}
+
+.submit{
+  position: absolute;
+  top: 60%;
+  width: 92%;
+  left: 30rpx;
+  background-color:#F53F2C;
+}
+
+.hide{
+ display: none;
+ letter-spacing: 2rpx;
+}
+.show{ 
+ display: block;
+ letter-spacing: 2rpx;
 }

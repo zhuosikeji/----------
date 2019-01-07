@@ -1,27 +1,50 @@
 <view class="swiper-tab">
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">声音课程</view>
-  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">视频课程</view>
-  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">书籍</view>
-  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">活动</view>
+ <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap='swichNav'>书籍</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2"  bindtap='swichNav'>声音课程</view>
+  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap='swichNav'>视屏课程</view>
+  <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap='swichNav'>活动</view>
 </view>
 
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style='height:{{h+40}}px'>
-  <!-- 声音课程 -->
+<swiper current="{{current}}" class="swiper-box" duration="300" bindchange="bindChange" style='height:100%'>
 
+    <!-- 书籍 -->
   <swiper-item>
-    <block wx:for="{{local_database}}" wx:for-item="item">
+    <block wx:for="{{bookArr}}" wx:for-item="item">
       <view class='collectinglist'>
         <view class='video-list'>
           <view class='video-img-left'>
             <image src='../img/true.jpg'></image>
           </view>
           <view class='video-decribe-mid'>
-            <view class='book-name'>数据结构视频</view>
-            <view class='video-tea'>张三老师</view>
+            <view class='book-name'>{{item.productTitle}}</view>
+            <view class='video-tea'>{{item.productAuthor}}</view>
             <view class='person-num'>
               <image src='../img/person.png'></image>
-              <text>1456</text>
-              <text class='video-price'>￥66</text>
+              <text>{{item.productSales}}</text>
+              <text class='video-price'>￥{{item.memberPrice}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </swiper-item>
+
+  <!-- 声音课程 -->
+
+  <swiper-item>
+    <block wx:for="{{audioArr}}" wx:for-item="item">
+      <view class='collectinglist'>
+        <view class='video-list'>
+          <view class='video-img-left'>
+            <image src='../img/true.jpg'></image>
+          </view>
+          <view class='video-decribe-mid'>
+            <view class='book-name'>{{item.productTitle}}</view>
+            <view class='video-tea'>{{item.productAuthor}}</view>
+            <view class='person-num'>
+              <image src='../img/person.png'></image>
+              <text>{{item.productSales}}</text>
+              <text class='video-price'>￥{{item.memberPrice}}</text>
             </view>
           </view>
         </view>
@@ -31,19 +54,19 @@
 
   <!-- 视频课程 -->
   <swiper-item>
-    <block wx:for="{{local_database}}" wx:for-item="item">
+    <block wx:for="{{movieArr}}" wx:for-item="item">
       <view class='collectinglist'>
         <view class='video-list'>
           <view class='video-img-left'>
             <image src='../img/true.jpg'></image>
           </view>
           <view class='video-decribe-mid'>
-            <view class='book-name'>数据结构视频</view>
-            <view class='video-tea'>张三老师</view>
+            <view class='book-name'>{{item.productTitle}}</view>
+            <view class='video-tea'>{{item.productAuthor}}</view>
             <view class='person-num'>
               <image src='../img/person.png'></image>
-              <text>1456</text>
-              <text class='video-price'>￥66</text>
+              <text>{{item.productSales}}</text>
+              <text class='video-price'>￥{{item.memberPrice}}</text>
             </view>
           </view>
         </view>
@@ -53,42 +76,22 @@
   </swiper-item>
 
 
-  <!-- 书籍 -->
-  <swiper-item>
-    <block wx:for="{{local_database}}" wx:for-item="item">
-      <view class='collectinglist'>
-        <view class='video-list'>
-          <view class='video-img-left'>
-            <image src='../img/true.jpg'></image>
-          </view>
-          <view class='video-decribe-mid'>
-            <view class='book-name'>数据结构视频</view>
-            <view class='video-tea'>张三老师</view>
-            <view class='person-num'>
-              <image src='../img/person.png'></image>
-              <text>1456</text>
-              <text class='video-price'>￥66</text>
-            </view>
-          </view>
-        </view>
-      </view>
-    </block>
-  </swiper-item>
+
   <!-- 活动 -->
   <swiper-item>
-    <block wx:for="{{local_database}}" wx:for-item="item">
+    <block wx:for="{{activeArr}}" wx:for-item="item">
       <view class='collectinglist'>
         <view class='video-list'>
           <view class='video-img-left'>
             <image src='../img/true.jpg'></image>
           </view>
           <view class='video-decribe-mid'>
-            <view class='book-name'>数据结构视频</view>
-            <view class='video-tea'>张三老师</view>
+            <view class='book-name'>{{item.productTitle}}</view>
+            <view class='video-tea'>{{item.productAuthor}}</view>
             <view class='person-num'>
               <image src='../img/person.png'></image>
-              <text>1456</text>
-              <text class='video-price'>￥66</text>
+              <text>{{item.productSales}}</text>
+              <text class='video-price'>￥{{item.memberPrice}}</text>
             </view>
           </view>
         </view>

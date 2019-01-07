@@ -76,6 +76,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   display: flex;
   flex-direction: column;
   margin-left: 30rpx;
+  width: 218px;
 }
 
 .productList .productDescription .productListName {

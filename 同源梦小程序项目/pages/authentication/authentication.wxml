@@ -21,9 +21,22 @@
       <text>身份证号</text>
       <input placeholder='请输入身份证号码' name="IdNumber"></input>
     </view>
+     <view class='phone_number detail'>
+     <text class='asterisk'>*</text>
+      <text>手机号</text>
+      <!-- <text>1111111111</text> -->
+      <input placeholder='请输入您的手机号' value='' bindinput='getPhoneNumber'></input>
+    </view>
+    <view class='detail bottom'>
+    <text class='asterisk'>*</text>
+      <text>验证码</text>
+      <input placeholder='请输入您的验证码' value='' bindinput='getVerificationCode'></input>
+      <button plain='false' bindtap='getCode' class="{{showView?'show':'hide'}} get_code">获取验证码</button>
+      <button class="{{showView?'hide':'show'}} get_code">{{beginTime}}s重发</button>
+    </view>
   </view>
   <view>
-    <button form-type="submit">提交</button>
+    <button form-type="submit" class='submit' >提交</button>
   </view>
 </form>
 </view>
