@@ -29,7 +29,8 @@ Page({
             content: '请绑定手机号',
             success: function (res) {
               if (res.confirm) {
-                wx.redirectTo({
+                wx.navigateTo({
+                  
                   url: '../authentication/authentication',
                 });
               }

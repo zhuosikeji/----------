@@ -66,6 +66,7 @@ page{
   top: 60%;
   width: 92%;
   left: 30rpx;
+  color: white;
   background-color:#F53F2C;
 }
 

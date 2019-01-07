@@ -51,9 +51,12 @@ Page({
    
     var json = JSON.parse(options.productInfo);
     console.log(json);
+    this.setData({
+      'json':json
+    })
     var vritualCourse = this.data.vritualCourse;
     vritualCourse.id = json.id;
-    vritualCourse.coverPath = app.globalData.url +'80/common/file/showPicture.do?id='+  json.productCovermap;
+    vritualCourse.coverPath = app.globalData.url +'/common/file/showPicture.do?id='+  json.productCovermap;
     vritualCourse.productTitle = json.productTitle;
     vritualCourse.productAuthor = json.productAuthor;
     vritualCourse.price = json.originalPrice;
@@ -69,7 +72,14 @@ Page({
     this.getCourseInfo();
     // this.checkCourse();
   },
-
+  /**
+   * 跳转购买
+   */
+  addBuy:function(){
+    wx.navigateTo({
+      url: '../confirm/confirm?productInfo=' + JSON.stringify(this.data.json)+'&type=goods',
+    })
+  },
   change: function(e) {
     if (this.data.isFolded) {
       this.setData({

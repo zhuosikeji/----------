@@ -92,7 +92,9 @@ Page({
       var that = this;
       if (options.type == 'goods') {
         console.log("type=goods");
+
         var productInfo = JSON.parse(options.productInfo);
+        console.log(productInfo);
         productInfo.count = 1;
         productInfo.productCovermap = app.globalData.url + ':80/common/file/showPicture.do?id=' + productInfo.productCovermap;
         var goodsList = [1];

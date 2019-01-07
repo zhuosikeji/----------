@@ -106,7 +106,7 @@
                    <view bindtap="addCar"  class="address-collection">
                       <text>加入购物车</text>
                   </view>
-                  <view bindtap="add-buy"  class="address-buy">
+                  <view bindtap="addBuy"  class="address-buy">
                       <text>立即购买</text>
                  </view>
          </view>
