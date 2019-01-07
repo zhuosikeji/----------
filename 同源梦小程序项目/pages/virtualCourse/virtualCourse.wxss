@@ -141,8 +141,8 @@ margin-left: 40rpx;
  .playing-time{
      position: absolute;
      margin-top: -58rpx;
-     margin-left: 90rpx; 
-     font-size: 27rpx;
+     margin-left: 54rpx; 
+     font-size: 24rpx;
  }
 
  .playing-img{
