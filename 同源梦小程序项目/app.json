@@ -31,7 +31,6 @@
     "pages/mylession/mylession",
     "pages/recomend/recomend",
     "pages/secfan/secfan",
-    "pages/direcfan/direcfan",
     "pages/pay/pay"
   ],
   "window": {
