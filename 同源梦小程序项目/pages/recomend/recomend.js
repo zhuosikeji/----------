@@ -16,6 +16,11 @@ Page({
         'X-Requested-With': 'APP'
       },
       success: function(res) {
+        if (res.data.data.fansVO.refereesUser.nickName == null || res.data.data.fansVO.refereesUser.nickName==''){
+          res.data.data.fansVO.refereesUser.nickName="无"
+        }else{
+          res.data.data.fansVO.refereesUser.nickName = res.data.data.fansVO.refereesUser.nickName
+        }
         that.setData({
           refereesUserNickName: res.data.data.fansVO.refereesUser.nickName,
           firstFansVOList: res.data.data.fansVO.firstFansVOList
@@ -23,7 +28,6 @@ Page({
   
       }
     })
-
   },
 
   secfan: function() {

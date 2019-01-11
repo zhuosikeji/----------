@@ -1,4 +1,5 @@
 //app.js
+
 App({
   onLaunch: function () {
     var that = this;
@@ -36,11 +37,50 @@ App({
     })
   },
   globalData: {
-    url: "http://3cs232.natappfree.cc",
+    url: "http://um6t6f.natappfree.cc",
     userInfo: null,
     sid:null,
     uid:'',
     firstClassifyList:"",
-    productCartList: null
+    productCartList: null,
+    activeDetail:null
+  },
+  /**
+   * 收藏商品
+   */
+  collectionProduct: function (userId,productId) {
+    var that = this;
+    var app = getApp();
+    console.log('userId:' + userId);
+    console.log('productId:' + productId);
+    wx.request({
+      url: app.globalData.url + '/api/collection/collectionProduct?sid=' + app.globalData.sid + '&userId=' + userId + '&productId=' + productId,
+      method: "POST",
+      header: {
+        'X-Requested-With': 'APP'
+      },
+      success: function (res) {
+        console.log(res);
+      }
+    })
+  },
+  /**
+   * 删除收藏商品
+   */
+  removeCollection: function (userId, productId) {
+    var that = this;
+    var app = getApp();
+    console.log('userId:' + userId);
+    console.log('productId:' + productId);
+    wx.request({
+      url: app.globalData.url + '/api/collection/removeCollection?sid=' + app.globalData.sid + '&userId=' + userId + '&productId=' + productId,
+      method: "POST",
+      header: {
+        'X-Requested-With': 'APP'
+      },
+      success: function (res) {
+        console.log(res);
+      }
+    })
   }
 })

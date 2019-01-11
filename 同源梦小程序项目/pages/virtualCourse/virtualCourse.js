@@ -113,6 +113,7 @@ Page({
       wx.showToast({
         title: '已收藏',
       });
+      app.collectionProduct(app.globalData.uid,this.data.vritualCourse.id);
     } else {
       wx.showToast({
         title: '已取消收藏',
@@ -124,11 +125,7 @@ Page({
   },
   // 加入购物车
   addCar: function() {
-    wx.showToast({
-      title: '加入成功',
-      icon: 'success',
-      duration: 1200
-    })
+    this.JoinShoppingCart();
   },
 
   bounced: function(e) {
@@ -197,7 +194,37 @@ Page({
       // }
     })
   },
-
+  /**
+   * 加入购物车到数据库
+   */
+  JoinShoppingCart: function () {
+    var that = this;
+    wx.showModal({
+      title: '成功添加购物车！！！',
+      content: '可在购物车中修改商品数量！',
+      showCancel: false,
+      confirmText: '返回',
+      success: function (res) {
+        if (res.confirm) {
+          //商品添加购物车接口
+          var id = that.data.vritualCourse.id;
+          console.log("id:" + id);
+          console.log("userId:" + app.globalData.uid);
+          wx.request({
+            url: app.globalData.url + '/api/productCart/addToProductCart?sid=' + app.globalData.sid + "&userId=" + app.globalData.uid + "&productId=" + id,
+            method: "POST",
+            header: {
+              'X-Requested-With': 'APP'
+            },
+            success: function (res) {
+              console.log(res);
+              console.log('url:' + app.globalData.url + '/api/productCart/addToProductCart?sid=' + app.globalData.sid + "&userId=" + app.globalData.uid + "&productId=" + id);
+            }
+          })
+        }
+      }
+    })
+  },
   /**判断视屏与音频交互*/
 })
 
